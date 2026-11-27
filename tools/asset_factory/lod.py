@@ -87,13 +87,13 @@ def verify_level_receipt(result,report,request_sha,actual_request_sha):
 
 def build_set(request,blender,godot,workspace,capture=False):
     r=read_request(Path(request))
-    if r["schema"] not in (2,3,4,5,6,7):
-        raise ValueError("LOD set requires modular request schema 2–7")
+    if r["schema"] not in (2,3,4,5,6,7,8):
+        raise ValueError("LOD set requires modular request schema 2–8")
     w=Path(workspace).absolute()
     if w.exists() or w.is_symlink() or ROOT in w.resolve().parents or w.resolve()==ROOT:
         raise ValueError("new workspace outside repository required")
     w=w.resolve();w.mkdir()
-    manifest={"schema":1,"factory_version":"0.2.4","id":r["id"],"version":r["version"],"status":"FAIL",
+    manifest={"schema":1,"factory_version":"0.2.4.1","id":r["id"],"version":r["version"],"status":"FAIL",
               "promotion":"BLOCKED","manual_review":"NOT_RUN","physical_gpu":"NOT_RUN","game_integration":"NOT_RUN",
               "thresholds_m":[25,70],"hysteresis_m":3,"levels":[],"switch_test":"NOT_RUN","identity_contract":"NOT_RUN"}
     try:
