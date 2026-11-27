@@ -11,18 +11,23 @@ func _run() -> void:
         return
     var car := packed.instantiate() as Node3D
     root.add_child(car)
+    var expected := ["Wheel_R_F", "Hub_R_F", "Rim_R_F", "Spokes_R_F", "BrakeDisc_R_F", "Caliper_R_F", "CenterNut_R_F"]
+    var selected: Array[String] = []
     var target := Vector3.ZERO
     var count := 0
     var wheel_radius := 0.0
     for item in car.find_children("*", "MeshInstance3D", true, false):
         var mesh := item as MeshInstance3D
-        mesh.visible = String(mesh.name).ends_with("_R_F")
+        mesh.visible = String(mesh.name) in expected
         if mesh.visible:
             count += 1
+            selected.append(String(mesh.name))
             if mesh.name == "Wheel_R_F":
                 target = mesh.global_position
                 wheel_radius = mesh.get_aabb().size.x / 2.0
-    if count != 7 or wheel_radius <= 0.0:
+    selected.sort()
+    expected.sort()
+    if selected != expected or count != 7 or wheel_radius <= 0.0:
         quit(3)
         return
     var cam := Camera3D.new()

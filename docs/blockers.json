@@ -109,7 +109,7 @@
       "status": "NOT_RUN",
       "target_version": "0.2.0",
       "criterion": "Presença de normais/UVs não certifica qualidade: verificar orientação, degeneração, UV overlap, escala por peça, pivôs, sockets, rodas/hubs e eixos.",
-      "progress": "GT and endurance continuous shell, curved wheel arches, sampled exported shell clearance and existing wheel QA pass. User rejected previous artistic quality; new assets still prototypes, visual acceptance/UV/articulation/collision pending. v0.2.3 opt-in curved closed-wheel body/canopy and swept lamps, 96 analytic cases and four native variants PASS sampled static clearance; visual quality still prototype, no artist acceptance or comprehensive intersection proof. Review: node names, transforms, hierarchy, material definitions and per-node material sets compared across LODs; 15 builds PASS. Per-face UV/visual review still pending. v0.2.4 GT/endurance seven-piece wheel assemblies, rounded slick and separate brakes, native exact local vertex/pivot/material checks on six LOD variants plus extra GT capture. Openwheel specialized wheels, UV, artist and dynamic articulation pending.",
+      "progress": "GT and endurance continuous shell, curved wheel arches, sampled exported shell clearance and existing wheel QA pass. User rejected previous artistic quality; new assets still prototypes, visual acceptance/UV/articulation/collision pending. v0.2.3 opt-in curved closed-wheel body/canopy and swept lamps, 96 analytic cases and four native variants PASS sampled static clearance; visual quality still prototype, no artist acceptance or comprehensive intersection proof. Review: node names, transforms, hierarchy, material definitions and per-node material sets compared across LODs; 15 builds PASS. Per-face UV/visual review still pending. v0.2.4 GT/endurance seven-piece wheel assemblies, rounded slick and separate brakes, native exact local vertex/pivot/material checks on six LOD variants plus extra GT capture. Openwheel specialized wheels, UV, artist and dynamic articulation pending. v0.2.4.1 specialized original era-inspired openwheel wheel assemblies now native PASS; 9 variants with exported vertex/pivot/material and cockpit QA, 432 analytic cases. UV, artistic review and dynamic articulation still pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json",
@@ -124,7 +124,9 @@
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46071164548",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-native/summary.json",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4-wheel-brake-detail/evidence/v0.2.4-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4-wheel-brake-detail/evidence/v0.2.4-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46076802259",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4.1-openwheel-detail/evidence/v0.2.4.1-native/summary.json"
       ],
       "resolved_commit": null
     },
@@ -134,13 +136,14 @@
       "status": "NOT_RUN",
       "target_version": "0.3.0",
       "criterion": "Texturas, baking, mapas PBR reais e LODs ainda ausentes; testar orçamentos e compatibilidade.",
-      "progress": "Procedural LOD0/1/2 native validation PASS for detailed openwheel, GT and endurance; triangle reduction 42.57–55.97% at LOD2, distance switch 11 cases each. Schema 2/3 policy unit tests only; texture/baking/PBR, arbitrary mesh simplification, production LOD packaging and visual approval pending. Schema 6 curved GT surface sampling LOD0/1/2 and separate Godot switch PASS; endurance only LOD0 native. Texture/baking/PBR remain pending. Review follow-up: schema 2/3 native LODs and schema 6 endurance LOD0/1/2 now PASS; new semantic identity and hash receipt gates validated on 15 builds. Texture/PBR and approved packaging remain pending. Schema 7 GT/endurance LOD sets passed semantic identity, reduced triangles and standalone Godot switching. PBR texture and approval still pending.",
+      "progress": "Procedural LOD0/1/2 native validation PASS for detailed openwheel, GT and endurance; triangle reduction 42.57–55.97% at LOD2, distance switch 11 cases each. Schema 2/3 policy unit tests only; texture/baking/PBR, arbitrary mesh simplification, production LOD packaging and visual approval pending. Schema 6 curved GT surface sampling LOD0/1/2 and separate Godot switch PASS; endurance only LOD0 native. Texture/baking/PBR remain pending. Review follow-up: schema 2/3 native LODs and schema 6 endurance LOD0/1/2 now PASS; new semantic identity and hash receipt gates validated on 15 builds. Texture/PBR and approved packaging remain pending. Schema 7 GT/endurance LOD sets passed semantic identity, reduced triangles and standalone Godot switching. PBR texture and approval still pending. Schema 8 three complete native LOD sets PASS. Texture/PBR and production packaging pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46069667234",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.2-automatic-lod/evidence/v0.2.2-native/summary.json",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-native/summary.json",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4-wheel-brake-detail/evidence/v0.2.4-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4-wheel-brake-detail/evidence/v0.2.4-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4.1-openwheel-detail/evidence/v0.2.4.1-native/summary.json"
       ],
       "resolved_commit": null
     },
