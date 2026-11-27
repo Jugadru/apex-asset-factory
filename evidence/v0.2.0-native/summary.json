@@ -77,5 +77,101 @@
   "physical_gpu": "NOT_RUN",
   "game_integration": "NOT_RUN",
   "visual_review": "NOT_RUN",
-  "promotion": "BLOCKED"
+  "promotion": "BLOCKED",
+  "followup": {
+    "source_revision": "374f1f490f48ed936914946d39249c7b200fb7fa",
+    "code_revision": "b08bc1a523f5ba4f4c1d1c441ab118743d1ce7bf",
+    "scope": "15 local files reverified against prior exact Git blobs; three separate builds, no full clone",
+    "runs": [
+      {
+        "variant": "wide",
+        "report_sha256": "054480f5d4934a641359944a765e4c8bc2242272eac7b93094b9856d4a70043e",
+        "asset_sha256": "3ccfd2ec5d82335a5785398250d8b20555fc921ee0d89df1bee9420a1c5dd87d",
+        "triangles": 3504,
+        "fixture": {
+          "meshes": 36,
+          "size": [
+            2.09999990463257,
+            1.20000004768372,
+            5.19999980926514
+          ]
+        },
+        "capture": {
+          "bytes": 34175,
+          "sha256": "ae07beb1477d1d6a8f893378a550d309b54fb9aa6145c5fe560b0b9bc28d3977"
+        },
+        "max_radial": 2.657967257402305e-8,
+        "status": "PASS",
+        "stages": {
+          "plan": "PASS",
+          "export": "PASS",
+          "structural_validation": "PASS",
+          "godot_import": "PASS",
+          "capture": "PASS",
+          "manual_review": "NOT_RUN",
+          "promotion": "BLOCKED"
+        }
+      },
+      {
+        "variant": "lowdrag",
+        "report_sha256": "67725cec4bcfb33c519d9825082d6223d1f406491c4b409349847760e351b40f",
+        "asset_sha256": "73b9c1d3ecb15db0d712d434056ac3a138ca52b574c055e3495e803ab19da2c7",
+        "triangles": 3504,
+        "fixture": {
+          "meshes": 36,
+          "size": [
+            1.60000002384186,
+            0.899999976158142,
+            4.09999990463257
+          ]
+        },
+        "capture": {
+          "bytes": 30933,
+          "sha256": "14f561885ef4ce6ab649227fbaf39a17126db287345c994f4c558f9d7ed3deb6"
+        },
+        "max_radial": 1.5279352200137097e-8,
+        "status": "PASS",
+        "stages": {
+          "plan": "PASS",
+          "export": "PASS",
+          "structural_validation": "PASS",
+          "godot_import": "PASS",
+          "capture": "PASS",
+          "manual_review": "NOT_RUN",
+          "promotion": "BLOCKED"
+        }
+      },
+      {
+        "variant": "legacy",
+        "report_sha256": "e46712eba120968fc902788c51126e66509e541674dcb4b5a26faa9f8e259436",
+        "asset_sha256": "bb19f41e2172a946cc6c7c53a8f26117bba6ea7c77ebc43573698aa6dde48cad",
+        "triangles": 2952,
+        "fixture": {
+          "meshes": 28,
+          "size": [
+            1.80000007152557,
+            1.10000002384186,
+            4.80000066757202
+          ]
+        },
+        "capture": {
+          "bytes": 32616,
+          "sha256": "85ed891f42bc349293847d74156d1e660f0901239e57b4061f3062df5c089dc5"
+        },
+        "max_radial": null,
+        "status": "PASS",
+        "stages": {
+          "plan": "PASS",
+          "export": "PASS",
+          "structural_validation": "PASS",
+          "godot_import": "PASS",
+          "capture": "PASS",
+          "manual_review": "NOT_RUN",
+          "promotion": "BLOCKED"
+        }
+      }
+    ],
+    "status": "PASS",
+    "historical_timeout": "resolved by separate runs; retained above"
+  }
 }

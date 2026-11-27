@@ -19,3 +19,6 @@
 - Pin necessary shared tools by upstream blob hashes; no game runtime or private lab.
 - Preserve AF-B001–024, AF-R001 and historical evidence. AF-B001 resolved; migration and CI pending validation.
 - Add hosted Python contract CI. No assets promoted; no distribution license implied.
+
+### 0.2.0 follow-up
+- Completed wide, low-drag and legacy native reruns; AF-B017 scoped PASS. No asset approval.

@@ -11,3 +11,6 @@ The build retains structural validator, Godot envelope test, isolated workspaces
 
 ## Evidence
 34 Python tests (48 layout combinations); two complete final balanced native builds passed all stages including wheel/hub checks and produced equal GLB/PNG hashes. An earlier wide build passed and its GLB passed final standalone wheel QA. A subsequent batch timed out during final wide capture, so final wide, low-drag and legacy native rerun remain incomplete. Earlier comparison showed binary differences at 5.96e-8, so general byte determinism is not claimed. See [summary](../evidence/v0.2.0-native/summary.json). User visual acceptance and physical GPU remain pending.
+
+## Completed follow-up
+The separate wide, low-drag and legacy runs passed export, structural validation, Godot import and capture. Prior timeout remains in evidence as history; all three visual body profiles now have native evidence. No visual acceptance or physical GPU claim.

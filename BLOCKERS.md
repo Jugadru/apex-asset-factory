@@ -69,3 +69,6 @@ AF-B012 PASS in single-host registry scope: prebuild claims, conflict, explicit 
 
 ## v0.2.0 candidate
 AF-B009/B017 partial: modular layouts and export-wheel QA implemented, 34 unit tests PASS, native balanced pair PASS and earlier wide variant PASS; final wide batch timeout, remaining native low-drag and legacy rerun pending. No new blocker closed, no production release. See https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.0-modular-vehicle/evidence/v0.2.0-native/summary.json.
+
+### v0.2.0 native follow-up
+Separate native runs completed for wide, low-drag and legacy, all stages PASS. Historical batch timeout retained but resolved. AF-B017 PASS for modular original open-wheel scope only; AF-B009 partial; visual review, GPU physical and game integration NOT_RUN.
