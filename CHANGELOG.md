@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1.1 — cockpit and suspension detail candidate
+- Recessed chassis, seat/backrest, steering, 2020 halo proxy and 20 visual suspension links; GLB cavity checks, schema 4 with schemas 1–3 retained.
+- 41 tests, 144 analytic layouts and four native builds PASS, 3436–3608 triangles, 51–53 meshes. Two 2020 builds byte-identical; no universal determinism claim.
+
 ## 0.2.1 — era-inspired vehicle candidate
 - Three stylized eras with rounded chassis, tapered sidepods/airbox and profiled wings; preserved schemas 1 and 2.
 - 37 tests and 144 analytic combinations PASS; three native builds PASS, 3072 triangles / 36 meshes each. No GT/endurance, detailed cockpit or texture/LOD production approval.
