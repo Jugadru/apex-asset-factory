@@ -1,6 +1,7 @@
 """Build isolated procedural LOD0/1/2 sets and test distance switching in Godot."""
 import argparse
 import json
+import math
 from pathlib import Path
 import shutil
 import subprocess
@@ -15,9 +16,25 @@ DISTANCES=[0,26,29,72,74,68,66,23,21,100,0]
 
 
 def compare_levels(reports):
-    if len(reports)!=3 or any(r.get("status")!="BUILT" or r.get("derived_lod")!=i for i,r in enumerate(reports)):
+    if type(reports) is not list or len(reports)!=3:
         raise ValueError("three completed LOD reports required")
-    counts=[r["asset"]["mesh_triangles"] for r in reports]
+    counts=[]
+    required=("plan","export","structural_validation","godot_import")
+    for i,r in enumerate(reports):
+        if type(r) is not dict or r.get("status")!="BUILT" or type(r.get("derived_lod")) is not int or r["derived_lod"]!=i:
+            raise ValueError("invalid LOD report")
+        if r.get("promotion")!="BLOCKED" or any(r.get("stages",{}).get(k)!="PASS" for k in required):
+            raise ValueError("incomplete staging evidence")
+        count=r["asset"]["mesh_triangles"]
+        fixture=r["godot_fixture"]
+        size=fixture["size"]
+        if type(count) is not int or count<=0 or type(fixture["meshes"]) is not int or fixture["meshes"]<=0:
+            raise ValueError("invalid LOD counts")
+        if type(size) is not list or len(size)!=3 or any(type(v) not in (int,float) or not math.isfinite(v) or v<=0 for v in size):
+            raise ValueError("invalid LOD dimensions")
+        if type(r["asset"]["materials"]) is not int or r["asset"]["materials"]<=0:
+            raise ValueError("invalid material count")
+        counts.append(count)
     if not 0<counts[2]<counts[1]<counts[0] or counts[1]>.90*counts[0] or counts[2]>.75*counts[0]:
         raise ValueError("LOD triangle reduction target not met")
     base=reports[0]["godot_fixture"]
@@ -30,17 +47,55 @@ def compare_levels(reports):
     return counts
 
 
+def document_contract(doc):
+    """Compare semantic identity, not exporter ordering or triangle topology."""
+    nodes=doc["nodes"];materials=doc["materials"]
+    names=[n.get("name") for n in nodes]
+    mat_names=[m.get("name") for m in materials]
+    for values in (names,mat_names):
+        if any(type(v) is not str or not v for v in values) or len(set(values))!=len(values):
+            raise ValueError("LOD missing or duplicate component/material name")
+    signature={}
+    for node in nodes:
+        primitives=doc["meshes"][node["mesh"]]["primitives"]
+        if not primitives:
+            raise ValueError("LOD empty component")
+        signature[node["name"]]={
+            "matrix":node.get("matrix"),
+            "translation":node.get("translation",[0,0,0]),
+            "rotation":node.get("rotation",[0,0,0,1]),
+            "scale":node.get("scale",[1,1,1]),
+            "children":sorted(names[i] for i in node.get("children",[])),
+            "materials":sorted({mat_names[p["material"]] for p in primitives}),
+        }
+    return {"nodes":signature,"materials":dict(zip(mat_names,materials)),
+            "roots":sorted(names[i] for i in doc["scenes"][doc["scene"]]["nodes"])}
+
+
+def compare_documents(docs):
+    if len(docs)!=3:
+        raise ValueError("three inspected LOD documents required")
+    contracts=[document_contract(d) for d in docs]
+    if any(c!=contracts[0] for c in contracts[1:]):
+        raise ValueError("LOD component identity, transform, hierarchy or material drift")
+
+
+def verify_level_receipt(result,report,request_sha,actual_request_sha):
+    if request_sha!=actual_request_sha or result["sha256"]!=report["asset"]["sha256"] or result["triangles"]!=report["asset"]["mesh_triangles"]:
+        raise ValueError("LOD inspected asset or request differs from build report")
+
+
 def build_set(request,blender,godot,workspace,capture=False):
     r=read_request(Path(request))
-    if r["schema"] not in (2,3,4,5):
-        raise ValueError("LOD set requires modular request schema 2–5")
+    if r["schema"] not in (2,3,4,5,6):
+        raise ValueError("LOD set requires modular request schema 2–6")
     w=Path(workspace).absolute()
     if w.exists() or w.is_symlink() or ROOT in w.resolve().parents or w.resolve()==ROOT:
         raise ValueError("new workspace outside repository required")
     w=w.resolve();w.mkdir()
-    manifest={"schema":1,"factory_version":"0.2.2","id":r["id"],"version":r["version"],"status":"FAIL",
+    manifest={"schema":1,"factory_version":"0.2.3","id":r["id"],"version":r["version"],"status":"FAIL",
               "promotion":"BLOCKED","manual_review":"NOT_RUN","physical_gpu":"NOT_RUN","game_integration":"NOT_RUN",
-              "thresholds_m":[25,70],"hysteresis_m":3,"levels":[],"switch_test":"NOT_RUN"}
+              "thresholds_m":[25,70],"hysteresis_m":3,"levels":[],"switch_test":"NOT_RUN","identity_contract":"NOT_RUN"}
     try:
         dump(w/"request.json",r)
         manifest["request_sha256"]=digest(w/"request.json")
@@ -53,12 +108,14 @@ def build_set(request,blender,godot,workspace,capture=False):
             if report["status"]!="BUILT":raise ValueError(f"LOD{level} build failed: "+str(report.get("error")))
             asset=loc/"staging/asset.glb"
             result,doc,_=inspect(asset,r["triangle_budget"])
-            docs.append({n["name"] for n in doc["nodes"]})
+            verify_level_receipt(result,report,manifest["request_sha256"],digest(loc/"request.json"))
+            docs.append(doc)
             shutil.copyfile(asset,stage/f"lod{level}.glb")
             manifest["levels"].append({"level":level,"asset":f"lod{level}/staging/asset.glb","sha256":result["sha256"],
                   "triangles":result["triangles"],"bytes":result["bytes"],"report_sha256":digest(loc/"report.json")})
         counts=compare_levels(reports)
-        if any(names!=docs[0] for names in docs):raise ValueError("LOD names differ")
+        compare_documents(docs)
+        manifest["identity_contract"]="PASS"
         for row in manifest["levels"]:row["triangle_ratio"]=row["triangles"]/counts[0]
         shutil.copyfile(HERE/"lod_switch.gd",stage/"lod_switch.gd")
         shutil.copyfile(w/"lod0/staging/project.godot",stage/"project.godot")

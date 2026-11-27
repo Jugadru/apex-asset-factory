@@ -13,3 +13,6 @@ A timeout or failed gate leaves the partial workspace for inspection; use a new 
 
 ## Native evidence
 51 CI tests PASS (46069667234), 33 exact source blobs checked. Nine Blender/Godot builds and three 11-step standalone switch fixtures PASS. GT 3888→2480→1712; endurance 3956→2548→1780; openwheel 3608→2712→2072. GT all three captures PASS; other sets headless only. Openwheel full orchestrator PASS. GT and endurance outer timeouts recovered via separate exact scripts/new workspace; no claim all three orchestrators ran uninterrupted. Schema 2/3 native LOD not yet run; policy unit tests PASS. Raw private archive 146 files, CRC checked. See [summary](../evidence/v0.2.2-native/summary.json).
+
+## Review follow-up
+Native schema 2/3 and curved endurance lower LODs completed. Four numeric repeat comparisons PASS (one binary identical). 15 new builds, 55 switch steps and 12 exact targeted unit tests PASS. Current remote CI remains FAIL with inaccessible logs and no recorded steps; no complete current suite or CI success claim. See https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json. No new blocker closed; no promotion.
