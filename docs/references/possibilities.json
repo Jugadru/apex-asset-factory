@@ -1,0 +1,1445 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "IDEA-001",
+      "department": "physics",
+      "name": "Curva de torque do motor",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-002",
+      "department": "physics",
+      "name": "Curva de potência",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-003",
+      "department": "physics",
+      "name": "Relações de marcha",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-004",
+      "department": "physics",
+      "name": "Troca de marchas e perda de aceleração",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-005",
+      "department": "physics",
+      "name": "Massa do combustível",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-006",
+      "department": "physics",
+      "name": "Centro de gravidade",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-007",
+      "department": "physics",
+      "name": "Distribuição de peso",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-008",
+      "department": "physics",
+      "name": "Transferência de carga longitudinal",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-009",
+      "department": "physics",
+      "name": "Transferência de carga lateral",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-010",
+      "department": "physics",
+      "name": "Arrasto aerodinâmico",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-011",
+      "department": "physics",
+      "name": "Carga aerodinâmica",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-012",
+      "department": "physics",
+      "name": "Sensibilidade à altura do carro",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-013",
+      "department": "physics",
+      "name": "Desgaste térmico dos freios",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-014",
+      "department": "physics",
+      "name": "Bloqueio de rodas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-015",
+      "department": "physics",
+      "name": "Limites de aderência combinada",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-016",
+      "department": "physics",
+      "name": "Pressão e temperatura dos pneus",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-017",
+      "department": "physics",
+      "name": "Degradação por composto",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-018",
+      "department": "physics",
+      "name": "Graining e blistering",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-019",
+      "department": "physics",
+      "name": "Perda de desempenho por danos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-020",
+      "department": "physics",
+      "name": "Variação de aderência por setor",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-107",
+        "REF-113",
+        "REF-119"
+      ]
+    },
+    {
+      "id": "IDEA-021",
+      "department": "racecraft",
+      "name": "Trajetória ideal contínua",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-022",
+      "department": "racecraft",
+      "name": "Pontos individuais de frenagem",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-023",
+      "department": "racecraft",
+      "name": "Ápice antecipado ou tardio",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-024",
+      "department": "racecraft",
+      "name": "Escolha inteligente de corredor",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-025",
+      "department": "racecraft",
+      "name": "Ultrapassagem por dentro",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-026",
+      "department": "racecraft",
+      "name": "Ultrapassagem por fora",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-027",
+      "department": "racecraft",
+      "name": "Contra-ataque na saída",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-028",
+      "department": "racecraft",
+      "name": "Defesa antecipada",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-029",
+      "department": "racecraft",
+      "name": "Defesa sem mudanças excessivas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-030",
+      "department": "racecraft",
+      "name": "Disputas entre três carros",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-031",
+      "department": "racecraft",
+      "name": "Reconhecimento de retardatários",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-032",
+      "department": "racecraft",
+      "name": "Gerenciamento de trens de DRS",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-033",
+      "department": "racecraft",
+      "name": "Avaliação de espaço físico",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-034",
+      "department": "racecraft",
+      "name": "Retorno seguro à trajetória",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-035",
+      "department": "racecraft",
+      "name": "Pressão psicológica durante duelos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-036",
+      "department": "racecraft",
+      "name": "Erros de frenagem",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-037",
+      "department": "racecraft",
+      "name": "Erros de aceleração",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-038",
+      "department": "racecraft",
+      "name": "Escapadas e recuperação",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-039",
+      "department": "racecraft",
+      "name": "Largadas individuais",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-040",
+      "department": "racecraft",
+      "name": "Risco de contato contextual",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-012",
+        "REF-014",
+        "REF-105",
+        "REF-109"
+      ]
+    },
+    {
+      "id": "IDEA-041",
+      "department": "strategy",
+      "name": "Simulação de estratégias alternativas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-042",
+      "department": "strategy",
+      "name": "Projeção de undercut",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-043",
+      "department": "strategy",
+      "name": "Projeção de overcut",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-044",
+      "department": "strategy",
+      "name": "Tráfego previsto na saída dos boxes",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-045",
+      "department": "strategy",
+      "name": "Janelas de pit stop",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-046",
+      "department": "strategy",
+      "name": "Probabilidade de chuva",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-047",
+      "department": "strategy",
+      "name": "Precisão meteorológica variável",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-048",
+      "department": "strategy",
+      "name": "Planejamento de stints",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-049",
+      "department": "strategy",
+      "name": "Coordenação de double stack",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-050",
+      "department": "strategy",
+      "name": "Análise de vida útil dos pneus",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-051",
+      "department": "strategy",
+      "name": "Recomendação de conservação",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-052",
+      "department": "strategy",
+      "name": "Reação estratégica ao Safety Car",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-053",
+      "department": "strategy",
+      "name": "Reação às bandeiras vermelhas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-054",
+      "department": "strategy",
+      "name": "Memória de decisões estratégicas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-055",
+      "department": "strategy",
+      "name": "Relatório de erro do estrategista",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-106",
+        "REF-042",
+        "REF-043",
+        "REF-003"
+      ]
+    },
+    {
+      "id": "IDEA-056",
+      "department": "soul",
+      "name": "Confiança dos pilotos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-057",
+      "department": "soul",
+      "name": "Motivação",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-058",
+      "department": "soul",
+      "name": "Moral",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-059",
+      "department": "soul",
+      "name": "Fadiga",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-060",
+      "department": "soul",
+      "name": "Relacionamento com engenheiros",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-061",
+      "department": "soul",
+      "name": "Rivalidades internas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-062",
+      "department": "soul",
+      "name": "Preferências de acerto",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-063",
+      "department": "soul",
+      "name": "Percepção imperfeita dos pneus",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-064",
+      "department": "soul",
+      "name": "Iniciativa para pedir pit stop",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-065",
+      "department": "soul",
+      "name": "Pedidos de ultrapassagem ao companheiro",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-066",
+      "department": "soul",
+      "name": "Discordâncias estratégicas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-067",
+      "department": "soul",
+      "name": "Comunicação dos engenheiros",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-068",
+      "department": "soul",
+      "name": "Memória de acontecimentos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-069",
+      "department": "soul",
+      "name": "Treinamento especializado",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-070",
+      "department": "soul",
+      "name": "Lealdade contratual",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-007",
+        "REF-039",
+        "REF-015",
+        "REF-001"
+      ]
+    },
+    {
+      "id": "IDEA-071",
+      "department": "factory",
+      "name": "Projetos individualizados de componentes",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-072",
+      "department": "factory",
+      "name": "Desenho técnico",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-073",
+      "department": "factory",
+      "name": "Prototipagem",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-074",
+      "department": "factory",
+      "name": "Simulação de engenharia",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-075",
+      "department": "factory",
+      "name": "Túnel de vento abstraído",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-076",
+      "department": "factory",
+      "name": "Testes de bancada",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-077",
+      "department": "factory",
+      "name": "Testes em pista",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-078",
+      "department": "factory",
+      "name": "Correlação de resultados",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-079",
+      "department": "factory",
+      "name": "Aquisição de matérias-primas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-080",
+      "department": "factory",
+      "name": "Máquinas de fabricação",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-081",
+      "department": "factory",
+      "name": "Capacidade de produção",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-082",
+      "department": "factory",
+      "name": "Controle de qualidade",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-083",
+      "department": "factory",
+      "name": "Peças rejeitadas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-084",
+      "department": "factory",
+      "name": "Ordens de reparo",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-085",
+      "department": "factory",
+      "name": "Histórico individual de componentes",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-086",
+      "department": "factory",
+      "name": "Desgaste acumulado",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-087",
+      "department": "factory",
+      "name": "Fornecedores externos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-088",
+      "department": "factory",
+      "name": "Logística entre fábrica e circuito",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-089",
+      "department": "factory",
+      "name": "Contratos de fornecimento",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-090",
+      "department": "factory",
+      "name": "Homologação por regulamento",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-011",
+        "REF-119",
+        "REF-010",
+        "REF-006"
+      ]
+    },
+    {
+      "id": "IDEA-091",
+      "department": "universe",
+      "name": "Categorias de formação",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-092",
+      "department": "universe",
+      "name": "Academia de pilotos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-093",
+      "department": "universe",
+      "name": "Empréstimos de pilotos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-094",
+      "department": "universe",
+      "name": "Pilotos reservas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-095",
+      "department": "universe",
+      "name": "Aposentadorias",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-096",
+      "department": "universe",
+      "name": "Entrada de novas equipes",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-097",
+      "department": "universe",
+      "name": "Falência de equipes",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-098",
+      "department": "universe",
+      "name": "Compra de escuderias",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-099",
+      "department": "universe",
+      "name": "Mudança de identidade",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-100",
+      "department": "universe",
+      "name": "Fornecedores de motores",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-101",
+      "department": "universe",
+      "name": "Contratos de patrocínio",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-102",
+      "department": "universe",
+      "name": "Reputação internacional",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-103",
+      "department": "universe",
+      "name": "Mudanças de regulamento",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-104",
+      "department": "universe",
+      "name": "Histórico de recordes",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-105",
+      "department": "universe",
+      "name": "Hall da Fama",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-021",
+        "REF-022",
+        "REF-093",
+        "REF-095"
+      ]
+    },
+    {
+      "id": "IDEA-106",
+      "department": "quality",
+      "name": "Editor de circuitos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-107",
+      "department": "quality",
+      "name": "Editor de regulamentos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-108",
+      "department": "quality",
+      "name": "Editor de equipes",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-109",
+      "department": "quality",
+      "name": "Editor de pinturas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-110",
+      "department": "quality",
+      "name": "Banco de dados versionado",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-111",
+      "department": "quality",
+      "name": "Validação de conteúdo",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-112",
+      "department": "quality",
+      "name": "Compressão de saves",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-113",
+      "department": "quality",
+      "name": "Replay determinístico",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-114",
+      "department": "quality",
+      "name": "Simulação headless",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-115",
+      "department": "quality",
+      "name": "Testes de regressão",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-116",
+      "department": "quality",
+      "name": "Benchmark automatizado",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-117",
+      "department": "quality",
+      "name": "Visualização 3D independente",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-118",
+      "department": "quality",
+      "name": "LOD e perfis gráficos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-119",
+      "department": "quality",
+      "name": "Simulação rápida de temporadas",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    },
+    {
+      "id": "IDEA-120",
+      "department": "quality",
+      "name": "Recuperação de saves corrompidos",
+      "status": "AUDITAR_EXISTENTE",
+      "references": [
+        "REF-153",
+        "REF-154",
+        "REF-155",
+        "REF-156"
+      ]
+    }
+  ]
+}

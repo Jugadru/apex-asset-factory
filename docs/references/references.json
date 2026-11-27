@@ -1,0 +1,1788 @@
+{
+  "schema": 1,
+  "source": "Pesquisa APEX 2026-11-26; transcrição, revalidação pendente",
+  "entries": [
+    {
+      "id": "REF-001",
+      "group": "Managers modernos",
+      "name": "Motorsport Manager (2016)",
+      "idea": "Fábrica, staff, estratégia, categorias e corrida 3D",
+      "url": "https://store.steampowered.com/app/415200/Motorsport_Manager/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-002",
+      "group": "Managers modernos",
+      "name": "Motorsport Manager 2",
+      "idea": "Categorias diversas, motos, pressão, peças e pinturas; anunciado, não testado",
+      "url": "https://store.steampowered.com/app/4745600/Motorsport_Manager_2/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-003",
+      "group": "Managers modernos",
+      "name": "F1 Manager 2024",
+      "idea": "Criação de equipe, mentalidade, contratos, transmissão",
+      "url": "https://store.steampowered.com/app/2591280/F1_Manager_2024/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-004",
+      "group": "Managers modernos",
+      "name": "F1 Manager 2023",
+      "idea": "Treino de boxes, confiança, preparação",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-005",
+      "group": "Managers modernos",
+      "name": "F1 Manager 2022",
+      "idea": "Treinos, classificação, corrida, contratos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-006",
+      "group": "Managers modernos",
+      "name": "Open Wheel Manager 2",
+      "idea": "Engenharia histórica, mercado, corrida 3D",
+      "url": "https://store.steampowered.com/app/1757580/Open_Wheel_Manager_2/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-007",
+      "group": "Managers modernos",
+      "name": "Golden Lap",
+      "idea": "Minimalismo, traços, custos e risco",
+      "url": "https://store.steampowered.com/app/2052040/Golden_Lap/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-008",
+      "group": "Managers modernos",
+      "name": "GT Manager (PC)",
+      "idea": "GT, endurance, sede, contratos",
+      "url": "https://store.steampowered.com/app/2457030/GT_Manager/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-009",
+      "group": "Managers modernos",
+      "name": "Open Wheel Manager",
+      "idea": "Gestão clássica e progressão",
+      "url": "https://store.steampowered.com/app/1013960/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-010",
+      "group": "Managers modernos",
+      "name": "Racing Series Manager",
+      "idea": "Componentes e fabricação",
+      "url": "https://store.steampowered.com/app/4083830/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-011",
+      "group": "Managers modernos",
+      "name": "WORKS: Motorsport Factory",
+      "idea": "Logística, produção, reparo, homologação",
+      "url": "https://worksgame.co.uk/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-012",
+      "group": "Managers modernos",
+      "name": "Backseat Champions",
+      "idea": "Pilotos autônomos e controle indireto",
+      "url": "https://backseatchampions.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-013",
+      "group": "Managers modernos",
+      "name": "Team Principal: A Racing Manager",
+      "idea": "Sandbox, física, editor e engenharia",
+      "url": "https://store.steampowered.com/app/4340600/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-014",
+      "group": "Managers modernos",
+      "name": "Delta Manager",
+      "idea": "Trajetória, defesa, frenagem",
+      "url": "https://steamcommunity.com/app/4247780",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-015",
+      "group": "Managers modernos",
+      "name": "The Undercut: Racing Manager",
+      "idea": "Academia, empréstimos, categorias paralelas",
+      "url": "https://store.steampowered.com/app/4514930/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-016",
+      "group": "Managers modernos",
+      "name": "Racing Manager",
+      "idea": "Multicategoria, endurance, carros compartilhados",
+      "url": "https://store.steampowered.com/app/4222700/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-017",
+      "group": "Managers modernos",
+      "name": "Motorsport Dynasty Manager",
+      "idea": "Eras históricas, evolução de equipes",
+      "url": "https://store.steampowered.com/app/5516200/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-018",
+      "group": "Managers modernos",
+      "name": "Race Performance Manager",
+      "idea": "Engenharia ligada à pista",
+      "url": "https://store.steampowered.com/app/4315930/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-019",
+      "group": "Managers modernos",
+      "name": "Stock Car Tycoon",
+      "idea": "Stock car e expansão",
+      "url": "https://store.steampowered.com/app/5080400/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-020",
+      "group": "Managers modernos",
+      "name": "Flat Spot",
+      "idea": "Eventos, personalização, partidas rápidas",
+      "url": "https://store.steampowered.com/app/2459820/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-021",
+      "group": "Managers modernos",
+      "name": "F1 Dynasty",
+      "idea": "Recordes, carreira, editor",
+      "url": "https://f1dynasty.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-022",
+      "group": "Managers modernos",
+      "name": "Cockpit Simulator",
+      "idea": "História, liberdade de cenário",
+      "url": "https://shxlashxska.itch.io/cockpit-simulator",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-023",
+      "group": "Managers modernos",
+      "name": "Cockpit Manager 2026",
+      "idea": "Contratos e gestão",
+      "url": "https://shxlashxska.itch.io/cockpitmanager2026",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-024",
+      "group": "Managers modernos",
+      "name": "Cockpit Manager 26 – Beta",
+      "idea": "Reconstrução de equipes e carreiras",
+      "url": "https://jadddzera.itch.io/cockpit-manager-26-beta",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-025",
+      "group": "Clássicos",
+      "name": "Grand Prix Manager (1984)",
+      "idea": "Primeiros modelos de escuderia",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-026",
+      "group": "Clássicos",
+      "name": "Formula One (1985)",
+      "idea": "Patrocínio, orçamento, contratação",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-027",
+      "group": "Clássicos",
+      "name": "Grand Prix (1988)",
+      "idea": "Gestão com hardware limitado",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-028",
+      "group": "Clássicos",
+      "name": "Grand Prix — Wizard Games (1989)",
+      "idea": "Campeonato textual",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-029",
+      "group": "Clássicos",
+      "name": "Grand Prix V2 (1991)",
+      "idea": "Testes, reservas e classificação",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-030",
+      "group": "Clássicos",
+      "name": "F.1 Manager (1989)",
+      "idea": "Organização histórica",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-031",
+      "group": "Clássicos",
+      "name": "Formula 1 3D: F1 Manager II (1991)",
+      "idea": "Experiência tridimensional",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-032",
+      "group": "Clássicos",
+      "name": "Formula One Challenge",
+      "idea": "Gestão clássica",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-033",
+      "group": "Clássicos",
+      "name": "Formula One Master",
+      "idea": "Decisões simplificadas",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-034",
+      "group": "Clássicos",
+      "name": "Grand Prix Manager (1995)",
+      "idea": "Administração e técnica",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-035",
+      "group": "Clássicos",
+      "name": "Grand Prix Manager 2 (1996)",
+      "idea": "Contratos, fornecedores, carreira",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-036",
+      "group": "Clássicos",
+      "name": "Team F1 / Pole Position (1996)",
+      "idea": "Departamentos e funções",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-037",
+      "group": "Clássicos",
+      "name": "F1 Manager 96",
+      "idea": "Organização técnica",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-038",
+      "group": "Clássicos",
+      "name": "F1 Manager Professional",
+      "idea": "Engenharia e administração",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-039",
+      "group": "Clássicos",
+      "name": "Grand Prix World (1999)",
+      "idea": "Política, fornecedores, negócios",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-040",
+      "group": "Clássicos",
+      "name": "F1 Manager — EA Sports (2000)",
+      "idea": "Acessibilidade e gráficos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-041",
+      "group": "Clássicos",
+      "name": "RTL Racing Team Manager (2008)",
+      "idea": "Desenvolvimento e usabilidade",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-042",
+      "group": "Navegador e multiplayer",
+      "name": "Grand Prix Racing Online — GPRO",
+      "idea": "Planejamento, desgaste e orçamento",
+      "url": "https://www.gpro.net/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-043",
+      "group": "Navegador e multiplayer",
+      "name": "iGP Manager",
+      "idea": "Ligas e estratégia ao vivo",
+      "url": "https://igpmanager.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-044",
+      "group": "Navegador e multiplayer",
+      "name": "My Racing Career",
+      "idea": "Carreira individual e categorias",
+      "url": "https://app.myracingcareer.com/pb/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-045",
+      "group": "Navegador e multiplayer",
+      "name": "BATracer",
+      "idea": "Acertos e colaboração",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-046",
+      "group": "Navegador e multiplayer",
+      "name": "BATracer Rally",
+      "idea": "Estratégia de rali",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-047",
+      "group": "Navegador e multiplayer",
+      "name": "Pitwall.org",
+      "idea": "Administração persistente",
+      "url": "https://www.pitwall.org/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-048",
+      "group": "Navegador e multiplayer",
+      "name": "Racing Boss (F1Time)",
+      "idea": "Progressão e competição",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-049",
+      "group": "Navegador e multiplayer",
+      "name": "Moto Manager",
+      "idea": "Gestão de motos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-050",
+      "group": "Navegador e multiplayer",
+      "name": "IMoto",
+      "idea": "Gestão de motos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-051",
+      "group": "Navegador e multiplayer",
+      "name": "Moto Racing Manager",
+      "idea": "Motociclismo",
+      "url": "https://motoracingmanager.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-052",
+      "group": "Navegador e multiplayer",
+      "name": "F1 Project",
+      "idea": "Engenheiros e componentes",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-053",
+      "group": "Navegador e multiplayer",
+      "name": "Race Team Principal",
+      "idea": "Gestão online",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-054",
+      "group": "Navegador e multiplayer",
+      "name": "Motorsports Manager (navegador)",
+      "idea": "Administração",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-055",
+      "group": "Navegador e multiplayer",
+      "name": "UnitedGP",
+      "idea": "Central estratégica e mapa",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-056",
+      "group": "Navegador e multiplayer",
+      "name": "Pit Stop Boss",
+      "idea": "Estratégia online histórica",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-057",
+      "group": "Navegador e multiplayer",
+      "name": "Racing Career Manager",
+      "idea": "Carreira",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-058",
+      "group": "Navegador e multiplayer",
+      "name": "Race Track Rivals",
+      "idea": "Competição histórica",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-059",
+      "group": "Navegador e multiplayer",
+      "name": "Slipstream",
+      "idea": "Undercut, overcut, ritmo",
+      "url": "https://slipstream.games/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-060",
+      "group": "Navegador e multiplayer",
+      "name": "RaceDynasty",
+      "idea": "Ritmo e categorias",
+      "url": "https://racedynasty.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-061",
+      "group": "Navegador e multiplayer",
+      "name": "Raceon Manager",
+      "idea": "Equipes online",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-062",
+      "group": "Mobile",
+      "name": "Motorsport Manager Mobile (2014)",
+      "idea": "Estratégia compacta",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-063",
+      "group": "Mobile",
+      "name": "Motorsport Manager Mobile 2",
+      "idea": "Peças e evolução",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-064",
+      "group": "Mobile",
+      "name": "Motorsport Manager Mobile 3",
+      "idea": "Interface e decisões rápidas",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-065",
+      "group": "Mobile",
+      "name": "Motorsport Manager Mobile 4",
+      "idea": "Administração mobile",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-066",
+      "group": "Mobile",
+      "name": "Motorsport Manager Online",
+      "idea": "Competição e progressão",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-067",
+      "group": "Mobile",
+      "name": "F1 Clash",
+      "idea": "Dois pilotos",
+      "url": "https://www.hutch.io/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-068",
+      "group": "Mobile",
+      "name": "NASCAR Manager",
+      "idea": "Stock car",
+      "url": "https://www.hutch.io/our-games/nascar-manager/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-069",
+      "group": "Mobile",
+      "name": "GT Manager (mobile)",
+      "idea": "GT simplificado",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-070",
+      "group": "Mobile",
+      "name": "Grand Prix Story",
+      "idea": "Fábrica, pesquisa, pilotos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-071",
+      "group": "Mobile",
+      "name": "Grand Prix Story 2",
+      "idea": "Instalações e veículos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-072",
+      "group": "Mobile",
+      "name": "Live Rally Manager",
+      "idea": "Rali",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-073",
+      "group": "Mobile",
+      "name": "Race Star: Team Manager Game",
+      "idea": "Progressão e interface",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-074",
+      "group": "Independentes itch.io",
+      "name": "Take It Racing",
+      "idea": "Estratégia retrô",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-075",
+      "group": "Independentes itch.io",
+      "name": "Take It Racing 2",
+      "idea": "Simulação simplificada",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-076",
+      "group": "Independentes itch.io",
+      "name": "PitWall Manager — Cyrn Games",
+      "idea": "Estratégia, pneus, comandos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-077",
+      "group": "Independentes itch.io",
+      "name": "F1 Manager 2023 — Clueless Developer",
+      "idea": "Gestão indie",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-078",
+      "group": "Independentes itch.io",
+      "name": "F1 Manager S2 — Codepatch",
+      "idea": "Evolução incremental",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-079",
+      "group": "Independentes itch.io",
+      "name": "F1 Manager Classic — Codepatch",
+      "idea": "Interface",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-080",
+      "group": "Independentes itch.io",
+      "name": "Fantasy Racing Manager",
+      "idea": "Equipes fictícias",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-081",
+      "group": "Independentes itch.io",
+      "name": "Race Desk Manager",
+      "idea": "Garagem e finanças",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-082",
+      "group": "Independentes itch.io",
+      "name": "Stock Car Racing Manager",
+      "idea": "Stock car",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-083",
+      "group": "Independentes itch.io",
+      "name": "The Paddock",
+      "idea": "Gestão associada a Automobilista 2",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-084",
+      "group": "Independentes itch.io",
+      "name": "Race Manager — Grimfand",
+      "idea": "Multiplayer",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-085",
+      "group": "Independentes itch.io",
+      "name": "F1 Manager 2026 — Matej Šustek",
+      "idea": "Técnica e estratégia",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-086",
+      "group": "Independentes itch.io",
+      "name": "Mini GP Mánager",
+      "idea": "Gestão compacta",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-087",
+      "group": "Independentes itch.io",
+      "name": "Apex Echoes",
+      "idea": "Simulação textual",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-088",
+      "group": "Independentes itch.io",
+      "name": "Galactic Grand Prix",
+      "idea": "Corridas fictícias",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-089",
+      "group": "Independentes itch.io",
+      "name": "Race Manager Online",
+      "idea": "Experimento online",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-090",
+      "group": "Independentes itch.io",
+      "name": "Driven to Evolve",
+      "idea": "IA e treinamento; adjacente",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-091",
+      "group": "Independentes itch.io",
+      "name": "AUTOGRAV /mini/",
+      "idea": "Agentes autônomos; adjacente",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-092",
+      "group": "Repositórios de managers",
+      "name": "FL-MANE",
+      "idea": "Java, clima, estratégia, headless",
+      "url": "https://github.com/paulosobreira/f1mane",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-093",
+      "group": "Repositórios de managers",
+      "name": "Pitwall",
+      "idea": "Carreira histórica, mercado, persistência",
+      "url": "https://github.com/domhnallmorr/Pitwall",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-094",
+      "group": "Repositórios de managers",
+      "name": "Pitwall Flet",
+      "idea": "Python, UI e motor",
+      "url": "https://github.com/domhnallmorr/Pitwall_Flet",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-095",
+      "group": "Repositórios de managers",
+      "name": "Grand Prix Universe",
+      "idea": "Electron, React, Node, JSON; licença a verificar",
+      "url": "https://github.com/wpinrui/grand-prix-universe",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-096",
+      "group": "Repositórios de managers",
+      "name": "Open Racing Manager",
+      "idea": "Python, Pyxel",
+      "url": "https://github.com/ilya-ssh/OpenRacingManager",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-097",
+      "group": "Repositórios de managers",
+      "name": "Pit Lane Manager",
+      "idea": "React, TypeScript, estado",
+      "url": "https://github.com/Wrexist/Motorsports-Manager",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-098",
+      "group": "Repositórios de managers",
+      "name": "Pitwall — daemon2010",
+      "idea": "JS, Three.js, determinismo",
+      "url": "https://github.com/daemon2010/f1manager",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-099",
+      "group": "Repositórios de managers",
+      "name": "F1 Manager 2026",
+      "idea": "Web, estratégia, 3D",
+      "url": "https://github.com/AnoopRA25/F1-Manager-2026",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-100",
+      "group": "Repositórios de managers",
+      "name": "MMRAC1NG",
+      "idea": "Carreira multiplataforma",
+      "url": "https://github.com/krystofham/F1_game",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-101",
+      "group": "Repositórios de managers",
+      "name": "Velocity",
+      "idea": "Estado central, autoridade, online",
+      "url": "https://github.com/GVaishanth/Velocity",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-102",
+      "group": "Repositórios de managers",
+      "name": "GoldieRacing",
+      "idea": "Orçamento, estoque, staff, P&D",
+      "url": "https://github.com/Goldie44/goldieracing",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-103",
+      "group": "Repositórios de managers",
+      "name": "F1 Manager — trigaar",
+      "idea": "Serviços, temporadas",
+      "url": "https://github.com/trigaar/f1-manager",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-104",
+      "group": "Repositórios de managers",
+      "name": "Race Game — LaurentAerens",
+      "idea": "2D e editor de pistas",
+      "url": "https://github.com/LaurentAerens/race-game",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-105",
+      "group": "Repositórios de managers",
+      "name": "StintegyEVO",
+      "idea": "C#, Godot, agentes separados; AGPL-3.0 a rever no commit",
+      "url": "https://github.com/MoYuSOwO/stintegy-evo",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-106",
+      "group": "Ciência e engenharia",
+      "name": "TUM Race Simulation",
+      "idea": "Estratégia, Monte Carlo, VSE",
+      "url": "https://github.com/TUMFTM/race-simulation",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-107",
+      "group": "Ciência e engenharia",
+      "name": "TUM Lap Time Simulation",
+      "idea": "Características do carro e tempo",
+      "url": "https://github.com/TUMFTM/laptime-simulation",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-108",
+      "group": "Ciência e engenharia",
+      "name": "Time-Discrete Race Simulator",
+      "idea": "Rust, simulação temporal",
+      "url": "https://github.com/heilmeiera/time-discrete-race-simulator",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-109",
+      "group": "Ciência e engenharia",
+      "name": "Global Racetrajectory Optimization",
+      "idea": "Otimização de trajetórias",
+      "url": "https://github.com/TUMFTM/global_racetrajectory_optimization",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-110",
+      "group": "Ciência e engenharia",
+      "name": "Trajectory Planning Helpers",
+      "idea": "Matemática de trajetória",
+      "url": "https://github.com/TUMFTM/trajectory_planning_helpers",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-111",
+      "group": "Ciência e engenharia",
+      "name": "TUM Racetrack Database",
+      "idea": "Coordenadas, larguras, linhas",
+      "url": "https://github.com/TUMFTM/racetrack-database",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-112",
+      "group": "Ciência e engenharia",
+      "name": "TUM F1 Timing Database",
+      "idea": "Calibração histórica",
+      "url": "https://github.com/TUMFTM/f1-timing-database",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-113",
+      "group": "Ciência e engenharia",
+      "name": "TUM Vehicle Dynamics",
+      "idea": "Dinâmica longitudinal/lateral",
+      "url": "https://github.com/TUMFTM/sim_vehicle_dynamics",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-114",
+      "group": "Ciência e engenharia",
+      "name": "Open Car Dynamics",
+      "idea": "Dinâmica veicular",
+      "url": "https://github.com/TUMFTM/Open-Car-Dynamics",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-115",
+      "group": "Ciência e engenharia",
+      "name": "Online 3D Racing Line Planning",
+      "idea": "Trajetória 3D",
+      "url": "https://github.com/TUMRT/online_3D_racing_line_planning",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-116",
+      "group": "Ciência e engenharia",
+      "name": "Project Chrono",
+      "idea": "Multicorpos, suspensão",
+      "url": "https://github.com/projectchrono/chrono",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-117",
+      "group": "Ciência e engenharia",
+      "name": "TORCS",
+      "idea": "IA, física, pistas",
+      "url": "https://torcs.sourceforge.net/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-118",
+      "group": "Ciência e engenharia",
+      "name": "Speed Dreams",
+      "idea": "Física modular, pilotos, pistas",
+      "url": "https://speed-dreams.net/en/about",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-119",
+      "group": "Jogos complementares",
+      "name": "Automation",
+      "idea": "Motores, testes, tradeoffs",
+      "url": "https://store.steampowered.com/app/293760/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-120",
+      "group": "Jogos complementares",
+      "name": "BeamNG.drive",
+      "idea": "Danos, suspensão, telemetria",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-121",
+      "group": "Jogos complementares",
+      "name": "Wrench",
+      "idea": "Montagem mecânica",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-122",
+      "group": "Jogos complementares",
+      "name": "Car Mechanic Simulator 2021",
+      "idea": "Diagnóstico e reparo",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-123",
+      "group": "Jogos complementares",
+      "name": "Engine Simulator — AngeTheGreat",
+      "idea": "Motores e som",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-124",
+      "group": "Jogos complementares",
+      "name": "GearCity",
+      "idea": "Economia e história automotiva",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-125",
+      "group": "Jogos complementares",
+      "name": "Production Line",
+      "idea": "Gargalos produtivos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-126",
+      "group": "Jogos complementares",
+      "name": "Car Manufacture",
+      "idea": "Linhas de montagem",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-127",
+      "group": "Jogos complementares",
+      "name": "Endurance Motorsport Series",
+      "idea": "Pilotagem, engenharia e estratégia anunciadas",
+      "url": "https://store.steampowered.com/app/2228250/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-128",
+      "group": "Jogos complementares",
+      "name": "Le Mans Ultimate",
+      "idea": "Tráfego multiclasses",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-129",
+      "group": "Jogos complementares",
+      "name": "Assetto Corsa",
+      "idea": "Acertos, mods, geometria",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-130",
+      "group": "Jogos complementares",
+      "name": "Assetto Corsa Competizione",
+      "idea": "Pneus, clima, GT",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-131",
+      "group": "Jogos complementares",
+      "name": "rFactor 2",
+      "idea": "Evolução da pista",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-132",
+      "group": "Jogos complementares",
+      "name": "Automobilista 2",
+      "idea": "Veículos e eras",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-133",
+      "group": "Jogos complementares",
+      "name": "iRacing",
+      "idea": "Infraestrutura competitiva",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-134",
+      "group": "Jogos complementares",
+      "name": "Grand Prix Legends",
+      "idea": "Carros antigos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-135",
+      "group": "Jogos complementares",
+      "name": "Grand Prix 4",
+      "idea": "Câmeras e IA",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-136",
+      "group": "Jogos complementares",
+      "name": "F1 2012",
+      "idea": "Referência da era inicial",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-137",
+      "group": "Jogos complementares",
+      "name": "F1 2020",
+      "idea": "My Team",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-138",
+      "group": "Jogos complementares",
+      "name": "F1 2025",
+      "idea": "Apresentação e carreira moderna",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-139",
+      "group": "Godot e testes",
+      "name": "Godot Advanced Vehicle",
+      "idea": "Suspensão customizada",
+      "url": "https://github.com/Dechode/Godot-Advanced-Vehicle",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-140",
+      "group": "Godot e testes",
+      "name": "Godot Simple Vehicle",
+      "idea": "Suspensão simplificada",
+      "url": "https://github.com/Dechode/Godot-Simple-Vehicle",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-141",
+      "group": "Godot e testes",
+      "name": "Godot Easy Vehicle Physics",
+      "idea": "Parâmetros veiculares",
+      "url": "https://github.com/DAShoe1/Godot-Easy-Vehicle-Physics",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-142",
+      "group": "Godot e testes",
+      "name": "Godot Raycast Suspension",
+      "idea": "Raycasts Godot 4",
+      "url": "https://github.com/mattogodoy/godot_raycast_suspension",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-143",
+      "group": "Godot e testes",
+      "name": "Godot 6DOF Vehicle Demo",
+      "idea": "Articulações e rodas",
+      "url": "https://github.com/Saitodepaula/Godot-6DOF-Vehicle-Demo",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-144",
+      "group": "Godot e testes",
+      "name": "Godot Arcade Vehicle",
+      "idea": "Protótipos",
+      "url": "https://github.com/kirca/godot_vehicle_arcade",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-145",
+      "group": "Godot e testes",
+      "name": "Kenney Racing Kit Template",
+      "idea": "IA, linhas, obstáculos",
+      "url": "https://github.com/Maxim-Lanskoy/KenneyNL-RacingKit",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-146",
+      "group": "Godot e testes",
+      "name": "ApexCircuit",
+      "idea": "Carros autônomos 3D",
+      "url": "https://github.com/vinodkrishnanr/ApexCircuit",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-147",
+      "group": "Godot e testes",
+      "name": "Godot Vehicle — Seerban",
+      "idea": "Acertos e ghost replay",
+      "url": "https://github.com/Seerban/godot-vehicle",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-148",
+      "group": "Godot e testes",
+      "name": "Vehicle Physics — dicnunz",
+      "idea": "Pneus, deformação, testes",
+      "url": "https://github.com/dicnunz/vehicle-physics",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-149",
+      "group": "Godot e testes",
+      "name": "Velocity — amarcuss",
+      "idea": "Pistas procedurais e cenas",
+      "url": "https://github.com/amarcuss/racing-game",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-150",
+      "group": "Godot e testes",
+      "name": "ZoomZoomAI",
+      "idea": "Aprendizado por reforço",
+      "url": "https://github.com/Merxon22/ZoomZoomAI",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-151",
+      "group": "Godot e testes",
+      "name": "Racing Game — chukfinley",
+      "idea": "Tempos e aero",
+      "url": "https://github.com/chukfinley/racing-game",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-152",
+      "group": "Godot e testes",
+      "name": "Racing Game — joppe2001",
+      "idea": "Física e editor",
+      "url": "https://github.com/joppe2001/racing-game",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-153",
+      "group": "Godot e testes",
+      "name": "Godot Demo Projects",
+      "idea": "Exemplos oficiais",
+      "url": "https://github.com/godotengine/godot-demo-projects",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-154",
+      "group": "Godot e testes",
+      "name": "GUT",
+      "idea": "Teste unitário",
+      "url": "https://github.com/bitwes/Gut",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-155",
+      "group": "Godot e testes",
+      "name": "gdUnit4",
+      "idea": "Testes de scripts e cenas",
+      "url": "https://github.com/godot-gdunit-labs/gdUnit4",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-156",
+      "group": "Godot e testes",
+      "name": "Godot Benchmarks",
+      "idea": "Medições",
+      "url": "https://benchmarks.godotengine.org/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-157",
+      "group": "Dados esportivos",
+      "name": "Jolpica F1",
+      "idea": "Resultados e histórico",
+      "url": "https://github.com/jolpica/jolpica-f1",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-158",
+      "group": "Dados esportivos",
+      "name": "FastF1",
+      "idea": "Telemetria e análise",
+      "url": "https://github.com/theOehrly/Fast-F1",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-159",
+      "group": "Dados esportivos",
+      "name": "OpenF1",
+      "idea": "Sessões modernas desde 2023, não 2012",
+      "url": "https://openf1.org/docs/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-160",
+      "group": "Dados esportivos",
+      "name": "F1DB",
+      "idea": "Histórico estruturado",
+      "url": "https://github.com/f1db/f1db",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-161",
+      "group": "Dados esportivos",
+      "name": "F1 Circuits GeoJSON",
+      "idea": "Geometria",
+      "url": "https://github.com/bacinger/f1-circuits",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-162",
+      "group": "Dados esportivos",
+      "name": "Global Motorsport Circuits",
+      "idea": "Catálogo",
+      "url": "https://github.com/GameDev-Toolkit/global-motorsport-circuits-json",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-163",
+      "group": "Dados esportivos",
+      "name": "F1 Circuits SVG",
+      "idea": "Mapas",
+      "url": "https://github.com/f1db/f1-circuits-svg",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-164",
+      "group": "Dados esportivos",
+      "name": "Lap Ledger",
+      "idea": "SQLite e dados históricos",
+      "url": "https://lapledger.org/data",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-165",
+      "group": "Dados esportivos",
+      "name": "Awesome F1",
+      "idea": "Catálogo de ferramentas",
+      "url": "https://github.com/subinium/awesome-f1",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-166",
+      "group": "Dados esportivos",
+      "name": "F1 Telemetry Dashboard",
+      "idea": "Dashboards e cache",
+      "url": "https://github.com/mricero/F1-Telemetry-Dashboard",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-167",
+      "group": "Dados esportivos",
+      "name": "F1 Project Visualization",
+      "idea": "Telemetria estruturada",
+      "url": "https://github.com/eliasgastis/F1-Project",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-168",
+      "group": "Dados esportivos",
+      "name": "FIA",
+      "idea": "Regulamentos",
+      "url": "https://www.fia.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-169",
+      "group": "Dados esportivos",
+      "name": "Pirelli Press",
+      "idea": "Compostos",
+      "url": "https://press.pirelli.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-170",
+      "group": "Mods e editores",
+      "name": "FIRE Fantasy 20",
+      "idea": "Campeonatos e balanceamento",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-171",
+      "group": "Mods e editores",
+      "name": "FIRE Fantasy 22",
+      "idea": "Dados e contratos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-172",
+      "group": "Mods e editores",
+      "name": "FIRE Mod 2017",
+      "idea": "Temporadas",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-173",
+      "group": "Mods e editores",
+      "name": "FIRE Mod 2018",
+      "idea": "História",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-174",
+      "group": "Mods e editores",
+      "name": "Ultimate F1 Manager Mod Series",
+      "idea": "Pilotos e evolução",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-175",
+      "group": "Mods e editores",
+      "name": "RealMM 2023",
+      "idea": "Categorias de base",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-176",
+      "group": "Mods e editores",
+      "name": "F1 Manager 2022 — mod de Motorsport Manager",
+      "idea": "Conteúdo histórico",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-177",
+      "group": "Mods e editores",
+      "name": "Enhanced Graphics",
+      "idea": "Apresentação",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-178",
+      "group": "Mods e editores",
+      "name": "Extended Camera",
+      "idea": "Câmeras",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-179",
+      "group": "Mods e editores",
+      "name": "Database Editor",
+      "idea": "Saves",
+      "url": "https://github.com/IUrreta/DatabaseEditor",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-180",
+      "group": "Mods e editores",
+      "name": "Portrait Editor",
+      "idea": "Identidade",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-181",
+      "group": "Mods e editores",
+      "name": "Auto Save",
+      "idea": "Recuperação",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-182",
+      "group": "Mods e editores",
+      "name": "Driver Swap",
+      "idea": "Assentos",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-183",
+      "group": "Mods e editores",
+      "name": "F1 Career Desk",
+      "idea": "Estatísticas",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-184",
+      "group": "Mods e editores",
+      "name": "Realistic Race Start",
+      "idea": "Largada",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-185",
+      "group": "Mods e editores",
+      "name": "Realistic Transfers Lite",
+      "idea": "Mercado",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-186",
+      "group": "Mods e editores",
+      "name": "Wet Weather Setups Lite",
+      "idea": "Acerto climático",
+      "url": null,
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-187",
+      "group": "Assets e ferramentas",
+      "name": "Blender",
+      "idea": "Modelagem e animação",
+      "url": "https://www.blender.org/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-188",
+      "group": "Assets e ferramentas",
+      "name": "Kenney Car Kit",
+      "idea": "Modelos genéricos; verificar CC0",
+      "url": "https://kenney-assets.itch.io/car-kit",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-189",
+      "group": "Assets e ferramentas",
+      "name": "Kenney",
+      "idea": "UI, texturas e modelos",
+      "url": "https://kenney.nl/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-190",
+      "group": "Assets e ferramentas",
+      "name": "Poly Haven",
+      "idea": "HDRI, materiais, modelos",
+      "url": "https://polyhaven.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-191",
+      "group": "Assets e ferramentas",
+      "name": "ambientCG",
+      "idea": "PBR",
+      "url": "https://ambientcg.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-192",
+      "group": "Assets e ferramentas",
+      "name": "Quaternius",
+      "idea": "Modelos e animações",
+      "url": "https://quaternius.com/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-193",
+      "group": "Assets e ferramentas",
+      "name": "OpenGameArt",
+      "idea": "Recursos com licenças diversas",
+      "url": "https://opengameart.org/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-194",
+      "group": "Assets e ferramentas",
+      "name": "Freesound",
+      "idea": "Áudio; licença por arquivo",
+      "url": "https://freesound.org/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-195",
+      "group": "Assets e ferramentas",
+      "name": "Godot Asset Library",
+      "idea": "Ferramentas e componentes",
+      "url": "https://godotengine.org/asset-library/asset",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-196",
+      "group": "Assets e ferramentas",
+      "name": "glTF",
+      "idea": "Formato de intercâmbio",
+      "url": "https://www.khronos.org/gltf/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-197",
+      "group": "Assets e ferramentas",
+      "name": "OpenStreetMap",
+      "idea": "Referência geográfica e licença",
+      "url": "https://www.openstreetmap.org/",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    },
+    {
+      "id": "REF-198",
+      "group": "Assets e ferramentas",
+      "name": "Engine Sound",
+      "idea": "Áudio sintético",
+      "url": "https://github.com/DasEtwas/enginesound",
+      "status": "REVALIDAR",
+      "license": "NÃO AUDITADA"
+    }
+  ]
+}
