@@ -1,0 +1,13 @@
+# v0.2.4 — Detailed wheels and brakes (candidate)
+
+Schema 7 is opt-in for original curved GT/endurance vehicles only. Schemas 1–6 retain their existing generators; open-wheel detail is a separate future increment. Each wheel comprises seven named, root-level parts sharing the original axle center: rounded slick, hub, annular alloy rim, five spokes (one mesh), annular brake disc, caliper, center nut. Static visual assembly; no tire deformation, brake temperatures, drilled/vented rotor geometry, animation, certified brakes, actual suspension or real engineering dimensions. Smooth tire shoulders and cylindrical walls; planar rotor/rim faces remain flat shaded. Distinct original material constants, no textures, no UV packing or licensed designs. Some deliberate contact/overlap between mating parts is not a full interpenetration analysis.
+
+LOD0/1/2 uses 48/24/12 radial samples, with 4/2/1 spoke sector steps, preserving named parts/materials, wheel envelope, pivots and axle orientation. QA checks all expected local vertices against actual exported positions within 1e-6 m, materials, exact normalized orientation and root transforms. Analytic mesh edges and tire envelope checked. Existing GLB structural, shell clearance, native import and LOD set gates remain. This is not a complete exported topology equivalence test or dynamic articulation certification.
+
+```sh
+PYTHONPATH="$PWD/tools" python3 -m asset_factory.lod tools/asset_factory/demo_wheel_gt.json --blender /absolute/path/blender --godot /absolute/path/godot --workspace /tmp/apex-wheel-lod-new --capture
+```
+
+For native isolated preview, copy a verified GLB as asset.glb and the staging project.godot to a new disposable directory, copy wheel_preview.gd, import with Godot headless, then run the script with Compatibility and Xvfb. It hides the rest of the car in the preview scene only. It does not modify or publish the source GLB.
+
+Tests cover 96 category/tire/dimension/LOD combinations, prior schemas, exact wheel center and envelope, and five exported-data mutations. Owner feedback on earlier art is preserved. This is a technical prototype, not artist approval. All assets remain staging; no sporting code changes, game integration, physical GPU/FPS/VRAM or promotion claims. No automatic merge. PR targets the reviewed v0.2.3 candidate branch; existing CI branch filter expanded only to include that base, without weakening checks.
