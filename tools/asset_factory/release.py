@@ -43,7 +43,7 @@ def verify_signature(approval,signature,key,expected_key_sha):
 
 
 def make_statement(db,id,version,rights,review):
-    c=r.connect(db)
+    c=r.connect(db,create=False)
     try:
         return statement(r.lookup(c,id,version),rights,review)
     finally:c.close()
@@ -53,7 +53,7 @@ def package(db,id,version,approval,signature,key,expected_key_sha,out):
     obj,body,sig=verify_signature(approval,signature,key,expected_key_sha)
     out=r.outside_repo(out)
     r.check(not out.exists() and out.parent.is_dir(),"new output directory required")
-    c=r.connect(db)
+    c=r.connect(db,create=False)
     created=False
     try:
         c.execute("BEGIN IMMEDIATE")

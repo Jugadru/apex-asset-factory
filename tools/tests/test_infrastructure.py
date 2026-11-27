@@ -52,6 +52,29 @@ class InfrastructureTest(unittest.TestCase):
         self.assertEqual(r.list_assets(self.db)[0]["revoked"],1)
         with self.assertRaises(ValueError):r.revoke(self.db,self.id,self.ver,"again")
 
+    def test_backup_restore_and_explicit_rollback(self):
+        self.register()
+        r.select_version(self.db,self.id,self.ver,"initial selection")
+        self.req["version"]="0.1.1"
+        (self.work/"request.json").write_bytes(r.canonical(self.req))
+        self.doc["materials"][0]["pbrMetallicRoughness"]["roughnessFactor"]=0.7
+        self.write_asset()
+        self.register()
+        r.select_version(self.db,self.id,"0.1.1","new version")
+        r.select_version(self.db,self.id,self.ver,"explicit rollback")
+        self.assertEqual(r.current(self.db,self.id)["version"],self.ver)
+        backup=self.root/"snapshot.sqlite"
+        self.assertEqual(r.backup(self.db,backup)["assets"],2)
+        self.assertEqual(r.current(backup,self.id),r.current(self.db,self.id))
+        restored=self.root/"restored.sqlite"
+        r.backup(backup,restored)
+        r.revoke(restored,self.id,self.ver,"test")
+        self.assertEqual(r.current(restored,self.id)["status"],"REVOKED")
+        self.assertEqual(r.current(self.db,self.id)["status"],"SELECTED")
+        with self.assertRaises(ValueError):r.backup(self.db,backup)
+        with self.assertRaises(ValueError):r.audit(self.root/"missing.sqlite")
+        with self.assertRaises(ValueError):r.select_version(restored,self.id,self.ver,"revoked")
+
     def test_concurrent_same_id(self):
         # Initialize schema before competing writers; transaction serializes inserts.
         r.connect(self.db).close()

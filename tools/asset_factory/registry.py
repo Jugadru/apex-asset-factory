@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import sqlite3
@@ -65,10 +66,12 @@ def outside_repo(p):
     return p
 
 
-def connect(path):
+def connect(path,create=True):
     p=outside_repo(path)
     check(p.parent.is_dir(),"registry parent missing")
-    c=sqlite3.connect(p,timeout=10,isolation_level=None)
+    if not create:
+        check(p.is_file(),"registry does not exist")
+    c=sqlite3.connect(p.as_uri()+("?mode=rwc" if create else "?mode=rw"),uri=True,timeout=10,isolation_level=None)
     c.row_factory=sqlite3.Row
     try:
         c.execute("PRAGMA foreign_keys=ON")
@@ -109,7 +112,7 @@ def event(c,id,version,kind,detail):
 
 def verified_revision():
     head=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True,timeout=10).strip()
-    dirty=subprocess.check_output(["git","status","--porcelain","--untracked-files=no"],cwd=ROOT,text=True,timeout=10)
+    dirty=subprocess.check_output(["git","status","--porcelain","--untracked-files=all"],cwd=ROOT,text=True,timeout=10)
     check(REV.fullmatch(head) and not dirty.strip(),"clean tracked git checkout required")
     return head
 
@@ -162,7 +165,7 @@ def lookup(c,id,version):
 
 
 def list_assets(db):
-    c=connect(db)
+    c=connect(db,create=False)
     try:
         return [dict(r) for r in c.execute("""SELECT id,version,digest AS sha256,request_sha,revision,
           EXISTS(SELECT 1 FROM events e WHERE e.id=a.id AND e.version=a.version AND e.kind='REVOKED') AS revoked
@@ -172,7 +175,7 @@ def list_assets(db):
 
 
 def history(db,id,version):
-    c=connect(db)
+    c=connect(db,create=False)
     try:
         lookup(c,id,version)
         return [dict(r) for r in c.execute("SELECT * FROM events WHERE id=? AND version=? ORDER BY seq",(id,version))]
@@ -182,7 +185,7 @@ def history(db,id,version):
 
 def revoke(db,id,version,reason):
     check(type(reason) is str and 1<=len(reason.strip())<=500,"revocation reason required")
-    c=connect(db)
+    c=connect(db,create=False)
     try:
         c.execute("BEGIN IMMEDIATE")
         lookup(c,id,version)
@@ -198,17 +201,84 @@ def revoke(db,id,version,reason):
 
 
 def audit(db):
-    c=connect(db)
+    c=connect(db,create=False)
     try:
         check(c.execute("PRAGMA integrity_check").fetchone()[0]=="ok","SQLite integrity error")
         check(not c.execute("PRAGMA foreign_key_check").fetchall(),"registry foreign keys")
         for r in c.execute("SELECT digest,body FROM blobs"):
             check(sha(r["body"])==r["digest"],"blob integrity mismatch")
-        for r in c.execute("SELECT request_sha,request_json FROM assets"):
-            check(sha(r["request_json"].encode())==r["request_sha"],"request integrity mismatch")
+        for row in c.execute("SELECT * FROM assets"):
+            check(sha(row["request_json"].encode())==row["request_sha"],"request integrity mismatch")
+            request=json.loads(row["request_json"])
+            report=json.loads(row["report_json"])
+            identity(row["id"],row["version"])
+            check(request["id"]==row["id"] and request["version"]==row["version"] and request["license"]=="ORIGINAL","registry request identity")
+            check(report["asset"]["sha256"]==row["digest"] and REV.fullmatch(row["revision"]),"registry report identity")
+            check(c.execute("SELECT count(*) FROM events WHERE id=? AND version=? AND kind='REGISTERED'",(row["id"],row["version"])).fetchone()[0]==1,"registry registration event")
         return {"status":"PASS","assets":c.execute("SELECT count(*) FROM assets").fetchone()[0],
                 "events":c.execute("SELECT count(*) FROM events").fetchone()[0]}
     finally:
+        c.close()
+
+
+def select_version(db,id,version,reason):
+    """Record explicit rollback/selection without modifying or copying assets."""
+    check(type(reason) is str and 1<=len(reason.strip())<=500,"selection reason required")
+    c=connect(db,create=False)
+    try:
+        c.execute("BEGIN IMMEDIATE")
+        row=lookup(c,id,version)
+        check(not c.execute("SELECT 1 FROM events WHERE id=? AND version=? AND kind='REVOKED'",(id,version)).fetchone(),"asset revoked")
+        event(c,id,version,"SELECTED",{"reason":reason,"sha256":row["digest"]})
+        c.commit()
+        return {"status":"SELECTED","id":id,"version":version,"sha256":row["digest"],"game_integration":"NOT_RUN"}
+    except BaseException:
+        c.rollback()
+        raise
+    finally:c.close()
+
+
+def current(db,id):
+    check(type(id) is str and ID.fullmatch(id),"invalid asset id")
+    c=connect(db,create=False)
+    try:
+        row=c.execute("SELECT version,detail FROM events WHERE id=? AND kind='SELECTED' ORDER BY seq DESC LIMIT 1",(id,)).fetchone()
+        if row is None:return {"status":"NOT_SELECTED","id":id}
+        asset=lookup(c,id,row["version"])
+        revoked=c.execute("SELECT 1 FROM events WHERE id=? AND version=? AND kind='REVOKED'",(id,row["version"])).fetchone()
+        return {"status":"REVOKED" if revoked else "SELECTED","id":id,"version":row["version"],
+                "sha256":asset["digest"],"game_integration":"NOT_RUN"}
+    finally:c.close()
+
+
+def backup(db,destination):
+    """SQLite consistent online snapshot, no overwrite; audit destination."""
+    src=outside_repo(db)
+    dst=outside_repo(destination)
+    check(src!=dst and not dst.exists() and dst.parent.is_dir(),"new backup path required")
+    audit(src)
+    c=connect(src,create=False)
+    fd=None
+    created=False
+    try:
+        fd=os.open(dst,os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600)
+        created=True
+        os.close(fd);fd=None
+        target=sqlite3.connect(dst)
+        try:c.backup(target)
+        finally:target.close()
+        result=audit(dst)
+        digest=hashlib.sha256()
+        with dst.open("rb") as handle:
+            for chunk in iter(lambda:handle.read(1024*1024),b""):
+                digest.update(chunk)
+        result["backup_sha256"]=digest.hexdigest()
+        return result
+    except BaseException:
+        if created:dst.unlink(missing_ok=True)
+        raise
+    finally:
+        if fd is not None:os.close(fd)
         c.close()
 
 
@@ -219,15 +289,19 @@ def main():
     subs.add_parser("register").add_argument("workspace")
     subs.add_parser("list")
     subs.add_parser("audit")
-    for name in ("history","revoke"):
+    subs.add_parser("backup").add_argument("destination")
+    subs.add_parser("current").add_argument("id")
+    for name in ("history","revoke","select"):
         sub=subs.add_parser(name)
         sub.add_argument("id");sub.add_argument("version")
-        if name=="revoke":sub.add_argument("reason")
+        if name in ("revoke","select"):sub.add_argument("reason")
     a=p.parse_args()
     try:
         result={"register":lambda:register(a.db,a.workspace),"list":lambda:list_assets(a.db),
                 "audit":lambda:audit(a.db),"history":lambda:history(a.db,a.id,a.version),
-                "revoke":lambda:revoke(a.db,a.id,a.version,a.reason)}[a.command]()
+                "revoke":lambda:revoke(a.db,a.id,a.version,a.reason),
+                "select":lambda:select_version(a.db,a.id,a.version,a.reason),
+                "current":lambda:current(a.db,a.id),"backup":lambda:backup(a.db,a.destination)}[a.command]()
     except (ValueError,OSError,sqlite3.Error,subprocess.SubprocessError,KeyError,TypeError) as exc:
         print(json.dumps({"status":"FAIL","error":str(exc),"promotion":"BLOCKED"}))
         return 1
