@@ -9,3 +9,6 @@ PYTHONPATH="$PWD/tools" python3 -m asset_factory.lod tools/asset_factory/demo_wh
 ```
 
 432 analytic combinations (three eras, three body profiles, two tire widths, eight dimension extrema and three LODs); native test results are separately recorded. Existing CI branch filter expanded to the stacked base only.
+
+## Native evidence
+66 CI tests PASS (46076802259); 432 analytic combinations, 54 exact local Git blobs, nine native Blender/Godot variants and three complete orchestrators with 33 switch checks PASS. 1990: 11692/6764/4204 triangles; 2012: 11804/6844/4252; 2020: 12200/7176/4520. 28 wheel parts each, maximum exported local vertex error 1.45e-8 m (rounded upward). Six separate software captures PASS. Initial preview failed because the suffix selector included suspension nodes; fixed exact whitelist and retained history. Private ZIP 241 files, CRC checked, runtime caches removed. Formal repeatability, physical GPU, artistic approval and game integration remain NOT_RUN. No new blocker closed, no promotion. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4.1-openwheel-detail/evidence/v0.2.4.1-native/summary.json

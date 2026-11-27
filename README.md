@@ -44,3 +44,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Detailed wheels and brakes
 [Schema 7 and native evidence](docs/WHEEL_DETAIL.md). GT/endurance visual assemblies only; no game physics or promotion.
+
+## Open-wheel era wheel detail
+[Schema 8 and native evidence](docs/OPENWHEEL_DETAIL.md). Static original visual profiles; not historical replicas.
