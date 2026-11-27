@@ -1,4 +1,4 @@
-"""Asset Factory 0.2.1.2: isolated original vehicle build, no promotion."""
+"""Asset Factory 0.2.2: isolated original vehicle build, no promotion."""
 import argparse
 import hashlib
 import json
@@ -111,15 +111,17 @@ def inspect_attributes(path, budget, layout=None):
                    "attribute_presence":"PASS","textures":0})
     return result
 
-def build(request, blender, godot, workspace, capture=False):
+def build(request, blender, godot, workspace, capture=False, derived_lod=0):
     r = read_request(Path(request))
+    if type(derived_lod) is not int or derived_lod not in (0,1,2) or (derived_lod and r["schema"]==1):
+        raise ValueError("LOD variants require schema 2–5 and level 0–2")
     generator = {1:"vehicle.py",2:"modular_vehicle.py",3:"era_vehicle.py",4:"detail_vehicle.py",5:"closed_wheel_vehicle.py"}[r["schema"]]
     w = Path(workspace).absolute()
     if w.exists() or w.is_symlink() or ROOT in w.resolve().parents or w.resolve() == ROOT:
         raise ValueError("new workspace outside repository required")
     w = w.resolve()
     w.mkdir()
-    report = {"factory_version":"0.2.1.2","status":"FAIL","approval":"PENDING",
+    report = {"factory_version":"0.2.2","derived_lod":derived_lod,"status":"FAIL","approval":"PENDING",
               "promotion":"BLOCKED","stages":{k:"NOT_RUN" for k in ("plan","export","structural_validation","godot_import","capture")}}
     try:
         dump(w/"request.json",r)
@@ -155,7 +157,7 @@ def build(request, blender, godot, workspace, capture=False):
         stage.mkdir()
         asset = stage/"asset.glb"
         run([b,"--background","--factory-startup","--python-exit-code","1","--python",
-             str(HERE/generator),"--","--request",str(w/"request.json"),"--output",str(asset)],
+             str(HERE/generator),"--","--request",str(w/"request.json"),"--output",str(asset)]+(["--derived-lod",str(derived_lod)] if derived_lod else []),
             w,w/"blender.log",180)
         report["stages"]["export"]="PASS"
         report["asset"] = inspect_attributes(asset,r["triangle_budget"],layout if r["schema"] in (2,3,4,5) else None)
@@ -200,7 +202,8 @@ def build(request, blender, godot, workspace, capture=False):
               "author":r["author"],"license":r["license"],"origin":"original procedural",
               "request_sha256":digest(w/"request.json"),"dependencies":[],
               "generator_sha256":digest(HERE/generator),
-              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py"]+(["era_layout.py"] if r["schema"] in (3,4,5) else [])+(["detail_layout.py","detail_qa.py"] if r["schema"] == 4 else [])+(["closed_wheel_layout.py","closed_wheel_qa.py"] if r["schema"] == 5 else []))} if r["schema"] in (2,3,4,5) else {}),"asset":report.get("asset"),
+              "derived_lod":derived_lod,
+              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py","lod_policy.py"]+(["era_layout.py"] if r["schema"] in (3,4,5) else [])+(["detail_layout.py","detail_qa.py"] if r["schema"] == 4 else [])+(["closed_wheel_layout.py","closed_wheel_qa.py"] if r["schema"] == 5 else []))} if r["schema"] in (2,3,4,5) else {}),"asset":report.get("asset"),
               "status":report["status"],"history":[{"version":r["version"],"status":report["status"]}],
               "approval":"PENDING","promotion":"BLOCKED"})
     return report

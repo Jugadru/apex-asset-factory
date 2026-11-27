@@ -127,8 +127,11 @@
       "status": "NOT_RUN",
       "target_version": "0.3.0",
       "criterion": "Texturas, baking, mapas PBR reais e LODs ainda ausentes; testar orçamentos e compatibilidade.",
-      "progress": "LOD and textured profiles not implemented",
-      "evidence": [],
+      "progress": "Procedural LOD0/1/2 native validation PASS for detailed openwheel, GT and endurance; triangle reduction 42.57–55.97% at LOD2, distance switch 11 cases each. Schema 2/3 policy unit tests only; texture/baking/PBR, arbitrary mesh simplification, production LOD packaging and visual approval pending.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46069667234",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.2-automatic-lod/evidence/v0.2.2-native/summary.json"
+      ],
       "resolved_commit": null
     },
     {
@@ -137,9 +140,10 @@
       "status": "NOT_RUN",
       "target_version": "0.8.0",
       "criterion": "GPU física, FPS, VRAM, inspeção visual humana e regressões visuais no jogo completo não avaliados; captura llvmpipe prova somente renderização fixture.",
-      "progress": "Four real software Godot captures PASS, identical PNG per seed; physical GPU, game visual review/FPS/VRAM NOT_RUN.",
+      "progress": "Four real software Godot captures PASS, identical PNG per seed; physical GPU, game visual review/FPS/VRAM NOT_RUN. Three standalone Godot LOD switch fixtures PASS, GT software captures PASS. No FPS/VRAM or real game evidence.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.2-automatic-lod/evidence/v0.2.2-native/summary.json"
       ],
       "resolved_commit": null
     },
@@ -252,9 +256,10 @@
       "status": "NOT_RUN",
       "target_version": "0.1.5",
       "criterion": "Distribuição de binários/assets grandes e política Git LFS/artefatos/releases ainda não validadas; decidir retenção, tamanho, licenças e acesso.",
-      "progress": "Local package candidate; LFS/retention policy pending",
+      "progress": "Local package candidate; LFS/retention policy pending Derived LOD reports blocked from registering as primary; signed asset-set distribution remains pending.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46069667234"
       ],
       "resolved_commit": null
     },

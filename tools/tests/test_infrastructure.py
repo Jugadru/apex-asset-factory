@@ -41,6 +41,16 @@ class InfrastructureTest(unittest.TestCase):
     def register(self):
         return r.register(self.db,self.work,self.rev)
 
+    def test_derived_lod_cannot_replace_primary(self):
+        p=self.work/"report.json"
+        obj=json.loads(p.read_text())
+        for level in (1,2,True,"0"):
+            p.write_bytes(r.canonical(dict(obj,derived_lod=level)))
+            with self.assertRaisesRegex(ValueError,"derived LOD"):
+                self.register()
+        p.write_bytes(r.canonical(dict(obj,derived_lod=0)))
+        self.assertEqual(self.register()["status"],"REGISTERED")
+
     def test_registry_idempotence_and_history(self):
         a=self.register()
         self.assertEqual(a["status"],"REGISTERED")

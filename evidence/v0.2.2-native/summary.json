@@ -1,0 +1,344 @@
+{
+  "schema": 1,
+  "source_revision": "b60338d3a9b7d249caf534854ac51354aa173bf7",
+  "source_blobs": {
+    "tools/apex_asset_build.py": "15a60572612f32e36f39ab262f5cbd05d63ac108",
+    "tools/apex_foundation.py": "93c427307b450125dc4d34c9062b64da034ee735",
+    "tools/apex_lab_graphics.py": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+    "tools/asset_factory/build.py": "7d4838e367cfb0afde258dcf5092c5e88a0dea75",
+    "tools/asset_factory/closed_wheel_layout.py": "337f0791768898e962f58b7436ac79c8338460d6",
+    "tools/asset_factory/closed_wheel_qa.py": "f3290629e4b405c1c589e93242f5104354455682",
+    "tools/asset_factory/closed_wheel_vehicle.py": "af10532b54ad17ddaf335a08afba8291f835fb4a",
+    "tools/asset_factory/demo.json": "aca325b90fb123285f73a3414644bc3e1f958f24",
+    "tools/asset_factory/demo_detail.json": "30abb906fb41bc6d753b285ee5edd41aabbe8b63",
+    "tools/asset_factory/demo_endurance.json": "d14bbe36d2cdc883a0a77aff5aed16df7faa717c",
+    "tools/asset_factory/demo_era.json": "3ee2556b8839ae66312f72491a77a5c85b24f4af",
+    "tools/asset_factory/demo_gt.json": "310d69ba9a8c4190067bee34323968b210e9e57d",
+    "tools/asset_factory/demo_modular.json": "5d2c9b0e11a1166336686c7083e6f78b25795759",
+    "tools/asset_factory/detail_layout.py": "7164298c0d9e729e3ddac2db26b3594e5e604ec9",
+    "tools/asset_factory/detail_qa.py": "f6dd4605961e775fa87503ae4651e52e72101619",
+    "tools/asset_factory/detail_vehicle.py": "9d44c3ab343df4df4b4f6f26bf7ba3ac11b23721",
+    "tools/asset_factory/era_layout.py": "d8e4a717efcff42959e74db6818466b13f12ec99",
+    "tools/asset_factory/era_vehicle.py": "518a070ac4da886540e3b355cf361d2acc800757",
+    "tools/asset_factory/lod.py": "6f5c43a4671915bad3aa7f5cc522e15e1497512f",
+    "tools/asset_factory/lod_policy.py": "58ac8c1f624fea1a243d1a4b3f396dd0fcf4cf37",
+    "tools/asset_factory/lod_switch.gd": "95319c8416c93a46f7986e0387dba484964a2c1a",
+    "tools/asset_factory/modular_layout.py": "4dd0b56b925f941c735d9c9dae421f34709f6ecf",
+    "tools/asset_factory/modular_qa.py": "0259057c1db5968cc02912a68565de744e1175bc",
+    "tools/asset_factory/modular_vehicle.py": "643b4e484b96fc635c178b6a924a7d55024d96d9",
+    "tools/asset_factory/request.schema.json": "7887711f1ecd6a0fdb8b0d4602321ca54204b547",
+    "tools/asset_factory/request_v2.schema.json": "9258b5168e845294d2ff11c400c63176959a1a31",
+    "tools/asset_factory/request_v3.schema.json": "e0ba72fa8005c23e96e16f35cefa6f5be85a8bab",
+    "tools/asset_factory/request_v4.schema.json": "f5244bb53e122fdf9459a4d473fffebcff1aef14",
+    "tools/asset_factory/request_v5.schema.json": "810dc830204a1d9a20a45cd764a74783d4a82d18",
+    "tools/asset_factory/secure_run.py": "992be68c453cca760b40d79c575bc191e8a5b737",
+    "tools/asset_factory/staging.gd": "43341f01fa6cd1a367541c8951ea0842ad99e700",
+    "tools/asset_factory/validate_glb.py": "491038e4016149cde8db12e794b49253b4ac04a2",
+    "tools/asset_factory/vehicle.py": "3d26e3fec243b76d213cd5dfff280040a477c9a4"
+  },
+  "scope": "33 exact source/request/staging Git blobs in local partial reconstruction; not full checkout",
+  "ci": "https://github.com/Jugadru/apex-asset-factory/actions/runs/46069667234",
+  "blender": "5.3.0 Release Candidate",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "llvmpipe/Xvfb GT captures, headless other sets",
+  "sets": [
+    {
+      "category": "gt",
+      "mode": "outer timeout after three completed captured builds; separate exact Godot switch script PASS; gate checks re-run manually",
+      "meshes": 26,
+      "size": [
+        2,
+        1.26999998092651,
+        4.65000009536743
+      ],
+      "switch_log_sha256": "339831b566c7e746f6ec3d1c88332e9ef053e2fb4178cb53eb9bdae5fed21d9c",
+      "status": "PASS",
+      "switch": {
+        "status": "PASS",
+        "distances_m": [
+          0,
+          26,
+          29,
+          72,
+          74,
+          68,
+          66,
+          23,
+          21,
+          100,
+          0
+        ],
+        "levels": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "visible_roots": 1
+      },
+      "levels": [
+        {
+          "level": 0,
+          "triangles": 3888,
+          "bytes": 194728,
+          "sha256": "8edb00b0756e8ad9fcbac99eb2ebdc9cca256aad22dc25777861db3634c2fc49",
+          "report_sha256": "23d28c702add3011dfd3978261eab7d58ef7464577fd56f0c3131efad01e6d82",
+          "capture_sha256": "db9a47651374a3940562de14259b3aac015279c3569c2500e50904b3192b7116",
+          "triangle_reduction_percent": 0,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "PASS"
+          }
+        },
+        {
+          "level": 1,
+          "triangles": 2480,
+          "bytes": 126028,
+          "sha256": "ce285380ee9944d3bc024840ef7e737bb16f2adcc4e2bd01c67ae3770ca0d0f9",
+          "report_sha256": "926e623e4d0a1a66bcb285f34b7c53e843ec2affa79c5d872d816f6463cc1ef9",
+          "capture_sha256": "edc196645556b864177edf9189ad1e5c7f5ae77f82cc44316f7e0e33c022fab5",
+          "triangle_reduction_percent": 36.21399176954733,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "PASS"
+          }
+        },
+        {
+          "level": 2,
+          "triangles": 1712,
+          "bytes": 85364,
+          "sha256": "bd386626852e0eb1b8499f358938fb65ea5761375b29d7fc04dab4bc751366e0",
+          "report_sha256": "c35affb33dded5fbb79ad37d8959cebcedff3482ae7810522cb207683a9204c6",
+          "capture_sha256": "edcf43531cc03d068ba946393f463f8f969e512a4e175a9065331793db0fc54c",
+          "triangle_reduction_percent": 55.96707818930041,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "PASS"
+          }
+        }
+      ]
+    },
+    {
+      "category": "openwheel",
+      "mode": "full automatic build_set PASS, captures not requested",
+      "meshes": 53,
+      "size": [
+        1.80000007152557,
+        1.10000002384186,
+        4.80000019073486
+      ],
+      "switch_log_sha256": "8c3c5eb8190928b6a9505c2c740fab167decaeba52d9b883131db3dfd1d691ee",
+      "status": "PASS",
+      "switch": {
+        "status": "PASS",
+        "distances_m": [
+          0,
+          26,
+          29,
+          72,
+          74,
+          68,
+          66,
+          23,
+          21,
+          100,
+          0
+        ],
+        "levels": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "visible_roots": 1
+      },
+      "levels": [
+        {
+          "level": 0,
+          "triangles": 3608,
+          "bytes": 236376,
+          "sha256": "2780c72965745aeda299875cd4a7effad2840d168a75757a6c95715ee2f1fef3",
+          "report_sha256": "f88fc991abdfba292dce1397ef33e1b57a5b9b9c3b3aec78304835a98ba26109",
+          "capture_sha256": null,
+          "triangle_reduction_percent": 0,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "NOT_RUN"
+          }
+        },
+        {
+          "level": 1,
+          "triangles": 2712,
+          "bytes": 191636,
+          "sha256": "ab1f2307b9a82f5db6b380ffad29f2069a8419fa2d6e93213f2e046373d5d0db",
+          "report_sha256": "7fa86ec9eb485fdcb11073d20f9fdd33bcdc299d8b39d6bf60287af1023d7b9d",
+          "capture_sha256": null,
+          "triangle_reduction_percent": 24.833702882483365,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "NOT_RUN"
+          }
+        },
+        {
+          "level": 2,
+          "triangles": 2072,
+          "bytes": 160152,
+          "sha256": "185a11094816449e51b4b87a3ac9778bda03077a0593ae7099bfde4c20d82d89",
+          "report_sha256": "4a6ac004c993b8722dcc4510c242dd0d7d15ca68f4b3280aca005e8c3f08606b",
+          "capture_sha256": null,
+          "triangle_reduction_percent": 42.57206208425721,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "NOT_RUN"
+          }
+        }
+      ]
+    },
+    {
+      "category": "endurance",
+      "mode": "outer timeout during third build; LOD2 separate retry PASS; new staged Godot import/switch and set gate PASS; captures not requested",
+      "meshes": 27,
+      "size": [
+        2,
+        1.08000004291534,
+        5
+      ],
+      "switch_log_sha256": "8c3c5eb8190928b6a9505c2c740fab167decaeba52d9b883131db3dfd1d691ee",
+      "status": "PASS",
+      "switch": {
+        "status": "PASS",
+        "distances_m": [
+          0,
+          26,
+          29,
+          72,
+          74,
+          68,
+          66,
+          23,
+          21,
+          100,
+          0
+        ],
+        "levels": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ],
+        "visible_roots": 1
+      },
+      "levels": [
+        {
+          "level": 0,
+          "triangles": 3956,
+          "bytes": 197304,
+          "sha256": "15d18010397f450ff28277d307e959b44204f3eead143ec544c121f9b38d0ab1",
+          "report_sha256": "41ac5ef8b3e38b0990ce2dcd19bf0c8bb4aa2c1aefa4265c6d547e7c57648381",
+          "capture_sha256": null,
+          "triangle_reduction_percent": 0,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "NOT_RUN"
+          }
+        },
+        {
+          "level": 1,
+          "triangles": 2548,
+          "bytes": 127824,
+          "sha256": "82ec09c1327f6bf61da9f44f548fcfc229968de9f690d9cb098b76128fcb6924",
+          "report_sha256": "6b54e12f8b8efebf8da6cabe9d4435d065ded8ab52c3109d07b21171f6997770",
+          "capture_sha256": null,
+          "triangle_reduction_percent": 35.59150657229525,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "NOT_RUN"
+          }
+        },
+        {
+          "level": 2,
+          "triangles": 1780,
+          "bytes": 87156,
+          "sha256": "c6805b9e449017a5e914aa98880ad4b66559bb0458bd937ce374214dc9edca67",
+          "report_sha256": "1e2cbb66bda642aedd51f7d02370e972d8307493bb5b65de62fd0532ebb40cc2",
+          "capture_sha256": null,
+          "triangle_reduction_percent": 55.00505561172901,
+          "stages": {
+            "export": "PASS",
+            "structural_validation": "PASS",
+            "category_qa": "PASS",
+            "wheel_qa": "PASS",
+            "godot_import": "PASS",
+            "capture": "NOT_RUN"
+          }
+        }
+      ]
+    }
+  ],
+  "schema2_3_native": "NOT_RUN",
+  "physical_gpu": "NOT_RUN",
+  "manual_review": "NOT_RUN",
+  "game_integration": "NOT_RUN",
+  "repeatability": "NOT_RUN",
+  "set_packaging": "NOT_RUN",
+  "promotion": "BLOCKED",
+  "private_zip": {
+    "files": 146,
+    "bytes": 812852,
+    "sha256": "b5148862b53cba9baf6c5a7e19b8b85de29d48c4c8a52850dce48d9e2be23d41",
+    "summary_sha256": "63492d1de9e22cd164269c7b519784d1b5c91dc63f436a522cc770ca8298c3a5"
+  }
+}

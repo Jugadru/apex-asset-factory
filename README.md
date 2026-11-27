@@ -35,3 +35,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Closed-wheel vehicles
 [GT and endurance schema 5](docs/CLOSED_WHEEL_VEHICLES.md) · [native evidence](evidence/v0.2.1.2-native/summary.json). Original visual prototypes only.
+
+## Automatic LOD
+[Procedure and scope](docs/AUTOMATIC_LOD.md) · [native evidence](evidence/v0.2.2-native/summary.json). Three detail levels; no game integration or promotion.

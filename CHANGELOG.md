@@ -34,3 +34,7 @@
 
 ### 0.2.0 follow-up
 - Completed wide, low-drag and legacy native reruns; AF-B017 scoped PASS. No asset approval.
+
+## 0.2.2 — automatic procedural LOD candidate
+- Three derived detail levels for schemas 2–5, actual category QA and triangle budget gates, isolated Godot distance switch with hysteresis, primary registry rejects derived variants.
+- 51 tests PASS; nine native variants across three categories, 42.57–55.97% triangle reduction at LOD2. Outer timeout history retained; no FPS/VRAM or gameplay claim.
