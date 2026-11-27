@@ -1,0 +1,26 @@
+name: Asset Factory - contracts
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: asset-factory-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify migrated source blobs
+        run: python3 tools/verify_migration.py
+      - name: Validate catalog and tests
+        run: |
+          python3 --version
+          python3 tools/apex_foundation.py validate
+          python3 -m unittest discover -s tools/tests -v

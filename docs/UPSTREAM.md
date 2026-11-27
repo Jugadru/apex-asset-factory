@@ -1,0 +1,7 @@
+# Ownership and pinned dependencies
+
+- Source: https://github.com/Jugadru/APEX-Simulation/tree/f878b09aa5d66ef7d8302b2d94aa2a8d7db9c59b; Foundation PR #177 SHA 884e6c60b4b3ba8ca06a52850ee8ed097b9f7e18; source PR #184.
+- `tools/apex_foundation.py`, `apex_asset_build.py`, `apex_blender_scaffold.py`, `apex_lab_graphics.py` are pinned snapshots for local execution. Foundation owns planning and shared metadata; Graphics Lab owns game capture comparison. Only PNG inspect helper is consumed here; other game fixture functions in snapshot require game checkout.
+- `docs/references/` copied for offline planning; unverified research, not rights clearance. Links to game-only files in archival docs refer to upstream. No game runtime, private analyzer, binary engines, approved assets or third-party materials copied.
+- Shared registry: https://github.com/Jugadru/APEX-Simulation/blob/f878b09aa5d66ef7d8302b2d94aa2a8d7db9c59b/docs/foundation/registry.json ; schema: https://github.com/Jugadru/APEX-Simulation/blob/f878b09aa5d66ef7d8302b2d94aa2a8d7db9c59b/docs/foundation/schemas.json . No competing shared registry. Integration with main and shared schema registry pending.
+- `source-manifest.json` records original blob SHA for each migrated source. Update reviewed snapshots and corresponding provenance together. Historical migration check is pinned to baseline; subsequent intentional edits need manifest policy revision rather than claiming identical origin.
