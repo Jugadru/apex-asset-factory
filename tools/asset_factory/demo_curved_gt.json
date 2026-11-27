@@ -1,0 +1,44 @@
+{
+  "schema": 6,
+  "id": "apex-curved-gt-demo",
+  "version": "0.2.3",
+  "kind": "car",
+  "era": "modern-inspired",
+  "style": "original-curved-closed-wheel",
+  "lod": "LOD0",
+  "author": "APEX Asset Factory",
+  "license": "ORIGINAL",
+  "approved": true,
+  "references": [],
+  "seed": 2012,
+  "dimensions_m": {
+    "width": 2,
+    "length": 4.65,
+    "height": 1.27
+  },
+  "paint_rgb": [
+    0.035,
+    0.28,
+    0.55
+  ],
+  "materials": [
+    "paint",
+    "carbon_proxy",
+    "rubber",
+    "metal",
+    "accent"
+  ],
+  "triangle_budget": 16000,
+  "texture_max_px": 1024,
+  "destination": "staging",
+  "acceptance": [
+    "embedded_glb",
+    "dimension_match",
+    "godot_import",
+    "manual_review"
+  ],
+  "components": {
+    "tires": "wide"
+  },
+  "category": "gt"
+}
