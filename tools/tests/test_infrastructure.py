@@ -75,6 +75,26 @@ class InfrastructureTest(unittest.TestCase):
         with self.assertRaises(ValueError):r.audit(self.root/"missing.sqlite")
         with self.assertRaises(ValueError):r.select_version(restored,self.id,self.ver,"revoked")
 
+    def test_prebuild_reservation_conflict_and_release(self):
+        request=self.work/"request.json"
+        self.assertEqual(r.reserve(self.db,request,self.rev)["status"],"RESERVED")
+        self.assertEqual(r.reserve(self.db,request,self.rev)["status"],"EXISTS")
+        alt=self.root/"alternative.json"
+        alt.write_bytes(r.canonical(dict(self.req,seed=999)))
+        with self.assertRaisesRegex(ValueError,"conflict"):r.reserve(self.db,alt,self.rev)
+        with self.assertRaisesRegex(ValueError,"matching reservation"):r.release_reservation(self.db,alt,"wrong",self.rev)
+        with self.assertRaisesRegex(ValueError,"conflict"):r.register(self.db,self.work,"b"*40)
+        r.release_reservation(self.db,request,"failed initial build",self.rev)
+        self.assertEqual(r.reserve(self.db,request,self.rev)["status"],"RESERVED")
+        self.assertEqual(self.register()["status"],"REGISTERED")
+        self.assertEqual([x["kind"] for x in r.reservations(self.db,self.id,self.ver)],["RESERVED","RELEASED","RESERVED","CONSUMED"])
+        with self.assertRaises(ValueError):r.reserve(self.db,request,self.rev)
+        with self.assertRaises(ValueError):r.release_reservation(self.db,request,"too late",self.rev)
+        c=r.connect(self.db)
+        try:
+            with self.assertRaises(sqlite3.IntegrityError):c.execute("DELETE FROM reservations")
+        finally:c.close()
+
     def test_concurrent_same_id(self):
         # Initialize schema before competing writers; transaction serializes inserts.
         r.connect(self.db).close()

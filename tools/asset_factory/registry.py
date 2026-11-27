@@ -92,6 +92,15 @@ def connect(path,create=True):
             created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY(id,version) REFERENCES assets(id,version)
         );
+        CREATE TABLE IF NOT EXISTS reservations (
+            seq INTEGER PRIMARY KEY AUTOINCREMENT, id TEXT NOT NULL, version TEXT NOT NULL,
+            request_sha TEXT NOT NULL, revision TEXT NOT NULL,
+            kind TEXT NOT NULL CHECK(kind IN ('RESERVED','RELEASED','CONSUMED')),
+            reason TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE INDEX IF NOT EXISTS reservations_lookup ON reservations(id,version,seq);
+        CREATE TRIGGER IF NOT EXISTS reservations_no_update BEFORE UPDATE ON reservations BEGIN SELECT RAISE(ABORT,'immutable reservation'); END;
+        CREATE TRIGGER IF NOT EXISTS reservations_no_delete BEFORE DELETE ON reservations BEGIN SELECT RAISE(ABORT,'immutable reservation'); END;
         CREATE TRIGGER IF NOT EXISTS assets_no_update BEFORE UPDATE ON assets BEGIN SELECT RAISE(ABORT,'immutable asset'); END;
         CREATE TRIGGER IF NOT EXISTS assets_no_delete BEFORE DELETE ON assets BEGIN SELECT RAISE(ABORT,'immutable asset'); END;
         CREATE TRIGGER IF NOT EXISTS blobs_no_update BEFORE UPDATE ON blobs BEGIN SELECT RAISE(ABORT,'immutable blob'); END;
@@ -115,6 +124,73 @@ def verified_revision():
     dirty=subprocess.check_output(["git","status","--porcelain","--untracked-files=all"],cwd=ROOT,text=True,timeout=10)
     check(REV.fullmatch(head) and not dirty.strip(),"clean tracked git checkout required")
     return head
+
+
+def reservation_latest(c,id,version):
+    return c.execute("SELECT * FROM reservations WHERE id=? AND version=? ORDER BY seq DESC LIMIT 1",(id,version)).fetchone()
+
+
+def reservation_event(c,id,version,req_hash,revision,kind,reason):
+    c.execute("INSERT INTO reservations(id,version,request_sha,revision,kind,reason) VALUES(?,?,?,?,?,?)",
+              (id,version,req_hash,revision,kind,reason))
+
+
+def reserve_in_transaction(c,id,version,req_hash,revision):
+    prev=reservation_latest(c,id,version)
+    if prev and prev["kind"]=="RESERVED":
+        check((prev["request_sha"],prev["revision"])==(req_hash,revision),"reservation conflict")
+        return "EXISTS"
+    check(not prev or prev["kind"]!="CONSUMED","version already consumed")
+    reservation_event(c,id,version,req_hash,revision,"RESERVED","reserve before build")
+    return "RESERVED"
+
+
+def reserve(db,request_path,revision=None):
+    request=read_request(Path(request_path))
+    id,version=request["id"],request["version"]
+    identity(id,version)
+    revision=revision or verified_revision()
+    check(type(revision) is str and REV.fullmatch(revision),"invalid source revision")
+    req_hash=sha(canonical(request))
+    c=connect(db)
+    try:
+        c.execute("BEGIN IMMEDIATE")
+        check(not c.execute("SELECT 1 FROM assets WHERE id=? AND version=?",(id,version)).fetchone(),"version already registered")
+        status=reserve_in_transaction(c,id,version,req_hash,revision)
+        c.commit()
+        return {"status":status,"id":id,"version":version,"request_sha256":req_hash,"revision":revision}
+    except BaseException:
+        c.rollback();raise
+    finally:c.close()
+
+
+def release_reservation(db,request_path,reason,revision=None):
+    request=read_request(Path(request_path))
+    id,version=request["id"],request["version"]
+    identity(id,version)
+    revision=revision or verified_revision()
+    check(type(revision) is str and REV.fullmatch(revision),"invalid source revision")
+    check(type(reason) is str and 1<=len(reason.strip())<=500,"release reason required")
+    req_hash=sha(canonical(request))
+    c=connect(db,create=False)
+    try:
+        c.execute("BEGIN IMMEDIATE")
+        prev=reservation_latest(c,id,version)
+        check(prev and prev["kind"]=="RESERVED" and (prev["request_sha"],prev["revision"])==(req_hash,revision),"matching reservation required")
+        reservation_event(c,id,version,req_hash,revision,"RELEASED",reason)
+        c.commit()
+        return {"status":"RELEASED","id":id,"version":version}
+    except BaseException:
+        c.rollback();raise
+    finally:c.close()
+
+
+def reservations(db,id,version):
+    identity(id,version)
+    c=connect(db,create=False)
+    try:
+        return [dict(x) for x in c.execute("SELECT * FROM reservations WHERE id=? AND version=? ORDER BY seq",(id,version))]
+    finally:c.close()
 
 
 def register(db,workspace,revision=None):
@@ -144,10 +220,12 @@ def register(db,workspace,revision=None):
             check((previous["digest"],previous["request_sha"],previous["revision"])==(digest,sha(req),revision),"immutable id/version conflict")
             c.commit()
             return {"status":"EXISTS","id":id,"version":version,"sha256":digest,"promotion":"BLOCKED"}
+        reserve_in_transaction(c,id,version,sha(req),revision)
         c.execute("INSERT OR IGNORE INTO blobs VALUES (?,?)",(digest,raw))
         check(sha(c.execute("SELECT body FROM blobs WHERE digest=?",(digest,)).fetchone()[0])==digest,"blob integrity mismatch")
         c.execute("INSERT INTO assets VALUES (?,?,?,?,?,?,?)",(id,version,digest,sha(req),req.decode(),canonical(report).decode(),revision))
         event(c,id,version,"REGISTERED",{"sha256":digest,"revision":revision,"qa":qa,"provenance":"local receipt; not signed"})
+        reservation_event(c,id,version,sha(req),revision,"CONSUMED","asset registered")
         c.commit()
         return {"status":"REGISTERED","id":id,"version":version,"sha256":digest,"promotion":"BLOCKED"}
     except BaseException:
@@ -287,17 +365,21 @@ def main():
     p.add_argument("--db",required=True)
     subs=p.add_subparsers(dest="command",required=True)
     subs.add_parser("register").add_argument("workspace")
+    subs.add_parser("reserve").add_argument("request")
+    rel=subs.add_parser("release-reservation");rel.add_argument("request");rel.add_argument("reason")
     subs.add_parser("list")
     subs.add_parser("audit")
     subs.add_parser("backup").add_argument("destination")
     subs.add_parser("current").add_argument("id")
-    for name in ("history","revoke","select"):
+    for name in ("history","revoke","select","reservations"):
         sub=subs.add_parser(name)
         sub.add_argument("id");sub.add_argument("version")
         if name in ("revoke","select"):sub.add_argument("reason")
     a=p.parse_args()
     try:
-        result={"register":lambda:register(a.db,a.workspace),"list":lambda:list_assets(a.db),
+        result={"register":lambda:register(a.db,a.workspace),"reserve":lambda:reserve(a.db,a.request),
+                "release-reservation":lambda:release_reservation(a.db,a.request,a.reason),
+                "reservations":lambda:reservations(a.db,a.id,a.version),"list":lambda:list_assets(a.db),
                 "audit":lambda:audit(a.db),"history":lambda:history(a.db,a.id,a.version),
                 "revoke":lambda:revoke(a.db,a.id,a.version,a.reason),
                 "select":lambda:select_version(a.db,a.id,a.version,a.reason),
