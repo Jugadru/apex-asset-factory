@@ -9,6 +9,7 @@ from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from asset_factory.validate_glb import inspect, compare, main
+from asset_factory.build import inspect_attributes, read_request
 
 
 def fixture():
@@ -60,6 +61,18 @@ class AdvancedValidatorTest(unittest.TestCase):
         self.assertEqual(report["pivot_quality"],"NOT_RUN")
         with self.assertRaises(ValueError):
             inspect(self.a,0)
+
+    def test_pipeline_integration(self):
+        self.write()
+        self.assertEqual(inspect_attributes(self.a,100)["advanced_validation"]["status"],"PASS")
+        struct.pack_into("<H",self.raw,100,3)
+        self.write()
+        with self.assertRaisesRegex(ValueError,"index outside positions"):
+            inspect_attributes(self.a,100)
+        request=Path(self.tmp.name)/"request.json"
+        request.write_text('{"seed":NaN}')
+        with self.assertRaisesRegex(ValueError,"nonfinite JSON constant"):
+            read_request(request)
 
     def test_chunks_and_duplicate_json(self):
         self.write()

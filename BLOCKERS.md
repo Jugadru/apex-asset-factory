@@ -55,3 +55,8 @@ AF-B001 PASS: acesso leitura/escrita confirmado em Jugadru/apex-asset-factory, p
 
 ## Complemento de migração — contratos e continuidade
 Manifesto expandido para 32 blobs de origem verificados por comparação de Git SHA, incluindo contratos Foundation e guias de QA; snapshots somente leitura. Handoff e inventário SHA256 dos runtimes registrados. CI da revisão ampliada precisa de PASS antes de aceitar; FAST do jogo continua pendente. Nenhuma licença ou autorização de promoção inferida da migração.
+
+## v0.1.1 — candidate evidence (PR #3)
+- AF-B008: PARTIAL/PASS for synthetic supported static untextured indexed GLB subset; native acceptance and broader glTF profiles NOT_RUN. Evidence: https://github.com/Jugadru/apex-asset-factory/actions/runs/45928355798 (17 unit tests, source SHA f96ca0313d80888b2f996283904e123a896246b0).
+- AF-B007: numeric comparator implemented and synthetic tests PASS; actual repeated native exports and multi-seed test NOT_RUN in v0.1.1; binary identity not established. AF-B009: finite unit normals, zero-area triangles, named wheel nodes and scene references tested; pivot/UV overlap/scale/visual QA pending. AF-B021: strict JSON constants rejected; request schema and resource security incomplete.
+- AF-B003: upstream Foundation PR #177 closed without merge; investigate successor before integration. AF-B005: local DNS still blocks direct checkout; hosted checkout PASS. Native v0.1.1 Blender/Godot rerun pending. No merge/promotion; v0.1.1 stacked on open migration PR #1. Do not close IDs merely on synthetic CI.
