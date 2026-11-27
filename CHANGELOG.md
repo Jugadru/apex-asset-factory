@@ -45,3 +45,7 @@
 
 ## Review follow-up
 Native schema 2/3 and curved endurance lower LODs completed. Four numeric repeat comparisons PASS (one binary identical). 15 new builds, 55 switch steps and 12 exact targeted unit tests PASS. Current remote CI remains FAIL with inaccessible logs and no recorded steps; no complete current suite or CI success claim. See https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json. No new blocker closed; no promotion.
+
+## 0.2.4 — detailed wheels and brakes candidate
+- Schema 7, GT/endurance only: rounded tire, annular rim, hub, five spokes, brake disc, caliper, central nut. LOD geometry and exact wheel vertex/pivot/material QA; previous schemas unchanged.
+- Native variants PASS and two independent 11-step Godot switches. No artistic/production approval. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4-wheel-brake-detail/evidence/v0.2.4-native/summary.json

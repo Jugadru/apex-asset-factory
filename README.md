@@ -41,3 +41,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Curved closed-wheel bodies
 [Schema 6](docs/ADVANCED_BODY.md) · [native evidence](evidence/v0.2.3-native/summary.json). Staging only.
+
+## Detailed wheels and brakes
+[Schema 7 and native evidence](docs/WHEEL_DETAIL.md). GT/endurance visual assemblies only; no game physics or promotion.

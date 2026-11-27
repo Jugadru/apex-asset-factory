@@ -1,4 +1,4 @@
-"""Asset Factory 0.2.3: isolated original vehicle build, no promotion."""
+"""Asset Factory 0.2.4: isolated original vehicle build, no promotion."""
 import argparse
 import hashlib
 import json
@@ -76,7 +76,7 @@ def read_request(path):
     if len(raw) > 65536:
         raise ValueError("request too large")
     r = json.loads(raw, object_pairs_hook=unique, parse_constant=lambda s: (_ for _ in ()).throw(ValueError("nonfinite JSON constant: "+s)))
-    schema_name = {2:"request_v2.schema.json",3:"request_v3.schema.json",4:"request_v4.schema.json",5:"request_v5.schema.json",6:"request_v6.schema.json"}.get(r["schema"],"request.schema.json") if type(r) is dict and type(r.get("schema")) is int else "request.schema.json"
+    schema_name = {2:"request_v2.schema.json",3:"request_v3.schema.json",4:"request_v4.schema.json",5:"request_v5.schema.json",6:"request_v6.schema.json",7:"request_v7.schema.json"}.get(r["schema"],"request.schema.json") if type(r) is dict and type(r.get("schema")) is int else "request.schema.json"
     validate(r, json.loads((HERE/schema_name).read_text()))
     return r
 
@@ -84,8 +84,12 @@ def inspect_attributes(path, budget, layout=None):
     result = inspect_glb(path, budget)
     result["advanced_validation"], doc, decoded = inspect_advanced(path, budget)
     if layout is not None:
-        from asset_factory.modular_qa import verify_wheels
-        result["modular_wheels"] = verify_wheels(doc, decoded, layout)
+        if any(p["kind"] == "wheel_mesh" for p in layout):
+            from asset_factory.wheel_detail import verify_wheel_details
+            result["detailed_wheels"] = verify_wheel_details(doc,decoded,layout)
+        else:
+            from asset_factory.modular_qa import verify_wheels
+            result["modular_wheels"] = verify_wheels(doc, decoded, layout)
         if any(p.get("shape") == "open_tub" for p in layout):
             from asset_factory.detail_qa import verify_details
             result["detail_geometry"] = verify_details(doc,decoded,layout)
@@ -114,14 +118,14 @@ def inspect_attributes(path, budget, layout=None):
 def build(request, blender, godot, workspace, capture=False, derived_lod=0):
     r = read_request(Path(request))
     if type(derived_lod) is not int or derived_lod not in (0,1,2) or (derived_lod and r["schema"]==1):
-        raise ValueError("LOD variants require schema 2–6 and level 0–2")
-    generator = {1:"vehicle.py",2:"modular_vehicle.py",3:"era_vehicle.py",4:"detail_vehicle.py",5:"closed_wheel_vehicle.py",6:"advanced_body_vehicle.py"}[r["schema"]]
+        raise ValueError("LOD variants require schema 2–7 and level 0–2")
+    generator = {1:"vehicle.py",2:"modular_vehicle.py",3:"era_vehicle.py",4:"detail_vehicle.py",5:"closed_wheel_vehicle.py",6:"advanced_body_vehicle.py",7:"wheel_detail_vehicle.py"}[r["schema"]]
     w = Path(workspace).absolute()
     if w.exists() or w.is_symlink() or ROOT in w.resolve().parents or w.resolve() == ROOT:
         raise ValueError("new workspace outside repository required")
     w = w.resolve()
     w.mkdir()
-    report = {"factory_version":"0.2.3","derived_lod":derived_lod,"status":"FAIL","approval":"PENDING",
+    report = {"factory_version":"0.2.4","derived_lod":derived_lod,"status":"FAIL","approval":"PENDING",
               "promotion":"BLOCKED","stages":{k:"NOT_RUN" for k in ("plan","export","structural_validation","godot_import","capture")}}
     try:
         dump(w/"request.json",r)
@@ -134,8 +138,10 @@ def build(request, blender, godot, workspace, capture=False, derived_lod=0):
         dump(w/"plan.json",planned)
         if planned["jobs"][0]["status"] != "PLANNED":
             raise ValueError("Foundation blocked request")
-        if r["schema"] in (2,3,4,5,6):
-            if r["schema"] == 6:
+        if r["schema"] in (2,3,4,5,6,7):
+            if r["schema"] == 7:
+                from asset_factory.wheel_detail import design, validate_layout
+            elif r["schema"] == 6:
                 from asset_factory.advanced_body_layout import design, validate_layout
             elif r["schema"] == 5:
                 from asset_factory.closed_wheel_layout import design, validate_layout
@@ -145,7 +151,7 @@ def build(request, blender, godot, workspace, capture=False, derived_lod=0):
                 from asset_factory.era_layout import design, validate_layout
             else:
                 from asset_factory.modular_layout import design, validate_layout
-            layout = design(r,derived_lod) if r["schema"] == 6 else design(r)
+            layout = design(r,derived_lod) if r["schema"] in (6,7) else design(r)
             report["layout"] = validate_layout(layout,r)
             dump(w/"component-layout.json",layout)
         report["stages"]["plan"]="PASS"
@@ -162,7 +168,7 @@ def build(request, blender, godot, workspace, capture=False, derived_lod=0):
              str(HERE/generator),"--","--request",str(w/"request.json"),"--output",str(asset)]+(["--derived-lod",str(derived_lod)] if derived_lod else []),
             w,w/"blender.log",180)
         report["stages"]["export"]="PASS"
-        report["asset"] = inspect_attributes(asset,r["triangle_budget"],layout if r["schema"] in (2,3,4,5,6) else None)
+        report["asset"] = inspect_attributes(asset,r["triangle_budget"],layout if r["schema"] in (2,3,4,5,6,7) else None)
         report["stages"]["structural_validation"]="PASS"
         (stage/"project.godot").write_text('[application]\nconfig/name="APEX Asset Staging"\n[display]\nwindow/size/viewport_width=960\nwindow/size/viewport_height=540\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
         shutil.copyfile(HERE/"staging.gd",stage/"staging.gd")
@@ -205,7 +211,7 @@ def build(request, blender, godot, workspace, capture=False, derived_lod=0):
               "request_sha256":digest(w/"request.json"),"dependencies":[],
               "generator_sha256":digest(HERE/generator),
               "derived_lod":derived_lod,
-              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py","lod_policy.py"]+(["era_layout.py"] if r["schema"] in (3,4,5,6) else [])+(["detail_layout.py","detail_qa.py"] if r["schema"] == 4 else [])+(["closed_wheel_layout.py","closed_wheel_qa.py"] if r["schema"] in (5,6) else [])+(["advanced_body_layout.py"] if r["schema"] == 6 else []))} if r["schema"] in (2,3,4,5,6) else {}),"asset":report.get("asset"),
+              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py","lod_policy.py"]+(["era_layout.py"] if r["schema"] in (3,4,5,6,7) else [])+(["detail_layout.py","detail_qa.py"] if r["schema"] == 4 else [])+(["closed_wheel_layout.py","closed_wheel_qa.py"] if r["schema"] in (5,6,7) else [])+(["advanced_body_layout.py"] if r["schema"] in (6,7) else [])+(["wheel_detail.py"] if r["schema"] == 7 else []))} if r["schema"] in (2,3,4,5,6,7) else {}),"asset":report.get("asset"),
               "status":report["status"],"history":[{"version":r["version"],"status":report["status"]}],
               "approval":"PENDING","promotion":"BLOCKED"})
     return report
