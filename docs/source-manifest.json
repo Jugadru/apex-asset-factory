@@ -127,6 +127,41 @@
       "path": "docs/references/asset_jobs.original.example.json",
       "source_path": "docs/references/asset_jobs.original.example.json",
       "blob_sha": "e1d81e552a3e3bd0d46fb33fd8f51db682770fe0"
+    },
+    {
+      "path": "docs/upstream-snapshot/foundation/README.md",
+      "source_path": "docs/foundation/README.md",
+      "blob_sha": "34488eb1098a0e2de99625ddc69fe95b54969dac"
+    },
+    {
+      "path": "docs/upstream-snapshot/foundation/artifact.example.json",
+      "source_path": "docs/foundation/artifact.example.json",
+      "blob_sha": "ef3c69f1f1de47fbd0b98bded6e1cd19cc4112eb"
+    },
+    {
+      "path": "docs/upstream-snapshot/foundation/registry.json",
+      "source_path": "docs/foundation/registry.json",
+      "blob_sha": "413e5aaa8337c55e59018262a2a4a3e27a323f2b"
+    },
+    {
+      "path": "docs/upstream-snapshot/foundation/schemas.json",
+      "source_path": "docs/foundation/schemas.json",
+      "blob_sha": "e25cf74809b914bd623e671fb13dfe6ddca3710a"
+    },
+    {
+      "path": "docs/upstream-snapshot/APEX_NATIVE_GRAPHICS_REVIEW.md",
+      "source_path": "docs/APEX_NATIVE_GRAPHICS_REVIEW.md",
+      "blob_sha": "f3a3062d2ef6dbde6c881a529804f307c3452170"
+    },
+    {
+      "path": "docs/upstream-snapshot/REGRESSAO_VISUAL_AB.md",
+      "source_path": "docs/REGRESSAO_VISUAL_AB.md",
+      "blob_sha": "886eea18059a185f8f9f8a2d28064dfe4f79ede5"
+    },
+    {
+      "path": "docs/upstream-snapshot/APEX_LAB_KNOWLEDGE_INDEX.md",
+      "source_path": "docs/APEX_LAB_KNOWLEDGE_INDEX.md",
+      "blob_sha": "987509befac349a38e647cd87f28d379c4de61ad"
     }
   ]
 }

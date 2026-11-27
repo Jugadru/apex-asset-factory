@@ -1,0 +1,262 @@
+{
+  "module.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "version": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "maturity": {
+        "type": "string",
+        "enum": [
+          "existing",
+          "experimental",
+          "planned"
+        ]
+      },
+      "state_owner": {
+        "type": "string",
+        "minLength": 1
+      },
+      "dependencies": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+        },
+        "uniqueItems": true
+      },
+      "entrypoints": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "version",
+      "maturity",
+      "state_owner",
+      "dependencies",
+      "entrypoints"
+    ],
+    "additionalProperties": false
+  },
+  "capability.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+      },
+      "module": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+      },
+      "version": {
+        "type": "string",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      },
+      "inputs": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      },
+      "outputs": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      },
+      "method": {
+        "type": "string",
+        "minLength": 1
+      },
+      "permissions": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "read.repository",
+            "read.local",
+            "write.staging",
+            "owner.hosted.request"
+          ]
+        },
+        "uniqueItems": true
+      },
+      "restrictions": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      }
+    },
+    "required": [
+      "id",
+      "module",
+      "version",
+      "inputs",
+      "outputs",
+      "method",
+      "permissions",
+      "restrictions"
+    ],
+    "additionalProperties": false
+  },
+  "compatibility.v1": {
+    "type": "object",
+    "properties": {
+      "left": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+      },
+      "left_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "right": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+      },
+      "right_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "PASS",
+          "FAIL",
+          "NOT_RUN",
+          "INCONCLUSIVE",
+          "BLOCKED"
+        ]
+      },
+      "evidence": {
+        "type": "string",
+        "minLength": 1
+      },
+      "migration": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "left",
+      "left_version",
+      "right",
+      "right_version",
+      "status",
+      "evidence",
+      "migration"
+    ],
+    "additionalProperties": false
+  },
+  "artifact.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "test",
+          "benchmark",
+          "capture",
+          "model",
+          "report",
+          "build"
+        ]
+      },
+      "sha256": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      },
+      "revision": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{40}$"
+      },
+      "producer": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "PASS",
+          "FAIL",
+          "NOT_RUN",
+          "INCONCLUSIVE",
+          "BLOCKED"
+        ]
+      }
+    },
+    "required": [
+      "id",
+      "kind",
+      "sha256",
+      "revision",
+      "producer",
+      "status"
+    ],
+    "additionalProperties": false
+  },
+  "test-result.v1": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+      },
+      "revision": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{40}$"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "PASS",
+          "FAIL",
+          "NOT_RUN",
+          "INCONCLUSIVE",
+          "BLOCKED"
+        ]
+      },
+      "evidence": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "id",
+      "revision",
+      "status",
+      "evidence"
+    ],
+    "additionalProperties": false
+  }
+}

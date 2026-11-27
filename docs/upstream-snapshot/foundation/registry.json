@@ -1,0 +1,555 @@
+{
+  "foundation_version": "0.1.0",
+  "modules": [
+    {
+      "id": "foundation",
+      "name": "APEX Foundation",
+      "version": "0.1.0",
+      "maturity": "experimental",
+      "state_owner": "Shared metadata only",
+      "dependencies": [],
+      "entrypoints": [
+        "tools/apex_foundation.py",
+        "tools/apex_foundation_registry.py"
+      ]
+    },
+    {
+      "id": "core2",
+      "name": "Core 2",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Authoritative sporting state",
+      "dependencies": [],
+      "entrypoints": [
+        "scripts/race_engine.gd"
+      ]
+    },
+    {
+      "id": "hyper",
+      "name": "Hyper Engine",
+      "version": null,
+      "maturity": "experimental",
+      "state_owner": "Independent experimental sporting state",
+      "dependencies": [],
+      "entrypoints": []
+    },
+    {
+      "id": "presentation",
+      "name": "Presentation",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Visual state only",
+      "dependencies": [
+        "core2"
+      ],
+      "entrypoints": []
+    },
+    {
+      "id": "engineering-lab",
+      "name": "Engineering Lab",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Diagnostic evidence",
+      "dependencies": [],
+      "entrypoints": [
+        "tools/apex_lab_architecture.py"
+      ]
+    },
+    {
+      "id": "development-lab",
+      "name": "Development Lab",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Private diagnostic evidence",
+      "dependencies": [],
+      "entrypoints": []
+    },
+    {
+      "id": "asset-factory",
+      "name": "Asset Factory",
+      "version": "0.1.0",
+      "maturity": "experimental",
+      "state_owner": "Staging artifacts only",
+      "dependencies": [
+        "foundation",
+        "graphics-lab",
+        "blender",
+        "godot",
+        "python"
+      ],
+      "entrypoints": [
+        "tools/apex_asset_build.py",
+        "tools/asset_factory/build.py",
+        "tools/asset_factory/request.schema.json"
+      ]
+    },
+    {
+      "id": "lab-hub",
+      "name": "Lab Hub",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Owner-authorized jobs",
+      "dependencies": [
+        "engineering-lab"
+      ],
+      "entrypoints": [
+        "tools/apex_lab_command.py"
+      ]
+    },
+    {
+      "id": "quality-lab",
+      "name": "Quality Lab",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "QA evidence",
+      "dependencies": [],
+      "entrypoints": [
+        "tools/apex_ci_tiers.py"
+      ]
+    },
+    {
+      "id": "performance-lab",
+      "name": "Performance Lab",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Measurement reports",
+      "dependencies": [],
+      "entrypoints": [
+        "tools/apex_lab_perf_report.py"
+      ]
+    },
+    {
+      "id": "graphics-lab",
+      "name": "Graphics Lab",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Visual evidence",
+      "dependencies": [],
+      "entrypoints": [
+        "tools/apex_lab_graphics.py"
+      ]
+    },
+    {
+      "id": "data-center",
+      "name": "Data Center",
+      "version": null,
+      "maturity": "planned",
+      "state_owner": "Dataset provenance",
+      "dependencies": [],
+      "entrypoints": []
+    },
+    {
+      "id": "saveguard",
+      "name": "SaveGuard",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Cross-revision QA; not save writer",
+      "dependencies": [
+        "core2"
+      ],
+      "entrypoints": [
+        "tools/apex_saveguard_ci.py"
+      ]
+    },
+    {
+      "id": "replay",
+      "name": "Replay System",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Replay records",
+      "dependencies": [
+        "core2"
+      ],
+      "entrypoints": [
+        "scripts/core/race_replay_0660.gd"
+      ]
+    },
+    {
+      "id": "release",
+      "name": "Release Pipeline",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Test build evidence",
+      "dependencies": [],
+      "entrypoints": [
+        "tools/apex_lab_release.py"
+      ]
+    },
+    {
+      "id": "modding",
+      "name": "Modding Framework",
+      "version": null,
+      "maturity": "planned",
+      "state_owner": "Content metadata",
+      "dependencies": [],
+      "entrypoints": []
+    },
+    {
+      "id": "godot",
+      "name": "Godot",
+      "version": "4.7.2",
+      "maturity": "existing",
+      "state_owner": "Engine runtime",
+      "dependencies": [],
+      "entrypoints": [
+        "project.godot"
+      ]
+    },
+    {
+      "id": "blender",
+      "name": "Blender",
+      "version": null,
+      "maturity": "experimental",
+      "state_owner": "Asset tool runtime",
+      "dependencies": [],
+      "entrypoints": []
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "version": null,
+      "maturity": "existing",
+      "state_owner": "Tool runtime",
+      "dependencies": [],
+      "entrypoints": []
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "foundation.validate",
+      "module": "foundation",
+      "version": "1.0.0",
+      "inputs": [
+        "repository registries"
+      ],
+      "outputs": [
+        "structural report"
+      ],
+      "method": "python3 tools/apex_foundation_registry.py validate",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No runtime writes; no execution authorization"
+      ]
+    },
+    {
+      "id": "foundation.search",
+      "module": "foundation",
+      "version": "1.0.0",
+      "inputs": [
+        "query"
+      ],
+      "outputs": [
+        "historical catalog records"
+      ],
+      "method": "python3 tools/apex_foundation_registry.py search QUERY",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "Offline; sources not revalidated"
+      ]
+    },
+    {
+      "id": "foundation.compatibility",
+      "module": "foundation",
+      "version": "1.0.0",
+      "inputs": [
+        "two module IDs and exact versions"
+      ],
+      "outputs": [
+        "compatibility decision"
+      ],
+      "method": "python3 tools/apex_foundation_registry.py compatibility LEFT VERSION RIGHT VERSION",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "Only explicit PASS allows compatibility; never grants execution"
+      ]
+    },
+    {
+      "id": "asset.plan",
+      "module": "asset-factory",
+      "version": "1.0.0",
+      "inputs": [
+        "asset job manifest"
+      ],
+      "outputs": [
+        "non-executed plan"
+      ],
+      "method": "python3 tools/apex_foundation.py plan MANIFEST",
+      "permissions": [
+        "read.local"
+      ],
+      "restrictions": [
+        "External sources blocked; no promotion"
+      ]
+    },
+    {
+      "id": "lab.request",
+      "module": "lab-hub",
+      "version": "1.0.0",
+      "inputs": [
+        "owner comment",
+        "exact commit SHA"
+      ],
+      "outputs": [
+        "hosted diagnostic receipt"
+      ],
+      "method": "/lab audit SHA",
+      "permissions": [
+        "owner.hosted.request"
+      ],
+      "restrictions": [
+        "Existing Hub authorization applies; no personal runner"
+      ]
+    },
+    {
+      "id": "quality.fast",
+      "module": "quality-lab",
+      "version": "1.0.0",
+      "inputs": [
+        "PR diff"
+      ],
+      "outputs": [
+        "CI logs"
+      ],
+      "method": ".github/workflows/godot-setup.yml",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "FAST exact SHA; no automatic FULL"
+      ]
+    },
+    {
+      "id": "saveguard.check",
+      "module": "saveguard",
+      "version": "1.0.0",
+      "inputs": [
+        "baseline and candidate revisions"
+      ],
+      "outputs": [
+        "cross-revision report"
+      ],
+      "method": "Existing SaveGuard workflow",
+      "permissions": [
+        "read.repository"
+      ],
+      "restrictions": [
+        "No production save modification"
+      ]
+    },
+    {
+      "id": "performance.report",
+      "module": "performance-lab",
+      "version": "1.0.0",
+      "inputs": [
+        "existing test log"
+      ],
+      "outputs": [
+        "performance report"
+      ],
+      "method": "tools/apex_lab_perf_report.py",
+      "permissions": [
+        "read.local"
+      ],
+      "restrictions": [
+        "No GPU or local-runner claim"
+      ]
+    },
+    {
+      "id": "graphics.inspect",
+      "module": "graphics-lab",
+      "version": "1.0.0",
+      "inputs": [
+        "authorized diagnostic"
+      ],
+      "outputs": [
+        "visual evidence"
+      ],
+      "method": "Existing hosted Graphics Lab",
+      "permissions": [
+        "owner.hosted.request"
+      ],
+      "restrictions": [
+        "Hosted software rendering is not real GPU"
+      ]
+    },
+    {
+      "id": "release.test-build",
+      "module": "release",
+      "version": "1.0.0",
+      "inputs": [
+        "authorized exact SHA"
+      ],
+      "outputs": [
+        "verified test artifact"
+      ],
+      "method": "Existing Release Lab",
+      "permissions": [
+        "owner.hosted.request"
+      ],
+      "restrictions": [
+        "No publication"
+      ]
+    },
+    {
+      "id": "asset.build.original",
+      "module": "asset-factory",
+      "version": "0.1.0",
+      "inputs": [
+        "approved original vehicle request",
+        "trusted Blender 5.3 executable",
+        "trusted Godot 4.7.2 executable",
+        "new workspace outside repository"
+      ],
+      "outputs": [
+        "GLB staging",
+        "report and registry receipts",
+        "optional PNG"
+      ],
+      "method": "python3 tools/asset_factory/build.py REQUEST --blender BLENDER --godot GODOT --workspace NEW_WORKSPACE [--capture]",
+      "permissions": [
+        "read.local",
+        "write.staging"
+      ],
+      "restrictions": [
+        "No external asset sources",
+        "No production promotion",
+        "No authorization from metadata",
+        "Exact-pair compatibility remains unverified by shared registry"
+      ]
+    }
+  ],
+  "compatibility": [
+    {
+      "left": "core2",
+      "left_version": "03a73242b21854c22c9e0067f3192847be570de6",
+      "right": "godot",
+      "right_version": "4.7.2",
+      "status": "PASS",
+      "evidence": "https://github.com/Jugadru/APEX-Simulation/actions/runs/45920592893",
+      "migration": "Re-run FAST on any new SHA"
+    },
+    {
+      "left": "asset-factory",
+      "left_version": "0.1.0",
+      "right": "blender",
+      "right_version": "5.3.0-candidate",
+      "status": "NOT_RUN",
+      "evidence": "Candidate target only; native execution pending",
+      "migration": "Validate exact Blender build and GLB import"
+    },
+    {
+      "left": "hyper",
+      "left_version": "2.1",
+      "right": "core2",
+      "right_version": "03a73242b21854c22c9e0067f3192847be570de6",
+      "status": "BLOCKED",
+      "evidence": "Hyper source not integrated",
+      "migration": "Audit actual ZIP and adapter; preserve independent kernel"
+    },
+    {
+      "left": "foundation",
+      "left_version": "0.1.0",
+      "right": "python",
+      "right_version": "3.10",
+      "status": "NOT_RUN",
+      "evidence": "Minimum target, not a tested environment",
+      "migration": "Run Foundation unit tests on exact interpreter"
+    },
+    {
+      "left": "engineering-lab",
+      "left_version": "unknown",
+      "right": "lab-hub",
+      "right_version": "unknown",
+      "status": "NOT_RUN",
+      "evidence": "Exact tool versions not independently pinned",
+      "migration": "Pin revisions and verify existing command contract"
+    },
+    {
+      "left": "asset-factory",
+      "left_version": "0.1.0",
+      "right": "godot",
+      "right_version": "4.7.2",
+      "status": "NOT_RUN",
+      "evidence": "GLB native import pending",
+      "migration": "Verify generated artifact in isolated Godot project"
+    }
+  ],
+  "contracts": [
+    {
+      "id": "module.v1",
+      "status": "active"
+    },
+    {
+      "id": "capability.v1",
+      "status": "active"
+    },
+    {
+      "id": "compatibility.v1",
+      "status": "active"
+    },
+    {
+      "id": "artifact.v1",
+      "status": "active"
+    },
+    {
+      "id": "test-result.v1",
+      "status": "active"
+    },
+    {
+      "id": "command",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "snapshot",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "event",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "telemetry",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "asset",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "save",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "replay",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "benchmark",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "report",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    },
+    {
+      "id": "job",
+      "status": "deferred",
+      "reason": "Reuse existing owner contracts; audit payload before registering."
+    }
+  ]
+}

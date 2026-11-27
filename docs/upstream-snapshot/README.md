@@ -1,0 +1,3 @@
+# Pinned upstream documentation (read-only)
+
+Source APEX-Simulation at f878b09aa5d66ef7d8302b2d94aa2a8d7db9c59b. These are byte-preserved snapshots for planning and interoperability, not the canonical registry or runnable Foundation CLI. Do not change sporting ownership or interpret historical native GPU results as Asset Factory validation. Internal upstream relative links may resolve only in the original repository. SHA manifest covers these files. See [UPSTREAM](../UPSTREAM.md) and [handoff](../HANDOFF.md).
