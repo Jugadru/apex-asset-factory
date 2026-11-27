@@ -1,0 +1,50 @@
+{
+  "approval": "PENDING",
+  "asset": {
+    "attribute_presence": "PASS",
+    "bytes": 202120,
+    "godot_import": "PASS",
+    "materials": 5,
+    "mesh_triangles": 2952,
+    "promotion": "BLOCKED",
+    "sha256": "e65734cc76a4520418f2c75490ee66a36b8cfea0fe4e9b0710b891e58bc6f92d",
+    "structural_qa": "PASS",
+    "textures": 0,
+    "visual_review": "NOT_RUN",
+    "wheel_nodes": [
+      "Wheel_L_F",
+      "Wheel_L_R",
+      "Wheel_R_F",
+      "Wheel_R_R"
+    ]
+  },
+  "blender": "Blender 5.3.0 Release Candidate",
+  "capture": {
+    "bytes": 32616,
+    "file": "capture.png",
+    "height": 540,
+    "sha256": "85ed891f42bc349293847d74156d1e660f0901239e57b4061f3062df5c089dc5",
+    "width": 960
+  },
+  "factory_version": "0.1.0",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "godot_fixture": {
+    "meshes": 28,
+    "size": [
+      1.80000007152557,
+      1.10000002384186,
+      4.80000066757202
+    ]
+  },
+  "promotion": "BLOCKED",
+  "stages": {
+    "capture": "PASS",
+    "export": "PASS",
+    "godot_import": "PASS",
+    "manual_review": "NOT_RUN",
+    "plan": "PASS",
+    "promotion": "BLOCKED",
+    "structural_validation": "PASS"
+  },
+  "status": "BUILT"
+}

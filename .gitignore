@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.godot/
+.venv/
+staging/
+build/
+dist/
+*.blend1
+*.glb
+*.blend
+*.exe
+*.zip
+*.tar.xz
+.env

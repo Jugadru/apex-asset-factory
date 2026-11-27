@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "domains": [
+    "hyper_engine",
+    "vehicle_dynamics",
+    "racecraft",
+    "strategy",
+    "engineering",
+    "career",
+    "presentation",
+    "quality_lab"
+  ],
+  "runtime_integration": false,
+  "contracts": {
+    "authority": "simulation_kernel",
+    "presentation": "read_only_snapshot",
+    "rng": "domain_isolated",
+    "clock": "integer_tick",
+    "units": "SI",
+    "legacy": "preserve_revision_and_manual_commands"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "apex-openwheel-demo",
+  "version": "0.1.0",
+  "kind": "car",
+  "era": "2012-inspired",
+  "style": "original-low-poly",
+  "lod": "LOD0",
+  "author": "APEX Asset Factory",
+  "license": "ORIGINAL",
+  "approved": true,
+  "references": [],
+  "seed": 2012,
+  "dimensions_m": {
+    "width": 1.8,
+    "length": 4.8,
+    "height": 1.1
+  },
+  "paint_rgb": [
+    0.85,
+    0.16,
+    0.025
+  ],
+  "materials": [
+    "paint",
+    "carbon_proxy",
+    "rubber",
+    "metal",
+    "accent"
+  ],
+  "triangle_budget": 8000,
+  "texture_max_px": 1024,
+  "destination": "staging",
+  "acceptance": [
+    "embedded_glb",
+    "dimension_match",
+    "godot_import",
+    "manual_review"
+  ]
+}

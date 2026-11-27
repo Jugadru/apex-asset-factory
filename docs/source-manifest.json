@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "source_repository": "Jugadru/APEX-Simulation",
+  "source_revision": "f878b09aa5d66ef7d8302b2d94aa2a8d7db9c59b",
+  "files": [
+    {
+      "path": "tools/asset_factory/build.py",
+      "source_path": "tools/asset_factory/build.py",
+      "blob_sha": "21708feaf94653edd46fc8bce1013faf16d29e4a"
+    },
+    {
+      "path": "tools/asset_factory/vehicle.py",
+      "source_path": "tools/asset_factory/vehicle.py",
+      "blob_sha": "3d26e3fec243b76d213cd5dfff280040a477c9a4"
+    },
+    {
+      "path": "tools/asset_factory/staging.gd",
+      "source_path": "tools/asset_factory/staging.gd",
+      "blob_sha": "43341f01fa6cd1a367541c8951ea0842ad99e700"
+    },
+    {
+      "path": "tools/asset_factory/request.schema.json",
+      "source_path": "tools/asset_factory/request.schema.json",
+      "blob_sha": "7887711f1ecd6a0fdb8b0d4602321ca54204b547"
+    },
+    {
+      "path": "tools/asset_factory/demo.json",
+      "source_path": "tools/asset_factory/demo.json",
+      "blob_sha": "aca325b90fb123285f73a3414644bc3e1f958f24"
+    },
+    {
+      "path": "tools/tests/test_asset_factory.py",
+      "source_path": "tools/tests/test_asset_factory.py",
+      "blob_sha": "66f42eb4aee2a1a3b39ef8bf624dc2e0d1bfd610"
+    },
+    {
+      "path": "tools/apex_foundation.py",
+      "source_path": "tools/apex_foundation.py",
+      "blob_sha": "93c427307b450125dc4d34c9062b64da034ee735"
+    },
+    {
+      "path": "tools/apex_asset_build.py",
+      "source_path": "tools/apex_asset_build.py",
+      "blob_sha": "15a60572612f32e36f39ab262f5cbd05d63ac108"
+    },
+    {
+      "path": "tools/apex_blender_scaffold.py",
+      "source_path": "tools/apex_blender_scaffold.py",
+      "blob_sha": "e2f80d5d62b08dd816e4817f1b18aa775007d80a"
+    },
+    {
+      "path": "tools/apex_lab_graphics.py",
+      "source_path": "tools/apex_lab_graphics.py",
+      "blob_sha": "440a7f463d96fa325f8fa0465398fb8bcacc400f"
+    },
+    {
+      "path": "tools/tests/test_apex_foundation.py",
+      "source_path": "tools/tests/test_apex_foundation.py",
+      "blob_sha": "33f9896ab4e84cbf8f2f9f2fbf6e7be3e21f8e42"
+    },
+    {
+      "path": "tools/tests/test_apex_asset_build.py",
+      "source_path": "tools/tests/test_apex_asset_build.py",
+      "blob_sha": "ac1c88e97dfc51b545e631d46e906cd7fac46799"
+    },
+    {
+      "path": "docs/references/ASSET_FACTORY_010.md",
+      "source_path": "docs/references/ASSET_FACTORY_010.md",
+      "blob_sha": "6e9ceb8a0e4859a0b1af69fdfdc15228311e1875"
+    },
+    {
+      "path": "docs/references/PIPELINE_GRAFICO.md",
+      "source_path": "docs/references/PIPELINE_GRAFICO.md",
+      "blob_sha": "fa29769c05791c5b0dd2f185d1a3fb634231fda5"
+    },
+    {
+      "path": "docs/references/README.md",
+      "source_path": "docs/references/README.md",
+      "blob_sha": "a33af85b37db7222c0ac750c85e60d32e95af084"
+    },
+    {
+      "path": "docs/references/BIBLIOTECA_198.md",
+      "source_path": "docs/references/BIBLIOTECA_198.md",
+      "blob_sha": "89d8ceaadae07cacf718cbf9ff8b00ab22047805"
+    },
+    {
+      "path": "docs/references/CATALOGO_120.md",
+      "source_path": "docs/references/CATALOGO_120.md",
+      "blob_sha": "7a32429d8b73b3155d0c157470d24f4902b95e24"
+    },
+    {
+      "path": "docs/references/INFRAESTRUTURA.md",
+      "source_path": "docs/references/INFRAESTRUTURA.md",
+      "blob_sha": "745ffbd5d3db33a00fbd5202e131c46113834591"
+    },
+    {
+      "path": "docs/references/ROADMAP_HYPER.md",
+      "source_path": "docs/references/ROADMAP_HYPER.md",
+      "blob_sha": "1516249c923126c85d462d1131416d4ff54a2ff9"
+    },
+    {
+      "path": "docs/references/CHANGELOG.md",
+      "source_path": "docs/references/CHANGELOG.md",
+      "blob_sha": "415ae0ac6626711127f018f8662854d0cf911f17"
+    },
+    {
+      "path": "docs/references/references.json",
+      "source_path": "docs/references/references.json",
+      "blob_sha": "2556dc59594cfede4201c3ccfc56e6892f25d54f"
+    },
+    {
+      "path": "docs/references/possibilities.json",
+      "source_path": "docs/references/possibilities.json",
+      "blob_sha": "72f40cd5b876bd68c5ab0d0a7df4852d866ae2d9"
+    },
+    {
+      "path": "docs/references/domains.json",
+      "source_path": "docs/references/domains.json",
+      "blob_sha": "5d28db6758a36b68912e547f4ac0e2db93cb025e"
+    },
+    {
+      "path": "docs/references/asset_jobs.example.json",
+      "source_path": "docs/references/asset_jobs.example.json",
+      "blob_sha": "0ff8bfef017abedd71d322063e2092262c817343"
+    },
+    {
+      "path": "docs/references/asset_jobs.original.example.json",
+      "source_path": "docs/references/asset_jobs.original.example.json",
+      "blob_sha": "e1d81e552a3e3bd0d46fb33fd8f51db682770fe0"
+    },
+    {
+      "path": "docs/upstream-snapshot/foundation/README.md",
+      "source_path": "docs/foundation/README.md",
+      "blob_sha": "34488eb1098a0e2de99625ddc69fe95b54969dac"
+    },
+    {
+      "path": "docs/upstream-snapshot/foundation/artifact.example.json",
+      "source_path": "docs/foundation/artifact.example.json",
+      "blob_sha": "ef3c69f1f1de47fbd0b98bded6e1cd19cc4112eb"
+    },
+    {
+      "path": "docs/upstream-snapshot/foundation/registry.json",
+      "source_path": "docs/foundation/registry.json",
+      "blob_sha": "413e5aaa8337c55e59018262a2a4a3e27a323f2b"
+    },
+    {
+      "path": "docs/upstream-snapshot/foundation/schemas.json",
+      "source_path": "docs/foundation/schemas.json",
+      "blob_sha": "e25cf74809b914bd623e671fb13dfe6ddca3710a"
+    },
+    {
+      "path": "docs/upstream-snapshot/APEX_NATIVE_GRAPHICS_REVIEW.md",
+      "source_path": "docs/APEX_NATIVE_GRAPHICS_REVIEW.md",
+      "blob_sha": "f3a3062d2ef6dbde6c881a529804f307c3452170"
+    },
+    {
+      "path": "docs/upstream-snapshot/REGRESSAO_VISUAL_AB.md",
+      "source_path": "docs/REGRESSAO_VISUAL_AB.md",
+      "blob_sha": "886eea18059a185f8f9f8a2d28064dfe4f79ede5"
+    },
+    {
+      "path": "docs/upstream-snapshot/APEX_LAB_KNOWLEDGE_INDEX.md",
+      "source_path": "docs/APEX_LAB_KNOWLEDGE_INDEX.md",
+      "blob_sha": "987509befac349a38e647cd87f28d379c4de61ad"
+    }
+  ]
+}

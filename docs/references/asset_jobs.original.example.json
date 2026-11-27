@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "jobs": [
+    {
+      "id": "demo-car-001",
+      "kind": "car",
+      "era": "2012",
+      "source": null,
+      "license": "ORIGINAL",
+      "approved": true,
+      "output": "staging/demo-car-001.glb",
+      "triangle_budget": 5000,
+      "texture_max_px": 1024
+    }
+  ]
+}
