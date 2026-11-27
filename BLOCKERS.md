@@ -9,8 +9,8 @@ Separar a produção gráfica em `Jugadru/apex-asset-factory`, versionamento pr�
 ## Registro de bloqueios e limitações (IDs permanentes)
 | ID | Prioridade | Estado | Limitação / critério para resolver |
 |---|---|---|---|
-| AF-B001 | P0 | BLOCKED | Criação de repo: proprietário cria repo inicializado e concede acesso ao conector; confirmar leitura/escrita. |
-| AF-B002 | P0 | BLOCKED | Migração ainda não executada; portar arquivos da revisão exata, verificar hashes e imports; manter #184 sem merge. |
+| AF-B001 | P0 | PASS | Repo público criado; leitura/escrita verificadas via commits e PR #1. |
+| AF-B002 | P0 | PASS | Migração em PR #1: 25/25 blobs idênticos, 10 testes CI e fixture nativa PASS. Merge da PR e integração no jogo são decisões separadas. #184 preservada sem merge. |
 | AF-B003 | P0 | BLOCKED | Foundation #177 não integrada; fixar versão/SHA dos contratos compartilhados, registrar compatibilidade e evitar duas implementações autoritativas. |
 | AF-B004 | P0 | NOT_RUN | CI próprio e FAST candidato: testes do novo repo e integração no jogo em PR direcionada a main, com PASS no SHA exato; não impor FULL. |
 | AF-B005 | P1 | BLOCKED | Clone completo anterior indisponível; reexecutar com checkout completo e dependências reais, não cópias parciais dos helpers. |
@@ -44,3 +44,11 @@ A nova fábrica é dona de fontes gráficas, geradores, staging, QA e registro; 
 
 ## Atualização de migração
 AF-B001 PASS: acesso leitura/escrita confirmado em Jugadru/apex-asset-factory, público. AF-B002: transferência candidata; confirmar hashes, CI e execução antes de encerrar. AF-B004: CI de contratos adicionado, execução ainda NOT_RUN até evidência. Demais IDs e evidências históricas preservados. Descrição original de repo inexistente é histórica. Fonte: APEX-Simulation issue #187. Distribuição permanece BLOCKED (AF-B013/024); repo público não implica licença de assets.
+
+## Evidências da migração (PR #1)
+- AF-B001 PASS e AF-B002 PASS no escopo de transferência e validação da branch; ver evidências em `evidence/v0.1.0-migration/`.
+- AF-B004 CI independente PASS (10 testes, 25 blobs); FAST no jogo ainda NOT_RUN/BLOCKED por integração separada.
+- AF-B005 checkout hospedado do novo repo PASS; clone local direto continua BLOCKED por DNS. Fixture local executada com nove arquivos de hashes Git exatos, incluindo três helpers completos.
+- AF-B006 runtime RC f78a5e153839 verificado; release final/matriz ainda NOT_RUN.
+- AF-B007 nova exportação possui SHA GLB diferente, captura PNG com SHA idêntico; determinismo binário ainda INCONCLUSIVE.
+- AF-B015 execução no container descartável como root gerou aviso Godot; não configura sandbox endurecido. AF-B011 captura via llvmpipe com aviso VSync; GPU física e revisão humana permanecem NOT_RUN.
