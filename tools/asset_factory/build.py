@@ -1,4 +1,4 @@
-"""Asset Factory 0.1.1: isolated original vehicle build, no promotion."""
+"""Asset Factory 0.1.5: isolated original vehicle build, no promotion."""
 import argparse
 import hashlib
 import json
@@ -16,6 +16,7 @@ sys.path.insert(0, str(HERE.parent))
 from apex_foundation import plan
 from apex_asset_build import inspect_glb
 from asset_factory.validate_glb import inspect as inspect_advanced
+from asset_factory.secure_run import run
 from apex_lab_graphics import inspect as inspect_png
 
 def digest(path):
@@ -66,17 +67,17 @@ def read_request(path):
                 raise ValueError("duplicate JSON key: "+key)
             out[key] = value
         return out
+    if path.is_symlink() or not path.is_file():
+        raise ValueError("regular request required")
     if path.stat().st_size > 65536:
         raise ValueError("request too large")
-    r = json.loads(path.read_text(), object_pairs_hook=unique, parse_constant=lambda s: (_ for _ in ()).throw(ValueError("nonfinite JSON constant: "+s)))
+    with path.open("rb") as f:
+        raw = f.read(65537)
+    if len(raw) > 65536:
+        raise ValueError("request too large")
+    r = json.loads(raw, object_pairs_hook=unique, parse_constant=lambda s: (_ for _ in ()).throw(ValueError("nonfinite JSON constant: "+s)))
     validate(r, json.loads((HERE/"request.schema.json").read_text()))
     return r
-
-def run(cmd, work, log, timeout):
-    with log.open("x", encoding="utf-8") as f:
-        subprocess.run(cmd, cwd=work, stdout=f, stderr=subprocess.STDOUT,
-                       timeout=timeout, check=True)
-    return log.read_text(errors="replace")
 
 def inspect_attributes(path, budget):
     result = inspect_glb(path, budget)
@@ -107,7 +108,7 @@ def build(request, blender, godot, workspace, capture=False):
         raise ValueError("new workspace outside repository required")
     w = w.resolve()
     w.mkdir()
-    report = {"factory_version":"0.1.1","status":"FAIL","approval":"PENDING",
+    report = {"factory_version":"0.1.5","status":"FAIL","approval":"PENDING",
               "promotion":"BLOCKED","stages":{k:"NOT_RUN" for k in ("plan","export","structural_validation","godot_import","capture")}}
     try:
         dump(w/"request.json",r)

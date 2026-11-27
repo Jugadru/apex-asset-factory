@@ -34,7 +34,7 @@ def run(cmd,work,log,timeout):
     if home.is_symlink() or home.resolve()!=home:
         raise ValueError("unsafe runtime home")
     env.update(HOME=str(home),XDG_CONFIG_HOME=str(home/"config"),XDG_CACHE_HOME=str(home/"cache"),
-               PYTHONNOUSERSITE="1",GODOT_SILENCE_ROOT_WARNING="0")
+               PYTHONNOUSERSITE="1")
     with log.open("xb") as f:
         proc=subprocess.Popen(cmd,cwd=work,stdout=f,stderr=subprocess.STDOUT,env=env,
                               start_new_session=True,preexec_fn=_limits)
