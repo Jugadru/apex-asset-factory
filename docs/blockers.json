@@ -56,8 +56,10 @@
       "status": "BLOCKED",
       "target_version": "0.1.5",
       "criterion": "Clone completo anterior indisponível; reexecutar com checkout completo e dependências reais, não cópias parciais dos helpers.",
-      "progress": "Hosted checkout PASS; local DNS blocked",
-      "evidence": [],
+      "progress": "Hosted checkout PASS; local DNS blocked; 10 exact native blobs verified, four direct builds PASS.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
+      ],
       "resolved_commit": null
     },
     {
@@ -66,33 +68,37 @@
       "status": "NOT_RUN",
       "target_version": "0.1.5",
       "criterion": "Blender disponível é RC, não release final; verificar runtime exato, origem, checksum, compatibilidade e matriz de versões.",
-      "progress": "RC verified historically; final version matrix pending",
-      "evidence": [],
+      "progress": "Both provided archives SHA256 verified, Blender RC/Godot stable executed four times; stable Blender compatibility matrix pending.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
+      ],
       "resolved_commit": null
     },
     {
       "id": "AF-B007",
       "priority": "P1",
-      "status": "INCONCLUSIVE",
+      "status": "PASS",
       "target_version": "0.1.1",
       "criterion": "Binário não reproduzível: JSON igual, 14 de 88 accessors UV diferiram até 5,96e-8; definir tolerância geométrica e testar seeds/revisões, sem exigir SHA igual indevidamente.",
-      "progress": "Comparator implemented; 2x2 native harness added, exact run pending",
+      "progress": "Numeric equivalence PASS in current generator scope: two seeds x two native exports and historical comparison; byte equality FAIL.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298"
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
       ],
-      "resolved_commit": null
+      "resolved_commit": "4e708830296c653d6630c5e7b42ac0e72136d34b"
     },
     {
       "id": "AF-B008",
       "priority": "P1",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "target_version": "0.1.1",
       "criterion": "GLB validator parcial: validar chunks, buffers/accessors, índices, finitude, dependências e extensões, malhas vazias/degeneradas, integridade e limites.",
-      "progress": "Static GLB profile implemented; native acceptance pending",
+      "progress": "Static untextured indexed profile PASS on adversarial synthetic fixtures and four native exports; other profiles need own validators.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298"
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
       ],
-      "resolved_commit": null
+      "resolved_commit": "4e708830296c653d6630c5e7b42ac0e72136d34b"
     },
     {
       "id": "AF-B009",
@@ -100,9 +106,10 @@
       "status": "NOT_RUN",
       "target_version": "0.2.0",
       "criterion": "Presença de normais/UVs não certifica qualidade: verificar orientação, degeneração, UV overlap, escala por peça, pivôs, sockets, rodas/hubs e eixos.",
-      "progress": "Unit normals, zero-area triangles and coverage tested; pivots/UV overlap pending",
+      "progress": "Current model passes finite/unit normals/zero-area checks in four native runs; pivots, wheel shape, UV overlap and design quality pending.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298"
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
       ],
       "resolved_commit": null
     },
@@ -122,8 +129,10 @@
       "status": "NOT_RUN",
       "target_version": "0.8.0",
       "criterion": "GPU física, FPS, VRAM, inspeção visual humana e regressões visuais no jogo completo não avaliados; captura llvmpipe prova somente renderização fixture.",
-      "progress": "Native physical GPU and visual review pending",
-      "evidence": [],
+      "progress": "Four real software Godot captures PASS, identical PNG per seed; physical GPU, game visual review/FPS/VRAM NOT_RUN.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
+      ],
       "resolved_commit": null
     },
     {
@@ -132,8 +141,10 @@
       "status": "NOT_RUN",
       "target_version": "0.1.2",
       "criterion": "Registro por execução, sem catálogo global, reserva de IDs, locks, histórico append-only ou controle de concorrência; implementar persistência e rollback.",
-      "progress": "Transactional immutable SQLite registry candidate; CI pending",
-      "evidence": [],
+      "progress": "Local registry, immutable events, concurrency, explicit selection/rollback and backup/restore synthetic tests PASS; prebuild reservation and cross-host coordination pending.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+      ],
       "resolved_commit": null
     },
     {
@@ -143,7 +154,9 @@
       "target_version": "0.1.5",
       "criterion": "Aprovação/promoção/publicação: não publicar assets sem direitos, revisão humana, hashes e aprovação vinculada à versão; impedir sobrescrita de assets aprovados.",
       "progress": "Signed local package candidate; owner rights/review/key pending; publication blocked",
-      "evidence": [],
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+      ],
       "resolved_commit": null
     },
     {
@@ -153,7 +166,9 @@
       "target_version": "0.1.4",
       "criterion": "JSON approved não autentica agente; implementar autorização externa e permissões mínimas, manter aprovação separada da execução.",
       "progress": "Signature verification uses operator-pinned key; remote agent authorization pending",
-      "evidence": [],
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+      ],
       "resolved_commit": null
     },
     {
@@ -163,7 +178,9 @@
       "target_version": "0.1.4",
       "criterion": "Workspace e timeout não equivalem a sandbox OS; estabelecer isolamento, limites CPU/RAM/disco, processos filhos e recuperação.",
       "progress": "Bounded process execution; no full sandbox, RAM/disk/network isolation pending",
-      "evidence": [],
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+      ],
       "resolved_commit": null
     },
     {
@@ -173,7 +190,9 @@
       "target_version": "0.1.3",
       "criterion": "Conector não oferece dispatch geral de workflow; usar gatilhos de PR/CI e bridge autorizado, sem runner pessoal não autorizado.",
       "progress": "Offline correlation only; no remote dispatch permission",
-      "evidence": [],
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+      ],
       "resolved_commit": null
     },
     {
@@ -203,7 +222,9 @@
       "target_version": "0.9.0",
       "criterion": "Pipeline ainda não possui aprovação/PR automatizada, filas de jobs, retries controlados, recuperação e bridge end-to-end; testar política de autorização e recibos de execução.",
       "progress": "Handoff receipt and native harness only; autonomous queue/retries pending",
-      "evidence": [],
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+      ],
       "resolved_commit": null
     },
     {
@@ -213,7 +234,9 @@
       "target_version": "0.1.5",
       "criterion": "Distribuição de binários/assets grandes e política Git LFS/artefatos/releases ainda não validadas; decidir retenção, tamanho, licenças e acesso.",
       "progress": "Local package candidate; LFS/retention policy pending",
-      "evidence": [],
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+      ],
       "resolved_commit": null
     },
     {
@@ -224,7 +247,8 @@
       "criterion": "Schema restrito e validador parcial; testar tipos estritos, números não finitos, limites de entrada/logs, erros de ferramenta, contrato de saída/registry, segurança de caminhos; evitar manutenção duplicada de schemas.",
       "progress": "Request limits/JSON/constants tested; broader schema/security pending",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298"
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
       ],
       "resolved_commit": null
     },

@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "10 exact source blobs, direct build CLI; no full local git checkout or native_acceptance wrapper run",
+  "source_commit": "4e708830296c653d6630c5e7b42ac0e72136d34b",
+  "source_blobs": {
+    "tools/asset_factory/build.py": "6b2d9897e8d260b676a392eb04447c70dd3e91cb",
+    "tools/asset_factory/secure_run.py": "992be68c453cca760b40d79c575bc191e8a5b737",
+    "tools/asset_factory/validate_glb.py": "491038e4016149cde8db12e794b49253b4ac04a2",
+    "tools/apex_foundation.py": "93c427307b450125dc4d34c9062b64da034ee735",
+    "tools/apex_asset_build.py": "15a60572612f32e36f39ab262f5cbd05d63ac108",
+    "tools/apex_lab_graphics.py": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+    "tools/asset_factory/demo.json": "aca325b90fb123285f73a3414644bc3e1f958f24",
+    "tools/asset_factory/request.schema.json": "7887711f1ecd6a0fdb8b0d4602321ca54204b547",
+    "tools/asset_factory/staging.gd": "43341f01fa6cd1a367541c8951ea0842ad99e700",
+    "tools/asset_factory/vehicle.py": "3d26e3fec243b76d213cd5dfff280040a477c9a4"
+  },
+  "archives_sha256": {
+    "blender-5.3.0-candidate+v53.f78a5e153839-linux.x86_64-release.tar.xz": "03f596bfe6f0de401afaf41de394837ce82d059210cda87a05e73d059e5e3afc",
+    "Godot_v4.7.2-stable_linux.x86_64.zip": "cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4"
+  },
+  "blender": "Blender 5.3.0 Release Candidate",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "Mesa llvmpipe OpenGL 4.5 via Xvfb",
+  "runs": [
+    {
+      "seed": 2012,
+      "repeat": 1,
+      "report_sha256": "70e5bac455bcaf286d019c6d132d890bc7ba9afb87bdc795269a6178f2705d8a",
+      "sha256": "5ab56cfb4f3643ecf4576ae4d208b3e58a56cce2fd476a838257a19f45e860b3",
+      "capture_sha256": "85ed891f42bc349293847d74156d1e660f0901239e57b4061f3062df5c089dc5",
+      "capture_bytes": 32616,
+      "glb_bytes": 202120,
+      "triangles": 2952,
+      "accessors": 88,
+      "decoded_rows": 17640,
+      "meshes": 28,
+      "materials": 5,
+      "textures": 0,
+      "size_m": [
+        1.80000007152557,
+        1.10000002384186,
+        4.80000066757202
+      ],
+      "capture_resolution": [
+        960,
+        540
+      ],
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "advanced_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "seed": 2012,
+      "repeat": 2,
+      "report_sha256": "be37c198cf616de7722f9fba92e5ce9c6e4e74e2ec9c38882aca4206162d134d",
+      "sha256": "6d8aabafe5f46ad369c1eb9ca89476131be1de0e4753371c2ec077acdb1028d3",
+      "capture_sha256": "85ed891f42bc349293847d74156d1e660f0901239e57b4061f3062df5c089dc5",
+      "capture_bytes": 32616,
+      "glb_bytes": 202120,
+      "triangles": 2952,
+      "accessors": 88,
+      "decoded_rows": 17640,
+      "meshes": 28,
+      "materials": 5,
+      "textures": 0,
+      "size_m": [
+        1.80000007152557,
+        1.10000002384186,
+        4.80000066757202
+      ],
+      "capture_resolution": [
+        960,
+        540
+      ],
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "advanced_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "seed": 2027,
+      "repeat": 1,
+      "report_sha256": "e92e0167a19fd39a192b95e6a7de189802b330f35c00549fee20aacb2644a835",
+      "sha256": "61a4fceea4951cb63e49c2070e79e987e71b9658dbfe3fb0eb62a60174c722f5",
+      "capture_sha256": "5610c9e0fc3e6bcbb01bca0ff29b7c78fe80728d6c72fb777b2e9194cd51b3fb",
+      "capture_bytes": 32603,
+      "glb_bytes": 202120,
+      "triangles": 2952,
+      "accessors": 88,
+      "decoded_rows": 17640,
+      "meshes": 28,
+      "materials": 5,
+      "textures": 0,
+      "size_m": [
+        1.80000007152557,
+        1.10000002384186,
+        4.80000066757202
+      ],
+      "capture_resolution": [
+        960,
+        540
+      ],
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "advanced_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "seed": 2027,
+      "repeat": 2,
+      "report_sha256": "0ac78b67daac330cda8e879811f1604cb2110274a6b1086b5da4b06b9129c095",
+      "sha256": "e2f1b857d923f15fdf223c8486e9984f8007b98c878a1b939c3aa229e16c25fa",
+      "capture_sha256": "5610c9e0fc3e6bcbb01bca0ff29b7c78fe80728d6c72fb777b2e9194cd51b3fb",
+      "capture_bytes": 32603,
+      "glb_bytes": 202120,
+      "triangles": 2952,
+      "accessors": 88,
+      "decoded_rows": 17640,
+      "meshes": 28,
+      "materials": 5,
+      "textures": 0,
+      "size_m": [
+        1.80000007152557,
+        1.10000002384186,
+        4.80000066757202
+      ],
+      "capture_resolution": [
+        960,
+        540
+      ],
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "advanced_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "seed": 2012,
+      "sha256": [
+        "5ab56cfb4f3643ecf4576ae4d208b3e58a56cce2fd476a838257a19f45e860b3",
+        "6d8aabafe5f46ad369c1eb9ca89476131be1de0e4753371c2ec077acdb1028d3"
+      ],
+      "status": "PASS",
+      "binary_equal": false,
+      "numeric_equivalent": true,
+      "document_equivalent": true,
+      "max_accessor_delta": 5.960464477539063e-8,
+      "tolerance": 0.000001
+    },
+    {
+      "seed": 2027,
+      "sha256": [
+        "61a4fceea4951cb63e49c2070e79e987e71b9658dbfe3fb0eb62a60174c722f5",
+        "e2f1b857d923f15fdf223c8486e9984f8007b98c878a1b939c3aa229e16c25fa"
+      ],
+      "status": "PASS",
+      "binary_equal": false,
+      "numeric_equivalent": true,
+      "document_equivalent": true,
+      "max_accessor_delta": 5.960464477539063e-8,
+      "tolerance": 0.000001
+    },
+    {
+      "seed": 2012,
+      "comparison": "historical v0.1.0 vs candidate",
+      "sha256": [
+        "335858afdd0268182e5c82e7a452dc86eb9930b83c657155c1557cb3c562dbdb",
+        "5ab56cfb4f3643ecf4576ae4d208b3e58a56cce2fd476a838257a19f45e860b3"
+      ],
+      "status": "PASS",
+      "binary_equal": false,
+      "numeric_equivalent": true,
+      "document_equivalent": true,
+      "max_accessor_delta": 5.960464477539063e-8,
+      "tolerance": 0.000001
+    }
+  ],
+  "private_evidence_zip_sha256": "8f5daec318905d65eee37c8606497003502295b4122ec223b7714bdc31cba60f",
+  "physical_gpu": "NOT_RUN",
+  "game_integration": "NOT_RUN",
+  "manual_review": "NOT_RUN",
+  "promotion": "BLOCKED"
+}
