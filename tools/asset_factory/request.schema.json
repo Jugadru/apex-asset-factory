@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "APEX original vehicle request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "kind": {
+      "const": "car"
+    },
+    "era": {
+      "const": "2012-inspired"
+    },
+    "style": {
+      "const": "original-low-poly"
+    },
+    "lod": {
+      "const": "LOD0"
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "license": {
+      "const": "ORIGINAL"
+    },
+    "approved": {
+      "const": true
+    },
+    "references": {
+      "const": []
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "dimensions_m": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "length",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 2.5
+        },
+        "length": {
+          "type": "number",
+          "minimum": 3,
+          "maximum": 6
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0.7,
+          "maximum": 2
+        }
+      }
+    },
+    "paint_rgb": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "materials": {
+      "const": [
+        "paint",
+        "carbon_proxy",
+        "rubber",
+        "metal",
+        "accent"
+      ]
+    },
+    "triangle_budget": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20000
+    },
+    "texture_max_px": {
+      "enum": [
+        256,
+        512,
+        1024,
+        2048
+      ]
+    },
+    "destination": {
+      "const": "staging"
+    },
+    "acceptance": {
+      "const": [
+        "embedded_glb",
+        "dimension_match",
+        "godot_import",
+        "manual_review"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "id",
+    "version",
+    "kind",
+    "era",
+    "style",
+    "lod",
+    "author",
+    "license",
+    "approved",
+    "references",
+    "seed",
+    "dimensions_m",
+    "paint_rgb",
+    "materials",
+    "triangle_budget",
+    "texture_max_px",
+    "destination",
+    "acceptance"
+  ]
+}
