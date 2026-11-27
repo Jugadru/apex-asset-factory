@@ -86,6 +86,9 @@ def inspect_attributes(path, budget, layout=None):
     if layout is not None:
         from asset_factory.modular_qa import verify_wheels
         result["modular_wheels"] = verify_wheels(doc, decoded, layout)
+        if any(p.get("shape") == "open_tub" for p in layout):
+            from asset_factory.detail_qa import verify_details
+            result["detail_geometry"] = verify_details(doc,decoded,layout)
     raw = path.read_bytes()
     n = struct.unpack_from("<I", raw, 12)[0]
     data = json.loads(raw[20:20+n])
@@ -192,7 +195,7 @@ def build(request, blender, godot, workspace, capture=False):
               "author":r["author"],"license":r["license"],"origin":"original procedural",
               "request_sha256":digest(w/"request.json"),"dependencies":[],
               "generator_sha256":digest(HERE/generator),
-              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py"]+(["era_layout.py"] if r["schema"] in (3,4) else [])+(["detail_layout.py"] if r["schema"] == 4 else []))} if r["schema"] in (2,3,4) else {}),"asset":report.get("asset"),
+              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py"]+(["era_layout.py"] if r["schema"] in (3,4) else [])+(["detail_layout.py","detail_qa.py"] if r["schema"] == 4 else []))} if r["schema"] in (2,3,4) else {}),"asset":report.get("asset"),
               "status":report["status"],"history":[{"version":r["version"],"status":report["status"]}],
               "approval":"PENDING","promotion":"BLOCKED"})
     return report

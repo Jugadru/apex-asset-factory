@@ -90,6 +90,13 @@ def design(request):
               (0,.125*l,.72*h),(.12*w,.063*l,.77*h),(.14*w,-.018*l,.77*h),(.14*w,-.043*l,.63*h)]
         tube("Halo_Ring",path,r,"carbon")
         tube("Halo_Front_Post",[(0,.145*l,.41*h),(0,.125*l,.72*h)],r,"carbon")
+    def mount(y,s,level):
+        for a,b in zip(chassis["rings"],chassis["rings"][1:]):
+            if a[0]<=y<=b[0]:
+                t=(y-a[0])/(b[0]-a[0])
+                half,lo,hi=((1-t)*a[i]+t*b[i] for i in (1,2,3))
+                return (s*.87*half,y,lo+level*(hi-lo))
+        raise ValueError("mount outside chassis")
     for s,side in ((-1,"L"),(1,"R")):
         for axle in ("F","R"):
             tag=side+"_"+axle
@@ -100,8 +107,8 @@ def design(request):
             for level,mult in (("Upper",1.19),("Lower",.79)):
                 for arm,dy in (("Front",.042*l),("Rear",-.042*l)):
                     tube("Suspension_"+level+"_"+arm+"_"+tag,
-                         [(s*w*.13,y+dy,z*mult),(outer,y,z*mult)],radius,"metal")
-            tube("Suspension_Pushrod_"+tag,[(s*w*.16,y-.018*l,z*1.48),(outer,y,z*.82)],radius,"carbon")
+                         [mount(y+dy,s,.68 if level=="Upper" else .35),(outer,y,z*mult)],radius,"metal")
+            tube("Suspension_Pushrod_"+tag,[mount(y-.018*l,s,.82),(outer,y,z*.82)],radius,"carbon")
     return parts
 
 
