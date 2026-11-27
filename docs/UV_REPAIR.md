@@ -1,0 +1,9 @@
+# v0.3.0.1 — UV degeneracy repair (candidate)
+
+Opt-in `--repair-uv` on the existing PBR staging command. Source receipt/hash and schema 7/8 enforced, original source never overwritten. Detect collapsed UV triangles (absolute doubled signed UV area <= 1e-12). Each affected triangle receives an independent local planar projection preserving its 3D aspect ratio, float32 checked. Split its three corners from shared vertices, compact and repack accessors, use 16-bit indices when possible. The original position and normal of every indexed corner, order of triangles, valid UV corners, material assignment, node transforms and scene metadata are checked for exact equality. Triangle count and strict untextured validator must pass before PBR enrichment. The optional Blender and Godot import checks examine every actual imported UV triangle and require exact expected triangle count. The default PBR command retains its existing behavior.
+
+```sh
+PYTHONPATH="$PWD/tools" python3 -m asset_factory.stage_pbr /tmp/original-build --source-sha256 <exact-source-sha256> --blender /absolute/path/blender --godot /absolute/path/godot --workspace /tmp/new-uv --size 256 --repair-uv --capture
+```
+
+This fixes zero-area UV defects, not a globally packed or nonoverlapping UV atlas. Independent repaired charts can overlap each other and existing UVs, introducing seams or inconsistent texel density. Appropriate only for the current tiled procedural textures; do not use as a production baking/lightmap UV guarantee. Normal maps, tangent validation, UV packing, baking, memory profiling, artist approval, game integration and distribution remain pending. New intermediate repaired.glb and final PBR output have separate hashes and receipts. A failed output remains in isolated workspace, never promoted. No automatic merge. Existing CI branch filter extended solely to the new stacked base.
