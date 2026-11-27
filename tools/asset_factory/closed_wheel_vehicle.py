@@ -8,17 +8,21 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from closed_wheel_layout import design,validate_layout
 
+from lod_policy import apply_policy, bevel_segments
+
 def main():
     import bpy
     p=argparse.ArgumentParser()
     p.add_argument("--request",type=Path,required=True)
     p.add_argument("--output",type=Path,required=True)
+    p.add_argument("--derived-lod",type=int,choices=(0,1,2),default=0)
     a=p.parse_args(sys.argv[sys.argv.index("--")+1:])
     r=json.loads(a.request.read_text())
     if a.output.exists() or a.output.is_symlink() or a.output.suffix!=".glb":
         raise ValueError("new GLB required")
     parts=design(r)
     qa=validate_layout(parts,r)
+    parts=apply_policy(parts,a.derived_lod)
     bpy.ops.object.select_all(action="SELECT")
     bpy.ops.object.delete(use_global=False)
     mats={}
@@ -45,7 +49,7 @@ def main():
             if part["bevel"]:
                 mod=ob.modifiers.new("Edge_bevel","BEVEL")
                 mod.width=min(part["bevel"],min(part["size"])*.2)
-                mod.segments=2
+                mod.segments=bevel_segments(a.derived_lod)
                 bpy.ops.object.modifier_apply(modifier=mod.name)
         elif kind=="cylinder":
             bpy.ops.mesh.primitive_cylinder_add(vertices=part["sides"],radius=part["radius"],
