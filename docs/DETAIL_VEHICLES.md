@@ -3,3 +3,6 @@ Schema 4 uses separate generator, preserving v1-v3. Replaces former solid cockpi
 ```sh
 python3 tools/asset_factory/build.py tools/asset_factory/demo_detail.json --blender /path/blender --godot /path/godot --workspace /tmp/apex-detail-new --capture
 ```
+
+## Native results
+CI 46065737135: 41 tests PASS; 144 analytic combinations. Four separate actual Blender/Godot builds PASS using 24 exact source blobs, 3436–3608 triangles, 51–53 meshes. Three sampled cavity depths per build, all pass; halo only 2020. Two 2020 GLBs and PNGs byte-identical; no broader determinism claim. Private evidence ZIP 89 files, CRC checked, SHA in [summary](../evidence/v0.2.1.1-native/summary.json). Full local clone, GPU physical, visual acceptance, UV overlap and game integration remain pending.

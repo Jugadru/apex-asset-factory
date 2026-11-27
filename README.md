@@ -29,3 +29,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Era profiles
 [Era geometry and requests](docs/ERA_VEHICLES.md) · [native evidence](evidence/v0.2.1-native/summary.json). Three original stylized open-wheel eras; no replicas, GT or sporting changes.
+
+## Cockpit & suspension detail
+[Schema 4 and native evidence](docs/DETAIL_VEHICLES.md) · [summary](evidence/v0.2.1.1-native/summary.json). Visual geometry only, no sporting changes.

@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "source_revision": "3326cbdd3e97467b52f64d5b601ebf0b372ba640",
+  "source_blobs": {
+    "tools/apex_asset_build.py": "15a60572612f32e36f39ab262f5cbd05d63ac108",
+    "tools/apex_foundation.py": "93c427307b450125dc4d34c9062b64da034ee735",
+    "tools/apex_lab_graphics.py": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+    "tools/asset_factory/build.py": "2dcd925e17088aba8dd3c1fa37a12e63a7eddb9a",
+    "tools/asset_factory/demo.json": "aca325b90fb123285f73a3414644bc3e1f958f24",
+    "tools/asset_factory/demo_detail.json": "30abb906fb41bc6d753b285ee5edd41aabbe8b63",
+    "tools/asset_factory/demo_era.json": "3ee2556b8839ae66312f72491a77a5c85b24f4af",
+    "tools/asset_factory/demo_modular.json": "5d2c9b0e11a1166336686c7083e6f78b25795759",
+    "tools/asset_factory/detail_layout.py": "7164298c0d9e729e3ddac2db26b3594e5e604ec9",
+    "tools/asset_factory/detail_qa.py": "f6dd4605961e775fa87503ae4651e52e72101619",
+    "tools/asset_factory/detail_vehicle.py": "d7fa63f991dc732ceabd49641c3df84f9f7e2b18",
+    "tools/asset_factory/era_layout.py": "d8e4a717efcff42959e74db6818466b13f12ec99",
+    "tools/asset_factory/era_vehicle.py": "33dcfa87ba7600e6a4bcec70bf7e4ac8375a2e6a",
+    "tools/asset_factory/modular_layout.py": "4dd0b56b925f941c735d9c9dae421f34709f6ecf",
+    "tools/asset_factory/modular_qa.py": "0259057c1db5968cc02912a68565de744e1175bc",
+    "tools/asset_factory/modular_vehicle.py": "d89a91c6968f11e8f1c2a66dca54e3c609671eff",
+    "tools/asset_factory/request.schema.json": "7887711f1ecd6a0fdb8b0d4602321ca54204b547",
+    "tools/asset_factory/request_v2.schema.json": "9258b5168e845294d2ff11c400c63176959a1a31",
+    "tools/asset_factory/request_v3.schema.json": "e0ba72fa8005c23e96e16f35cefa6f5be85a8bab",
+    "tools/asset_factory/request_v4.schema.json": "f5244bb53e122fdf9459a4d473fffebcff1aef14",
+    "tools/asset_factory/secure_run.py": "992be68c453cca760b40d79c575bc191e8a5b737",
+    "tools/asset_factory/staging.gd": "43341f01fa6cd1a367541c8951ea0842ad99e700",
+    "tools/asset_factory/validate_glb.py": "491038e4016149cde8db12e794b49253b4ac04a2",
+    "tools/asset_factory/vehicle.py": "3d26e3fec243b76d213cd5dfff280040a477c9a4"
+  },
+  "scope": "24 exact Git blob files reconstructed locally; not a full clone (DNS blocked)",
+  "ci": "https://github.com/Jugadru/apex-asset-factory/actions/runs/46065737135",
+  "blender": "Blender 5.3.0 Release Candidate",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "software llvmpipe/Xvfb",
+  "runs": [
+    {
+      "variant": "1990",
+      "era": "1990-inspired",
+      "seed": 1990,
+      "body": "low-drag",
+      "tires": "wide",
+      "dimensions_m": {
+        "width": 1.9,
+        "length": 4.3,
+        "height": 0.95
+      },
+      "status": "BUILT",
+      "report_sha256": "3bf07c1ada45b3fdd3a59f42eb5574c0e66db5cada4bb66cfb49a1768fe5a177",
+      "asset_sha256": "df613cebc7b52d715bc92bd58b979e1002d7e0b8ee408256d745b5b018475078",
+      "triangles": 3436,
+      "meshes": 51,
+      "halo": false,
+      "suspension_links": 20,
+      "cavity_depth_samples_m": [
+        0.30757199579584327,
+        0.2613640000268852,
+        0.21515600425792714
+      ],
+      "capture": {
+        "sha256": "f417b482ba0fde04e3d73675d876696e04d395955c436d3edd836d99b95e7c5c",
+        "bytes": 37845,
+        "width": 960,
+        "height": 540
+      },
+      "max_radial_error_m": 2.1416246887007162e-8,
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "detail_geometry": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "variant": "2012",
+      "era": "2012-inspired",
+      "seed": 2012,
+      "body": "high-downforce",
+      "tires": "standard",
+      "dimensions_m": {
+        "width": 1.8,
+        "length": 4.8,
+        "height": 1.1
+      },
+      "status": "BUILT",
+      "report_sha256": "0de6b764c63ce34dc682be4f53eb984ef4fdfb06bbb8b3a0cee044ea848de88f",
+      "asset_sha256": "71e466de467c1b704541621c61b01bdd5b468183491ebb26a1496040c8249dbd",
+      "triangles": 3436,
+      "meshes": 51,
+      "halo": false,
+      "suspension_links": 20,
+      "cavity_depth_samples_m": [
+        0.36992999186359055,
+        0.33021999545810776,
+        0.290509999052625
+      ],
+      "capture": {
+        "sha256": "9c866d1519636488588de2a80c2d1742920ca9170a1e25d8da792b827e4512f4",
+        "bytes": 35491,
+        "width": 960,
+        "height": 540
+      },
+      "max_radial_error_m": 2.395208414940342e-8,
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "detail_geometry": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "variant": "2020",
+      "era": "2020-inspired",
+      "seed": 2012,
+      "body": "balanced",
+      "tires": "standard",
+      "dimensions_m": {
+        "width": 1.8,
+        "length": 4.8,
+        "height": 1.1
+      },
+      "status": "BUILT",
+      "report_sha256": "5af39e0ca91e11f4a9a0c047af0d9ccc1b0af1569511af3139ce0cc152ddad33",
+      "asset_sha256": "6d1f7bc1b2dfd08f187497a6c639b9fe6906bf3e59858001a7badf9bced50444",
+      "triangles": 3608,
+      "meshes": 53,
+      "halo": true,
+      "suspension_links": 20,
+      "cavity_depth_samples_m": [
+        0.36240599328402145,
+        0.3151719982783165,
+        0.2679380032726115
+      ],
+      "capture": {
+        "sha256": "63eba5329175070d17d4f22f52782fe23fd562cbb1cb592b23b9fee277d97530",
+        "bytes": 36250,
+        "width": 960,
+        "height": 540
+      },
+      "max_radial_error_m": 2.395208414940342e-8,
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "detail_geometry": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "variant": "2020-repeat",
+      "era": "2020-inspired",
+      "seed": 2012,
+      "body": "balanced",
+      "tires": "standard",
+      "dimensions_m": {
+        "width": 1.8,
+        "length": 4.8,
+        "height": 1.1
+      },
+      "status": "BUILT",
+      "report_sha256": "5af39e0ca91e11f4a9a0c047af0d9ccc1b0af1569511af3139ce0cc152ddad33",
+      "asset_sha256": "6d1f7bc1b2dfd08f187497a6c639b9fe6906bf3e59858001a7badf9bced50444",
+      "triangles": 3608,
+      "meshes": 53,
+      "halo": true,
+      "suspension_links": 20,
+      "cavity_depth_samples_m": [
+        0.36240599328402145,
+        0.3151719982783165,
+        0.2679380032726115
+      ],
+      "capture": {
+        "sha256": "63eba5329175070d17d4f22f52782fe23fd562cbb1cb592b23b9fee277d97530",
+        "bytes": 36250,
+        "width": 960,
+        "height": 540
+      },
+      "max_radial_error_m": 2.395208414940342e-8,
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "detail_geometry": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    }
+  ],
+  "repeatability": {
+    "status": "PASS",
+    "binary_equal": true,
+    "png_equal": true,
+    "max_accessor_delta": 0,
+    "scope": "two 2020 builds only"
+  },
+  "physical_gpu": "NOT_RUN",
+  "game_integration": "NOT_RUN",
+  "manual_review": "NOT_RUN",
+  "promotion": "BLOCKED",
+  "private_zip_sha256": "17b6fe861bfadf53e1378093684383f4bb15f428dc2cc9728eca143a1402e84c"
+}

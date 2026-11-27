@@ -75,3 +75,6 @@ Separate native runs completed for wide, low-drag and legacy, all stages PASS. H
 
 ## v0.2.1 candidate
 AF-B018 partial: three era-inspired open-wheel silhouettes, native export/import/capture PASS for each. GT/endurance and other factories remain unimplemented. AF-B009 partial: shaped meshes and wheel QA pass but detailed visual/UV/physical GPU acceptance pending. No new ID closed. Evidence: https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1-era-vehicles/evidence/v0.2.1-native/summary.json.
+
+## v0.2.1.1 candidate
+AF-B009 partial: actual recessed cockpit, era halo, 20 visual suspension links; 144 analytic layouts and four native exports pass with GLB cavity and wheel QA. UV, visual acceptance, detailed mechanics and Godot articulation remain pending. No new ID closed. Evidence: https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.1-cockpit-suspension/evidence/v0.2.1.1-native/summary.json.
