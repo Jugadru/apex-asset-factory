@@ -12,3 +12,10 @@ dist/
 *.zip
 *.tar.xz
 .env
+
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.pem
+*.key
+*.sig
