@@ -1,0 +1,73 @@
+name: One-time Hub graphics consumer verification (do not merge)
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  graphics:
+    if: github.head_ref == 'verify/hub-1-5-graphics' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      FACTORY_SHA: 640b037b30fbe729885867bf51ea6d40d0b66466
+      HUB_SHA: 68ebffef7e5e83745893270220e26dbdae5de315
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: harness
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 640b037b30fbe729885867bf51ea6d40d0b66466
+          path: factory
+          persist-credentials: false
+      - name: Verify exact Hub source blobs
+        working-directory: harness/qa/hub-graphics-smoke
+        run: |
+          python3 - <<'PY'
+          import os, json, pathlib, subprocess
+          src=json.loads(pathlib.Path("source.json").read_text())
+          assert src["sha"]==os.environ["HUB_SHA"] and src["factory_sha"]==os.environ["FACTORY_SHA"]
+          for p,h in src["files"].items():
+              assert subprocess.check_output(["git","hash-object","--",p],text=True).strip()==h
+          print("HUB_GRAPHICS_EXACT_SNAPSHOT_PASS",src["sha"],len(src["files"]))
+          PY
+      - name: Real Factory consumer preflight and fail-closed native gate
+        working-directory: harness/qa/hub-graphics-smoke
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, json
+          from hub.graphics import Graphics
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])
+          factory=pathlib.Path(os.environ["GITHUB_WORKSPACE"])/"factory"
+          state=root/"graphics-state"
+          g=Graphics(state)
+          req=factory/"tools/asset_factory/demo.json"
+          p=g.run(factory,os.environ["FACTORY_SHA"],req)
+          assert p["state"]=="PASS" and p["native"]=="NOT_RUN" and p["promotion"]=="BLOCKED"
+          assert p["plan"]["jobs"][0]["status"]=="PLANNED"
+          assert Graphics(state).get(p["id"])==p
+          bad=root/"bad.json"
+          bad.write_text(json.dumps({**p["request"],"references":["external"]}))
+          reject=g.run(factory,os.environ["FACTORY_SHA"],bad)
+          assert reject["state"]=="BLOCKED" and reject["promotion"]=="BLOCKED"
+          missing=g.run(factory,os.environ["FACTORY_SHA"],req,build=True,blender="/missing/blender",
+                         godot="/missing/godot",blender_sha="a"*64,godot_sha="b"*64)
+          assert missing["state"]=="BLOCKED" and missing["native"]!="PASS"
+          out=root/"graphics-evidence"
+          out.mkdir()
+          (out/"consumer.json").write_text(json.dumps({"preflight":p,"invalid_request":reject,"missing_runtime":missing},indent=2))
+          print("REAL_FACTORY_PREFLIGHT_PASS",os.environ["HUB_SHA"],os.environ["FACTORY_SHA"],p["id"])
+          print("FACTORY_NATIVE_NOT_RUN: no owner-provided runtimes on hosted runner")
+          PY
+      - name: Retain private evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: hub-graphics-consumer-evidence
+          path: ${{ runner.temp }}/graphics-evidence
+          retention-days: 7
+          if-no-files-found: warn
