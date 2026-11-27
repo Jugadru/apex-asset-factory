@@ -52,3 +52,6 @@ AF-B001 PASS: acesso leitura/escrita confirmado em Jugadru/apex-asset-factory, p
 - AF-B006 runtime RC f78a5e153839 verificado; release final/matriz ainda NOT_RUN.
 - AF-B007 nova exportação possui SHA GLB diferente, captura PNG com SHA idêntico; determinismo binário ainda INCONCLUSIVE.
 - AF-B015 execução no container descartável como root gerou aviso Godot; não configura sandbox endurecido. AF-B011 captura via llvmpipe com aviso VSync; GPU física e revisão humana permanecem NOT_RUN.
+
+## Complemento de migração — contratos e continuidade
+Manifesto expandido para 32 blobs de origem verificados por comparação de Git SHA, incluindo contratos Foundation e guias de QA; snapshots somente leitura. Handoff e inventário SHA256 dos runtimes registrados. CI da revisão ampliada precisa de PASS antes de aceitar; FAST do jogo continua pendente. Nenhuma licença ou autorização de promoção inferida da migração.

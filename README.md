@@ -14,3 +14,6 @@ python3 tools/asset_factory/build.py tools/asset_factory/demo.json --blender /pa
 Capture requires Xvfb or working display; software rendering is not physical GPU QA. Produces original low-poly GLB, isolated Godot project, logs, optional PNG and per-run registry; no automatic promotion. Prior native evidence is historical. No executables or unapproved asset binaries stored here. No public distribution license selected yet.
 
 Read [AGENTS](AGENTS.md), [BLOCKERS](BLOCKERS.md), [ROADMAP](ROADMAP.md), [upstream provenance](docs/UPSTREAM.md), [pipeline](docs/references/ASSET_FACTORY_010.md), [catalog](docs/references/README.md). This repository is public: no private data, credentials, proprietary or unapproved assets.
+
+## Continue development
+Read [handoff](docs/HANDOFF.md), [runtime inventory and archive SHA256](docs/RUNTIMES.md), [read-only upstream contract snapshots](docs/upstream-snapshot/README.md), [native migration evidence](evidence/v0.1.0-migration/README.md) and [live blockers](https://github.com/Jugadru/apex-asset-factory/issues/2).
