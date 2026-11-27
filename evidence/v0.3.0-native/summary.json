@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "source_revision": "b4ceede640ada325d7c43117ace8f096c94eb165",
+  "source_blobs": {
+    "tools/apex_asset_build.py": "15a60572612f32e36f39ab262f5cbd05d63ac108",
+    "tools/apex_foundation.py": "93c427307b450125dc4d34c9062b64da034ee735",
+    "tools/apex_lab_graphics.py": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+    "tools/asset_factory/build.py": "a9af3510e915f3659d586896a41d4585e567c7bf",
+    "tools/asset_factory/validate_glb.py": "491038e4016149cde8db12e794b49253b4ac04a2",
+    "tools/asset_factory/secure_run.py": "992be68c453cca760b40d79c575bc191e8a5b737",
+    "tools/asset_factory/request_v7.schema.json": "71e4fe73615401260518b153e25a4d2829bfa711",
+    "tools/asset_factory/request_v8.schema.json": "f843a85c08f0a135c73f9b373b181c06cf87c3b0",
+    "tools/asset_factory/staging.gd": "43341f01fa6cd1a367541c8951ea0842ad99e700",
+    "tools/asset_factory/lod_switch.gd": "95319c8416c93a46f7986e0387dba484964a2c1a",
+    "tools/asset_factory/material_factory.py": "3334bb5482cf2213b7b5439b24afc36696c7c61d",
+    "tools/asset_factory/stage_pbr.py": "ebabff614a6a8e3c4f0d65d3b990291705a0bcd3",
+    "tools/asset_factory/pbr_blender.py": "970f93f4742922bfe01f6b01489e84faf7fab9d1",
+    "tools/asset_factory/pbr_godot.gd": "5c7629905ed967b98ec0758a5b3bcd63e365e0b2",
+    "tools/asset_factory/demo_wheel_2012.json": "cd0e448e27880a0d8968663f1e3bd94839eece33",
+    "tools/tests/test_material_factory.py": "c9014235cbba6250583055e7271e986f20f36d91"
+  },
+  "status": "PASS",
+  "scope": "Canonical original PBR enrichment, 16 exact local source/dependency/test blobs; partial checkout. Geometry prefix, mesh data and transforms exactly preserved. Native Blender/Godot import, software captures only.",
+  "variants": [
+    {
+      "name": "2012-lod0",
+      "source_sha256": "777d712567e4ee3e37664803abb334a9ac510dbdb6e75e830c9f53787c33a4cb",
+      "sha256": "fc998009da8cea8b598651f0da9c90eb0b63d9beb7db56c0739780fdf2921544",
+      "geometry_buffer_sha256": "ff6a8b0bf51335ee5e8e9b3853ceb64348713fc71f35104fd804c9bd803f2239",
+      "source_bytes": 500316,
+      "bytes": 1124140,
+      "triangles": 11804,
+      "materials": 8,
+      "maps": 16,
+      "resolution": 256,
+      "uv_degenerate_triangles": 84,
+      "report_sha256": "615bd89a1382886278b9bf8fe0d28d40d80a28d0d77637d90828288a5ed5ff2a",
+      "capture_sha256": "9f3855866179f296f98c909e161a0f5da2e848787983b4b96cb470dcaa74a116",
+      "stages": {
+        "source": "PASS",
+        "textures": "PASS",
+        "blender_import": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS"
+      }
+    },
+    {
+      "name": "2012-lod1",
+      "source_sha256": "fe9047fa6c0a65dfd19944b8f271dad36b9f96f74ad751f752ab1e411daa3645",
+      "sha256": "21c7ca062043bbed86cb5d06bcf7e95870d04d73b891853d4a688573bdb380ab",
+      "geometry_buffer_sha256": "1573c986b721ceb167ce97d9885e88e3338c3c605c9c906f22db37c59ddd9b86",
+      "source_bytes": 337288,
+      "bytes": 961112,
+      "triangles": 6844,
+      "materials": 8,
+      "maps": 16,
+      "resolution": 256,
+      "uv_degenerate_triangles": 84,
+      "report_sha256": "09f74e324f0435c1d04399001607090f6b0d599ce0973fb53ac9cf625bc8e133",
+      "capture_sha256": null,
+      "stages": {
+        "source": "PASS",
+        "textures": "PASS",
+        "blender_import": "PASS",
+        "godot_import": "PASS",
+        "capture": "NOT_RUN"
+      }
+    },
+    {
+      "name": "2012-lod2",
+      "source_sha256": "d65dd4cf37c8386041d7e1235223e6815e0a11a53d5985f6d10853c185541c1b",
+      "sha256": "3a4410a892647e1bcc5774a95e15386c44e029991d402c148c6463f2a2baeacf",
+      "geometry_buffer_sha256": "6027876b4b22bd615b03910887edc8e1f5c0eea24f47fe860a84dd1abea2a9fa",
+      "source_bytes": 246876,
+      "bytes": 870700,
+      "triangles": 4252,
+      "materials": 8,
+      "maps": 16,
+      "resolution": 256,
+      "uv_degenerate_triangles": 84,
+      "report_sha256": "285a2060ca8d2b6c96e59b028cd96aa9e1cca94533b339d5c89399e52452a52a",
+      "capture_sha256": null,
+      "stages": {
+        "source": "PASS",
+        "textures": "PASS",
+        "blender_import": "PASS",
+        "godot_import": "PASS",
+        "capture": "NOT_RUN"
+      }
+    },
+    {
+      "name": "gt-lod0",
+      "source_sha256": "4fcfc1f66a44b18798985dc7b9cc97eb98ae1f9fc4551f1ff0a5e6349e893fb9",
+      "sha256": "9e912a6db9e3a3c9987e0690feb9b85573a41923dbef90a22b82e59f01cce136",
+      "geometry_buffer_sha256": "716760c56bfc2ef81383f73a6348748c0a5447194faee7693128a5dd19feb80f",
+      "source_bytes": 542308,
+      "bytes": 1333364,
+      "triangles": 15080,
+      "materials": 10,
+      "maps": 20,
+      "resolution": 256,
+      "uv_degenerate_triangles": 164,
+      "report_sha256": "9ae17fcc5d24a36309d7de60c544203de5dcc5652a18b69010964dac1bbc3c34",
+      "capture_sha256": "c471675819d6f3293e152b6b5f71dcb2c4bc18a8367a8393d31634ea5bfd0cd7",
+      "stages": {
+        "source": "PASS",
+        "textures": "PASS",
+        "blender_import": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS"
+      }
+    },
+    {
+      "name": "endurance-lod0",
+      "source_sha256": "2067a96b94364be2807db655a12cea9727dcb4d737603e9d3b30e76bd9254095",
+      "sha256": "ffe7fe1d21d738dcfb24288e98b7cf34f2f438ebba53186db2af888b17a065f2",
+      "geometry_buffer_sha256": "ab91b54281ae6eda6662d9063bf31c67cc830243a5dfe3f5ba284ba4ec5ca6e0",
+      "source_bytes": 548392,
+      "bytes": 1339444,
+      "triangles": 15116,
+      "materials": 10,
+      "maps": 20,
+      "resolution": 256,
+      "uv_degenerate_triangles": 172,
+      "report_sha256": "58415debb5655ffe04a598e027e8769c3237325af35a1e90c5863d357d28ad28",
+      "capture_sha256": "1f45c6e22dbd1794edbe3892a3f10d687035820ea292e96ef0153af96a248961",
+      "stages": {
+        "source": "PASS",
+        "textures": "PASS",
+        "blender_import": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS"
+      }
+    },
+    {
+      "name": "gt-lod2-512",
+      "source_sha256": "94ec1741f663a013180ff5cc02a1a44d21cb23730a6cbf8f1953e599e2183bfb",
+      "sha256": "53b4366341c06f783964864bf825620af66debdeeb229c4e2c8914b642732109",
+      "geometry_buffer_sha256": "71237e6b3358b0af71843232b1c061008dc8efec90c08924cc63d1519fa75164",
+      "source_bytes": 206096,
+      "bytes": 1217264,
+      "triangles": 4904,
+      "materials": 10,
+      "maps": 20,
+      "resolution": 512,
+      "uv_degenerate_triangles": 128,
+      "report_sha256": "986d51b1868d084b9328dd24177432a4d03c190d6384b92115f596400f055a40",
+      "capture_sha256": null,
+      "stages": {
+        "source": "PASS",
+        "textures": "PASS",
+        "blender_import": "PASS",
+        "godot_import": "PASS",
+        "capture": "NOT_RUN"
+      }
+    }
+  ],
+  "local_unit_tests": 4,
+  "local_unit_log_sha256": "5bbdc7da212339b2f7d630d88b384bc656707267e8ca78fc45a4ce18944bbbdf",
+  "lod_switch": {
+    "status": "PASS",
+    "steps": 11,
+    "log_sha256": "339831b566c7e746f6ec3d1c88332e9ef053e2fb4178cb53eb9bdae5fed21d9c",
+    "same_map_hashes": 16
+  },
+  "history": {
+    "initial_grainy_gt_capture_sha256": "5365dd0080372c5b63387211becb22572d112cf961e7ebe1f22b4e0dfd08ae64",
+    "resolution": "Paint modulation reduced; five variants rerun, GT LOD2 512px added."
+  },
+  "uv_overlap": "NOT_RUN",
+  "normal_maps": "NOT_RUN",
+  "baking": "NOT_RUN",
+  "physical_gpu": "NOT_RUN",
+  "manual_review": "NOT_RUN",
+  "game_integration": "NOT_RUN",
+  "promotion": "BLOCKED",
+  "private_zip": {
+    "files": 133,
+    "bytes": 7616695,
+    "sha256": "526d033be6f043eb3bb9cb9970e5eaaf92b7a57af946b942c974678545cb57ba",
+    "summary_sha256": "df65d9bc1cf46dcfcfead00383b1b328624e6e8e122e1de1a844a444eedb1132"
+  }
+}

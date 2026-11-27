@@ -47,3 +47,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Open-wheel era wheel detail
 [Schema 8 and native evidence](docs/OPENWHEEL_DETAIL.md). Static original visual profiles; not historical replicas.
+
+## Material & Texture Factory
+[Opt-in native PBR staging](docs/MATERIAL_FACTORY.md). Original embedded maps; legacy untextured generator unchanged. Staging only.

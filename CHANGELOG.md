@@ -53,3 +53,7 @@ Native schema 2/3 and curved endurance lower LODs completed. Four numeric repeat
 ## 0.2.4.1 — era-specific openwheel assemblies candidate
 - Opt-in schema 8, three original wheel profiles, prior body and pivot contracts preserved, exact seven-part preview selection.
 - 66 tests, nine native variants and 33 switch checks PASS; no promotion. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.4.1-openwheel-detail/evidence/v0.2.4.1-native/summary.json
+
+## 0.3.0 — original material and texture staging candidate
+- Opt-in PBR base-color modulation and packed metallic/roughness, original embedded PNG maps, source receipt and exact canonical validation; six native variants and 11 LOD switch checks PASS.
+- UV area audit; normal maps, UV repair, baking and production approval pending. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.3.0-material-texture-factory/evidence/v0.3.0-native/summary.json
