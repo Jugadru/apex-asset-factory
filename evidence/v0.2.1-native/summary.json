@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "source_revision": "957d475c968602651ccf5d6fd939ce210db7f2e5",
+  "source_blobs": {
+    "tools/apex_asset_build.py": "15a60572612f32e36f39ab262f5cbd05d63ac108",
+    "tools/apex_foundation.py": "93c427307b450125dc4d34c9062b64da034ee735",
+    "tools/apex_lab_graphics.py": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+    "tools/asset_factory/build.py": "27bf52a8d4d6f013fe7f5c04fae99589d3e81899",
+    "tools/asset_factory/demo.json": "aca325b90fb123285f73a3414644bc3e1f958f24",
+    "tools/asset_factory/demo_era.json": "3ee2556b8839ae66312f72491a77a5c85b24f4af",
+    "tools/asset_factory/demo_modular.json": "5d2c9b0e11a1166336686c7083e6f78b25795759",
+    "tools/asset_factory/era_layout.py": "d8e4a717efcff42959e74db6818466b13f12ec99",
+    "tools/asset_factory/era_vehicle.py": "33dcfa87ba7600e6a4bcec70bf7e4ac8375a2e6a",
+    "tools/asset_factory/modular_layout.py": "4dd0b56b925f941c735d9c9dae421f34709f6ecf",
+    "tools/asset_factory/modular_qa.py": "0259057c1db5968cc02912a68565de744e1175bc",
+    "tools/asset_factory/modular_vehicle.py": "d89a91c6968f11e8f1c2a66dca54e3c609671eff",
+    "tools/asset_factory/request.schema.json": "7887711f1ecd6a0fdb8b0d4602321ca54204b547",
+    "tools/asset_factory/request_v2.schema.json": "9258b5168e845294d2ff11c400c63176959a1a31",
+    "tools/asset_factory/request_v3.schema.json": "e0ba72fa8005c23e96e16f35cefa6f5be85a8bab",
+    "tools/asset_factory/secure_run.py": "992be68c453cca760b40d79c575bc191e8a5b737",
+    "tools/asset_factory/staging.gd": "43341f01fa6cd1a367541c8951ea0842ad99e700",
+    "tools/asset_factory/validate_glb.py": "491038e4016149cde8db12e794b49253b4ac04a2",
+    "tools/asset_factory/vehicle.py": "3d26e3fec243b76d213cd5dfff280040a477c9a4"
+  },
+  "scope": "19 exact Git blob files reconstructed locally; not a full clone",
+  "ci": "https://github.com/Jugadru/apex-asset-factory/actions/runs/46064098481",
+  "blender": "5.3.0 Release Candidate",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "software llvmpipe/Xvfb",
+  "runs": [
+    {
+      "era": "1990-inspired",
+      "seed": 1990,
+      "body": "low-drag",
+      "tires": "wide",
+      "dimensions_m": {
+        "width": 1.9,
+        "length": 4.3,
+        "height": 0.95
+      },
+      "status": "BUILT",
+      "report_sha256": "793b181fc0f3a82d55eb98af73c567ea4f10c30300b260afbdb30e0dfe19902a",
+      "asset_sha256": "09cb951a6ed69206c574b5141b476ad622d72e336031ef16e126fc49f4e90231",
+      "triangles": 3072,
+      "meshes": 36,
+      "shaped_components": 11,
+      "capture": {
+        "sha256": "c91be2990b68f9c47fd79016a869aefe1a542305c69fdc8a12c79a13cea600e5",
+        "bytes": 36974,
+        "width": 960,
+        "height": 540
+      },
+      "max_radial_error_m": 2.1416246887007162e-8,
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "era": "2012-inspired",
+      "seed": 2012,
+      "body": "high-downforce",
+      "tires": "standard",
+      "dimensions_m": {
+        "width": 1.8,
+        "length": 4.8,
+        "height": 1.1
+      },
+      "status": "BUILT",
+      "report_sha256": "fe867ce4bbe58d0eea9d865232e3ac5693b0b121351d596584989261cb2d4c5d",
+      "asset_sha256": "782f0b26d675dfecdcbb3120de1fa526ddb8245d0d2bdb0c8af0d0d292ae2494",
+      "triangles": 3072,
+      "meshes": 36,
+      "shaped_components": 11,
+      "capture": {
+        "sha256": "498ff7c9e6c69fbd8627f29c6b2733a5e4fba59c475ceff390c7f2929fce244d",
+        "bytes": 35740,
+        "width": 960,
+        "height": 540
+      },
+      "max_radial_error_m": 2.395208414940342e-8,
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "era": "2020-inspired",
+      "seed": 2012,
+      "body": "balanced",
+      "tires": "standard",
+      "dimensions_m": {
+        "width": 1.8,
+        "length": 4.8,
+        "height": 1.1
+      },
+      "status": "BUILT",
+      "report_sha256": "4545b3a394134a25310706b3f344185b5f5aa80b1120ecfac8a0dc98ffa68e66",
+      "asset_sha256": "64321bf25cb47809e3ffbd7a6f5dc2dd44425b327542143df1a0ca093e4ac829",
+      "triangles": 3072,
+      "meshes": 36,
+      "shaped_components": 11,
+      "capture": {
+        "sha256": "04bf3d1654e7bc2b3a4e58e9c9187e3ab2ef05fc0d719bee514cf6571037f3bc",
+        "bytes": 35942,
+        "width": 960,
+        "height": 540
+      },
+      "max_radial_error_m": 2.395208414940342e-8,
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    }
+  ],
+  "physical_gpu": "NOT_RUN",
+  "game_integration": "NOT_RUN",
+  "manual_review": "NOT_RUN",
+  "promotion": "BLOCKED",
+  "repeatability": "NOT_RUN for new v3 exports",
+  "private_zip_sha256": "602e00f0c86ea4aebb7d22cde6cb5ad464d25cd5be6800da13bb763d14dc1af1"
+}

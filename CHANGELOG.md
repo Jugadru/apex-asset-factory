@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 — era-inspired vehicle candidate
+- Three stylized eras with rounded chassis, tapered sidepods/airbox and profiled wings; preserved schemas 1 and 2.
+- 37 tests and 144 analytic combinations PASS; three native builds PASS, 3072 triangles / 36 meshes each. No GT/endurance, detailed cockpit or texture/LOD production approval.
+
 ## 0.2.0 — modular vehicle candidate
 - Three body profiles, two tire widths, seed-dependent geometry, separate 36 components and direct metre layout.
 - Exported wheel/hub pivot, radius and axle checks. 34 tests PASS; two final balanced native builds and earlier wide PASS. Final wide batch timeout; remaining variants/native legacy pending. No production approval.
