@@ -1,7 +1,7 @@
 name: Asset Factory - contracts
 on:
   pull_request:
-    branches: [main, migration/v0.1.0]
+    branches: [main, migration/v0.1.0, feature/v0.1.1-advanced-validator]
   push:
     branches: [main]
 permissions:
@@ -24,4 +24,5 @@ jobs:
         run: |
           python3 --version
           python3 tools/apex_foundation.py validate
+          python3 tools/check_blockers.py
           python3 -m unittest discover -s tools/tests -v
