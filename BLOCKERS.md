@@ -72,3 +72,6 @@ AF-B009/B017 partial: modular layouts and export-wheel QA implemented, 34 unit t
 
 ### v0.2.0 native follow-up
 Separate native runs completed for wide, low-drag and legacy, all stages PASS. Historical batch timeout retained but resolved. AF-B017 PASS for modular original open-wheel scope only; AF-B009 partial; visual review, GPU physical and game integration NOT_RUN.
+
+## v0.2.1 candidate
+AF-B018 partial: three era-inspired open-wheel silhouettes, native export/import/capture PASS for each. GT/endurance and other factories remain unimplemented. AF-B009 partial: shaped meshes and wheel QA pass but detailed visual/UV/physical GPU acceptance pending. No new ID closed. Evidence: https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1-era-vehicles/evidence/v0.2.1-native/summary.json.
