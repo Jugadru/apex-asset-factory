@@ -7,3 +7,6 @@ PYTHONPATH="$PWD/tools" python3 -m asset_factory.lod tools/asset_factory/demo_cu
 ```
 
 Tests cover 96 category/tire/dimension/LOD combinations, schema compatibility, interpolation bounds and preserved wheel geometry. Native validation and artistic acceptance are separate. Owner rejected earlier prototype appearance; current model is still stylized and remains in staging, not a finished asset. No automatic merge, publication or game runtime changes.
+
+## Native results
+55 CI tests PASS (46071164548), 38 exact local Git source files verified. GT LOD0/1/2 6888/3944/2600 triangles and 26 components, endurance LOD0 6924 triangles/27 components. Four independent builds PASS including sampled wheel clearance; GT LOD0 and endurance captures PASS. Separate GT Godot import/switch and compare_levels gates PASS, not a full uninterrupted build_set run. Endurance lower native LODs and repeatability NOT_RUN. Initial GT capture retained as pre-revision history; final shape remains stylized. Private raw evidence archive 114 files, CRC checked, excludes runtime cache. [Summary](../evidence/v0.2.3-native/summary.json).

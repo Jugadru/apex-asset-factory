@@ -84,3 +84,6 @@ AF-B009 and AF-B018 partial: two original closed-wheel categories, continuous sh
 
 ## v0.2.2 candidate
 AF-B010 partial: procedural LOD0/1/2, 51 tests PASS, nine native variants with unchanged dimensions/component counts and three Godot switch fixtures. GT and endurance outer timeouts recovered separately, openwheel full orchestrator PASS. Texture/UV/PBR, schema 2/3 native tests, packaging, visual and physical GPU/game acceptance pending. Six IDs scoped PASS unchanged. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.2-automatic-lod/evidence/v0.2.2-native/summary.json
+
+## v0.2.3 candidate
+AF-B009/B010 partial: curved closed-wheel surface profiles, sampled clearance, 96 analytic cases and four native variants. GT three LODs and separate 11-step switch PASS; endurance LOD0 PASS. Endurance LOD1/2, visual acceptance, physical GPU, textures and game integration pending. No new blocker closed. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-native/summary.json

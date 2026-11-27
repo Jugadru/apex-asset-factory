@@ -38,3 +38,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Automatic LOD
 [Procedure and scope](docs/AUTOMATIC_LOD.md) · [native evidence](evidence/v0.2.2-native/summary.json). Three detail levels; no game integration or promotion.
+
+## Curved closed-wheel bodies
+[Schema 6](docs/ADVANCED_BODY.md) · [native evidence](evidence/v0.2.3-native/summary.json). Staging only.
