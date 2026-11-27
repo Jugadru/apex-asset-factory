@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 — modular vehicle candidate
+- Three body profiles, two tire widths, seed-dependent geometry, separate 36 components and direct metre layout.
+- Exported wheel/hub pivot, radius and axle checks. 34 tests PASS; two final balanced native builds and earlier wide PASS. Final wide batch timeout; remaining variants/native legacy pending. No production approval.
+
 ## 0.1.2–0.1.5 — hyper infrastructure candidate
 - Immutable local registry, transactions, backup/restore and explicit selection/rollback.
 - Bounded process runner and filtered environment; signed local package gate, offline Lab receipts, native acceptance harness and blocker tracker.

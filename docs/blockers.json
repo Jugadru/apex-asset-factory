@@ -106,10 +106,12 @@
       "status": "NOT_RUN",
       "target_version": "0.2.0",
       "criterion": "Presença de normais/UVs não certifica qualidade: verificar orientação, degeneração, UV overlap, escala por peça, pivôs, sockets, rodas/hubs e eixos.",
-      "progress": "Current model passes finite/unit normals/zero-area checks in four native runs; pivots, wheel shape, UV overlap and design quality pending.",
+      "progress": "Modular profile: analytic envelope and symmetric wheels, post-export eight wheel/hub component pivot/axis/radius/width checks PASS on tested native models; UV overlap, broader geometric quality and Godot articulation pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46061670425",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.0-modular-vehicle/evidence/v0.2.0-native/summary.json"
       ],
       "resolved_commit": null
     },
@@ -202,8 +204,11 @@
       "status": "NOT_RUN",
       "target_version": "0.2.0",
       "criterion": "Somente monoposto original simplificado 2012-inspired, LOD0; seed altera acento da pintura, não geometria; escala anisotrópica pode deformar rodas. Validar peças intercambiáveis e variantes antes de chamar gerador completo.",
-      "progress": "Original simplified vehicle only",
-      "evidence": [],
+      "progress": "Modular original open-wheel generator implemented: three body profiles, two tire widths, seed-dependent symmetric chassis, circular wheels and no anisotropic scaling; 48 layout cases PASS, native balanced pair and earlier wide PASS. Final wide batch timeout; remaining native variants and legacy rerun pending. No production approval.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46061670425",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.0-modular-vehicle/evidence/v0.2.0-native/summary.json"
+      ],
       "resolved_commit": null
     },
     {

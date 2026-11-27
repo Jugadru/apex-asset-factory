@@ -66,3 +66,6 @@ Machine-readable [ledger](docs/blockers.json) is current. AF-B007 PASS for numer
 
 ### Reservation follow-up
 AF-B012 PASS in single-host registry scope: prebuild claims, conflict, explicit release after failure, consumption, immutability, local concurrency, rollback and backup/restore verified by 28-test CI https://github.com/Jugadru/apex-asset-factory/actions/runs/46019032367. Distributed queue and shared multi-host execution remain AF-B019; no permanent service. Five original IDs are PASS within their recorded scope. Ten native source blobs remain identical in this candidate.
+
+## v0.2.0 candidate
+AF-B009/B017 partial: modular layouts and export-wheel QA implemented, 34 unit tests PASS, native balanced pair PASS and earlier wide variant PASS; final wide batch timeout, remaining native low-drag and legacy rerun pending. No new blocker closed, no production release. See https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.0-modular-vehicle/evidence/v0.2.0-native/summary.json.

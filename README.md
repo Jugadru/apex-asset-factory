@@ -1,4 +1,4 @@
-# APEX Asset Factory — v0.1.5 infrastructure candidate
+# APEX Asset Factory — v0.2.0 modular vehicle candidate
 
 Independent graphics production infrastructure for APEX. Owner: Jugadru. Original procedural assets only until license and promotion gates pass. Source: [APEX-Simulation #184](https://github.com/Jugadru/APEX-Simulation/pull/184), exact SHA `f878b09aa5d66ef7d8302b2d94aa2a8d7db9c59b`. Foundation and Graphics Lab helpers are pinned copies for offline execution, not separate authorities.
 
@@ -23,3 +23,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Hyper infrastructure
 [Operator procedures](docs/HYPER_UPDATE.md) · [blocker tracker](docs/blockers.json) · [native evidence](evidence/v0.1.5-native/summary.json). Four native builds passed with exact source subset; full local checkout and physical GPU remain pending. No asset promotion.
+
+## Modular vehicles
+[New vehicle profile and commands](docs/MODULAR_VEHICLE.md) · [native results](evidence/v0.2.0-native/summary.json). Legacy request v1 remains supported. No production promotion.
