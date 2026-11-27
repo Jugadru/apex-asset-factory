@@ -48,7 +48,7 @@ def design(request):
             x=sign*(w*.48-width/2)
             tag=side+"_"+axle
             cyl("Wheel_"+tag,x,y,radius,radius,width,"rubber")
-            cyl("Hub_"+tag,x,y,radius,radius*.61,width*.72,"metal",32)
+            cyl("Hub_"+tag,x,y,radius,radius*.61,width*1.08,"metal",32)
             for upper,z in (("Upper",radius*1.17),("Lower",radius*.76)):
                 box("Suspension_"+upper+"_"+tag,sign*w*.24,y,z,w*.36,l*.017,h*.028,"metal",.003)
     return parts
