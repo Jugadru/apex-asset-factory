@@ -1,7 +1,7 @@
 name: Asset Factory - contracts
 on:
   pull_request:
-    branches: [main, migration/v0.1.0, feature/v0.1.1-advanced-validator, feature/v0.2.0-modular-vehicle, feature/v0.2.3-advanced-body, feature/v0.2.4-wheel-brake-detail]
+    branches: [main, migration/v0.1.0, feature/v0.1.1-advanced-validator, feature/v0.2.0-modular-vehicle, feature/v0.2.3-advanced-body, feature/v0.2.4-wheel-brake-detail, feature/v0.2.4.1-openwheel-detail]
   push:
     branches: [main]
 permissions:
