@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "reviewed_code_revision": "762f4311b7f237213fb2bb71773e27f12fcfb6b1",
+  "native_base_revision": "2ee3912444d11d65d21d371a1939c585d6b3dde1",
+  "scope": "Local 40-file source subset verified by Git blob hashes; no full clone. 15 new builds, 5 sets, 55 switch cases, targeted tests only.",
+  "unit_tests": {
+    "status": "PASS",
+    "count": 12,
+    "files": {
+      "tools/tests/test_lod.py": "d6fcc845ed55575fd91f01d6b6f226c3c54bc487",
+      "tools/tests/test_advanced_body.py": "d81c7e62bf16ed8081a829de15cc7e41a84724ba"
+    },
+    "log_sha256": "a4455a4890fa1cdd69bd8016293ab82aef2bc10ecd61b567375e8d5219245b03"
+  },
+  "reviewed_lod_blob": "acb0fd52d62e361db1164604882055f5e9eca644",
+  "sets": [
+    {
+      "name": "curved_gt",
+      "mode": "full original orchestrator; reviewed gates reapplied",
+      "status": "PASS",
+      "identity_contract": "PASS",
+      "switch": {
+        "status": "PASS",
+        "cases": 11,
+        "levels": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ]
+      },
+      "levels": [
+        {
+          "level": 0,
+          "triangles": 6888,
+          "sha256": "293386f7bdfce07342cd4aac4062f6cb40b74b1c984a73842aff432dc31b6976"
+        },
+        {
+          "level": 1,
+          "triangles": 3944,
+          "sha256": "ec9f7bdab0758617d556823dd0406504542fe5edea81ca31fa7fba0982913685"
+        },
+        {
+          "level": 2,
+          "triangles": 2600,
+          "sha256": "3aacce4f8e9890db61a6ae9c5ca52dce336b4cf575d3650301fc3ddb6cf09fd8"
+        }
+      ]
+    },
+    {
+      "name": "curved_endurance",
+      "mode": "full original orchestrator; reviewed gates reapplied",
+      "status": "PASS",
+      "identity_contract": "PASS",
+      "switch": {
+        "status": "PASS",
+        "cases": 11,
+        "levels": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ]
+      },
+      "levels": [
+        {
+          "level": 0,
+          "triangles": 6924,
+          "sha256": "820af9d29f76331098b805269ce210722d356bdf8e80b87de52d346a8b7585c6"
+        },
+        {
+          "level": 1,
+          "triangles": 4012,
+          "sha256": "61906284067939fd966490a8cd46649e78ee1613a07d5d9391a42c03c8be02f2"
+        },
+        {
+          "level": 2,
+          "triangles": 2636,
+          "sha256": "9bbfcf5cc7d6668ed98af18ba6977818b07525b2c911ccb3486f36dad96a17ed"
+        }
+      ]
+    },
+    {
+      "name": "modular",
+      "mode": "outer timeout after native imports; separate switch retry and reviewed gates PASS",
+      "status": "PASS",
+      "identity_contract": "PASS",
+      "switch": {
+        "status": "PASS",
+        "cases": 11,
+        "levels": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ]
+      },
+      "levels": [
+        {
+          "level": 0,
+          "triangles": 3504,
+          "sha256": "4eefbfe49e5dca56d3374f27722d66a48a5e3a1ccf184b0c85b358d670da7eeb"
+        },
+        {
+          "level": 1,
+          "triangles": 1776,
+          "sha256": "90d8a07301707cf975646ad25bfd0c8cc2fc120985f9b852583e418215a3035d"
+        },
+        {
+          "level": 2,
+          "triangles": 720,
+          "sha256": "d2a6ef9306872390bae9a33e83ddaddd7c646ed4265c4efc6b2a5b9dc08c73a4"
+        }
+      ]
+    },
+    {
+      "name": "era",
+      "mode": "full original orchestrator; reviewed gates reapplied",
+      "status": "PASS",
+      "identity_contract": "PASS",
+      "switch": {
+        "status": "PASS",
+        "cases": 11,
+        "levels": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ]
+      },
+      "levels": [
+        {
+          "level": 0,
+          "triangles": 3072,
+          "sha256": "c2d1ad2b26703b50b55f510441a4e17b87da9a1272cf310e90f5c537e42a7ade"
+        },
+        {
+          "level": 1,
+          "triangles": 1856,
+          "sha256": "9cad446b805759a34c97b1d34c59e38e8cb8398a6025e47a7f722ce9b35cc2e7"
+        },
+        {
+          "level": 2,
+          "triangles": 1056,
+          "sha256": "f2dca2416133aaab20b5023fe699c008574cc8f936899b13fe0e5adad3000ee2"
+        }
+      ]
+    },
+    {
+      "name": "curved_gt_reviewed",
+      "mode": "complete reviewed orchestrator",
+      "status": "PASS",
+      "identity_contract": "PASS",
+      "switch": {
+        "status": "PASS",
+        "cases": 11,
+        "levels": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          2,
+          0
+        ]
+      },
+      "levels": [
+        {
+          "level": 0,
+          "triangles": 6888,
+          "sha256": "293386f7bdfce07342cd4aac4062f6cb40b74b1c984a73842aff432dc31b6976"
+        },
+        {
+          "level": 1,
+          "triangles": 3944,
+          "sha256": "c9737dd92019840d2afdcd5c683fd894ab031afabe98025cb6c87ab0e7435718"
+        },
+        {
+          "level": 2,
+          "triangles": 2600,
+          "sha256": "3aacce4f8e9890db61a6ae9c5ca52dce336b4cf575d3650301fc3ddb6cf09fd8"
+        }
+      ]
+    }
+  ],
+  "repeatability": {
+    "scope": "comparison of previous v0.2.3 GLBs against current reruns",
+    "numeric_pass": 4,
+    "binary_equal": 1,
+    "max_accessor_delta": 1.1920928955078125e-7,
+    "tolerance": 0.000001
+  },
+  "ci": {
+    "last_success": {
+      "revision": "aad7f85e221ed0bcf1cce2e27d38cf21a69fc2b4",
+      "run_id": 46071164548,
+      "tests": 55
+    },
+    "failed": [
+      {
+        "run_id": 46071339915,
+        "attempts": 2
+      },
+      {
+        "run_id": 46073644946,
+        "attempts": 1
+      }
+    ],
+    "status": "FAIL",
+    "diagnosis": "No job steps returned, log endpoint HTTP 404 BlobNotFound; check annotations count 1 but connector cannot access annotation; cause unconfirmed. No CI bypass."
+  },
+  "physical_gpu": "NOT_RUN",
+  "game_integration": "NOT_RUN",
+  "visual_acceptance": "NOT_RUN",
+  "promotion": "BLOCKED",
+  "private_zip": {
+    "files": 326,
+    "bytes": 1565526,
+    "sha256": "857964e55a4de50fbe69e21b0d34324fcf319551579a699c87647389bc56facd",
+    "summary_sha256": "0deaa8c0d8f28878a7da30d57107bc93d149439eeb2d79e08909a07f3015b60d"
+  }
+}

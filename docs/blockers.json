@@ -44,9 +44,11 @@
       "status": "NOT_RUN",
       "target_version": "0.8.0",
       "criterion": "CI próprio e FAST candidato: testes do novo repo e integração no jogo em PR direcionada a main, com PASS no SHA exato; não impor FULL.",
-      "progress": "Hosted contracts CI PASS; game FAST pending",
+      "progress": "Hosted contracts CI PASS; game FAST pending Asset Factory latest CI failed with inaccessible logs and no recorded steps; previous successful CI preserved. Review exact subset 12 local tests PASS, full current suite NOT_RUN/remote FAIL; game FAST remains pending.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298"
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46073644946",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json"
       ],
       "resolved_commit": null
     },
@@ -80,10 +82,11 @@
       "status": "PASS",
       "target_version": "0.1.1",
       "criterion": "Binário não reproduzível: JSON igual, 14 de 88 accessors UV diferiram até 5,96e-8; definir tolerância geométrica e testar seeds/revisões, sem exigir SHA igual indevidamente.",
-      "progress": "Numeric equivalence PASS in current generator scope: two seeds x two native exports and historical comparison; byte equality FAIL.",
+      "progress": "Numeric equivalence PASS in current generator scope: two seeds x two native exports and historical comparison; byte equality FAIL. Four additional v0.2.3 repeat comparisons numerically PASS at 1e-6; one byte-identical, three not. Scoped status retained.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json"
       ],
       "resolved_commit": "4e708830296c653d6630c5e7b42ac0e72136d34b"
     },
@@ -106,7 +109,7 @@
       "status": "NOT_RUN",
       "target_version": "0.2.0",
       "criterion": "Presença de normais/UVs não certifica qualidade: verificar orientação, degeneração, UV overlap, escala por peça, pivôs, sockets, rodas/hubs e eixos.",
-      "progress": "GT and endurance continuous shell, curved wheel arches, sampled exported shell clearance and existing wheel QA pass. User rejected previous artistic quality; new assets still prototypes, visual acceptance/UV/articulation/collision pending. v0.2.3 opt-in curved closed-wheel body/canopy and swept lamps, 96 analytic cases and four native variants PASS sampled static clearance; visual quality still prototype, no artist acceptance or comprehensive intersection proof.",
+      "progress": "GT and endurance continuous shell, curved wheel arches, sampled exported shell clearance and existing wheel QA pass. User rejected previous artistic quality; new assets still prototypes, visual acceptance/UV/articulation/collision pending. v0.2.3 opt-in curved closed-wheel body/canopy and swept lamps, 96 analytic cases and four native variants PASS sampled static clearance; visual quality still prototype, no artist acceptance or comprehensive intersection proof. Review: node names, transforms, hierarchy, material definitions and per-node material sets compared across LODs; 15 builds PASS. Per-face UV/visual review still pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json",
@@ -119,7 +122,8 @@
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46067553615",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.2-closed-wheel/evidence/v0.2.1.2-native/summary.json",
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46071164548",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json"
       ],
       "resolved_commit": null
     },
@@ -129,11 +133,12 @@
       "status": "NOT_RUN",
       "target_version": "0.3.0",
       "criterion": "Texturas, baking, mapas PBR reais e LODs ainda ausentes; testar orçamentos e compatibilidade.",
-      "progress": "Procedural LOD0/1/2 native validation PASS for detailed openwheel, GT and endurance; triangle reduction 42.57–55.97% at LOD2, distance switch 11 cases each. Schema 2/3 policy unit tests only; texture/baking/PBR, arbitrary mesh simplification, production LOD packaging and visual approval pending. Schema 6 curved GT surface sampling LOD0/1/2 and separate Godot switch PASS; endurance only LOD0 native. Texture/baking/PBR remain pending.",
+      "progress": "Procedural LOD0/1/2 native validation PASS for detailed openwheel, GT and endurance; triangle reduction 42.57–55.97% at LOD2, distance switch 11 cases each. Schema 2/3 policy unit tests only; texture/baking/PBR, arbitrary mesh simplification, production LOD packaging and visual approval pending. Schema 6 curved GT surface sampling LOD0/1/2 and separate Godot switch PASS; endurance only LOD0 native. Texture/baking/PBR remain pending. Review follow-up: schema 2/3 native LODs and schema 6 endurance LOD0/1/2 now PASS; new semantic identity and hash receipt gates validated on 15 builds. Texture/PBR and approved packaging remain pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46069667234",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.2-automatic-lod/evidence/v0.2.2-native/summary.json",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json"
       ],
       "resolved_commit": null
     },

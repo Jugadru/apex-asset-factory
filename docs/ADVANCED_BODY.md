@@ -10,3 +10,6 @@ Tests cover 96 category/tire/dimension/LOD combinations, schema compatibility, i
 
 ## Native results
 55 CI tests PASS (46071164548), 38 exact local Git source files verified. GT LOD0/1/2 6888/3944/2600 triangles and 26 components, endurance LOD0 6924 triangles/27 components. Four independent builds PASS including sampled wheel clearance; GT LOD0 and endurance captures PASS. Separate GT Godot import/switch and compare_levels gates PASS, not a full uninterrupted build_set run. Endurance lower native LODs and repeatability NOT_RUN. Initial GT capture retained as pre-revision history; final shape remains stylized. Private raw evidence archive 114 files, CRC checked, excludes runtime cache. [Summary](../evidence/v0.2.3-native/summary.json).
+
+## Review follow-up
+Native schema 2/3 and curved endurance lower LODs completed. Four numeric repeat comparisons PASS (one binary identical). 15 new builds, 55 switch steps and 12 exact targeted unit tests PASS. Current remote CI remains FAIL with inaccessible logs and no recorded steps; no complete current suite or CI success claim. See https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.3-advanced-body/evidence/v0.2.3-review/summary.json. No new blocker closed; no promotion.
