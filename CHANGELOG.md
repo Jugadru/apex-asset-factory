@@ -57,3 +57,7 @@ Native schema 2/3 and curved endurance lower LODs completed. Four numeric repeat
 ## 0.3.0 — original material and texture staging candidate
 - Opt-in PBR base-color modulation and packed metallic/roughness, original embedded PNG maps, source receipt and exact canonical validation; six native variants and 11 LOD switch checks PASS.
 - UV area audit; normal maps, UV repair, baking and production approval pending. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.3.0-material-texture-factory/evidence/v0.3.0-native/summary.json
+
+## 0.3.0.1 — UV degeneracy repair candidate
+- Opt-in UV repair with local planar projection, exact indexed geometry/valid UV preservation and native import count gates.
+- Six PBR variants, 716 to zero collapsed UV triangles, 11 switch checks. Overlap/atlas/normal maps and baking pending. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.3.0.1-uv-repair/evidence/v0.3.0.1-native/summary.json
