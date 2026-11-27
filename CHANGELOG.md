@@ -3,7 +3,7 @@
 ## 0.1.2–0.1.5 — hyper infrastructure candidate
 - Immutable local registry, transactions, backup/restore and explicit selection/rollback.
 - Bounded process runner and filtered environment; signed local package gate, offline Lab receipts, native acceptance harness and blocker tracker.
-- CI 46018529079: 27 tests PASS. Four exact-source-subset native builds and three numeric comparisons PASS; GLB bytes differ. No complete local clone, physical GPU or production approval.
+- CI 46019032367: 28 tests PASS, including prebuild reservation and release. Four exact-source-subset native builds and three numeric comparisons PASS; GLB bytes differ. No complete local clone, physical GPU or production approval.
 
 ## 0.1.1 — advanced validator candidate
 - Strict bounded GLB subset validation in the build before Godot import.

@@ -41,3 +41,5 @@ Record the public-key fingerprint separately as a trusted owner decision; never 
 [Summary](../evidence/v0.1.5-native/summary.json): four native builds from ten exact source blobs; both seeds and historical numeric comparison PASS. Wrapper and full local checkout remain pending; raw logs and generated assets retained in private evidence ZIP. CI 46018529079 (27 tests) validates local registry and backup/recovery separately.
 
 Before building, reserve identity using `python3 -m asset_factory.registry --db /tmp/apex-assets.sqlite reserve tools/asset_factory/demo.json`. Registration consumes the reservation (or creates one atomically for backward compatibility). A failed build can be released by `release-reservation REQUEST REASON` from the same source revision; conflicting request/version rejected. Inspect history with `reservations ID VERSION`. No lease expiry or distributed scheduling implied.
+
+Registry follow-up: prebuild reservation, release and consumption verified in CI 46019032367 (28 tests). AF-B012 PASS for the single-host scope; no distributed scheduler or automatic remote execution.

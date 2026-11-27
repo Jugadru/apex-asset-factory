@@ -138,14 +138,15 @@
     {
       "id": "AF-B012",
       "priority": "P1",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "target_version": "0.1.2",
       "criterion": "Registro por execução, sem catálogo global, reserva de IDs, locks, histórico append-only ou controle de concorrência; implementar persistência e rollback.",
-      "progress": "Local registry, immutable events, concurrency, explicit selection/rollback and backup/restore synthetic tests PASS; prebuild reservation and cross-host coordination pending.",
+      "progress": "Single-host persistent registry scope PASS: prebuild reservation/release/consume, immutable IDs/versions/history, transactions, concurrency, rollback/selection, backup and restore tested. Multi-host coordination remains AF-B019; no remote service.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46019032367"
       ],
-      "resolved_commit": null
+      "resolved_commit": "afdd681a40ab8a7e1d60174021cba9ccdc8f4f4f"
     },
     {
       "id": "AF-B013",
@@ -221,7 +222,7 @@
       "status": "NOT_RUN",
       "target_version": "0.9.0",
       "criterion": "Pipeline ainda não possui aprovação/PR automatizada, filas de jobs, retries controlados, recuperação e bridge end-to-end; testar política de autorização e recibos de execução.",
-      "progress": "Handoff receipt and native harness only; autonomous queue/retries pending",
+      "progress": "Offline receipt correlation, native acceptance and local prebuild reservation available; autonomous dispatch, authenticated receipts, durable remote queues/retries and multi-host coordination pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
       ],
