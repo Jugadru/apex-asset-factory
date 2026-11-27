@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1.2 — GT & endurance candidate
+- Schema 5: separate continuous body and canopy geometry, wheel arches, profiled wing, GT roof panel and endurance dorsal fin. Earlier schemas retained.
+- 45 tests, 32 analytic combinations and two native builds PASS; 84 sampled shell clearances each. 3888/3956 triangles and 26/27 meshes. No collision certification, artistic acceptance, LOD or production approval.
+
 ## 0.2.1.1 — cockpit and suspension detail candidate
 - Recessed chassis, seat/backrest, steering, 2020 halo proxy and 20 visual suspension links; GLB cavity checks, schema 4 with schemas 1–3 retained.
 - 41 tests, 144 analytic layouts and four native builds PASS, 3436–3608 triangles, 51–53 meshes. Two 2020 builds byte-identical; no universal determinism claim.
