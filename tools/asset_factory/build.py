@@ -1,4 +1,4 @@
-"""Asset Factory 0.1.5: isolated original vehicle build, no promotion."""
+"""Asset Factory 0.2.0: isolated original vehicle build, no promotion."""
 import argparse
 import hashlib
 import json
@@ -76,7 +76,8 @@ def read_request(path):
     if len(raw) > 65536:
         raise ValueError("request too large")
     r = json.loads(raw, object_pairs_hook=unique, parse_constant=lambda s: (_ for _ in ()).throw(ValueError("nonfinite JSON constant: "+s)))
-    validate(r, json.loads((HERE/"request.schema.json").read_text()))
+    schema_name = "request_v2.schema.json" if type(r) is dict and type(r.get("schema")) is int and r["schema"] == 2 else "request.schema.json"
+    validate(r, json.loads((HERE/schema_name).read_text()))
     return r
 
 def inspect_attributes(path, budget):
@@ -103,12 +104,13 @@ def inspect_attributes(path, budget):
 
 def build(request, blender, godot, workspace, capture=False):
     r = read_request(Path(request))
+    generator = "modular_vehicle.py" if r["schema"] == 2 else "vehicle.py"
     w = Path(workspace).absolute()
     if w.exists() or w.is_symlink() or ROOT in w.resolve().parents or w.resolve() == ROOT:
         raise ValueError("new workspace outside repository required")
     w = w.resolve()
     w.mkdir()
-    report = {"factory_version":"0.1.5","status":"FAIL","approval":"PENDING",
+    report = {"factory_version":"0.2.0","status":"FAIL","approval":"PENDING",
               "promotion":"BLOCKED","stages":{k:"NOT_RUN" for k in ("plan","export","structural_validation","godot_import","capture")}}
     try:
         dump(w/"request.json",r)
@@ -121,6 +123,11 @@ def build(request, blender, godot, workspace, capture=False):
         dump(w/"plan.json",planned)
         if planned["jobs"][0]["status"] != "PLANNED":
             raise ValueError("Foundation blocked request")
+        if r["schema"] == 2:
+            from asset_factory.modular_layout import design, validate_layout
+            layout = design(r)
+            report["layout"] = validate_layout(layout,r)
+            dump(w/"component-layout.json",layout)
         report["stages"]["plan"]="PASS"
         b = str(Path(blender).resolve(strict=True))
         g = str(Path(godot).resolve(strict=True))
@@ -132,7 +139,7 @@ def build(request, blender, godot, workspace, capture=False):
         stage.mkdir()
         asset = stage/"asset.glb"
         run([b,"--background","--factory-startup","--python-exit-code","1","--python",
-             str(HERE/"vehicle.py"),"--","--request",str(w/"request.json"),"--output",str(asset)],
+             str(HERE/generator),"--","--request",str(w/"request.json"),"--output",str(asset)],
             w,w/"blender.log",180)
         report["stages"]["export"]="PASS"
         report["asset"] = inspect_attributes(asset,r["triangle_budget"])
@@ -176,7 +183,8 @@ def build(request, blender, godot, workspace, capture=False):
         dump(w/"registry.json",{"schema":1,"id":r["id"],"version":r["version"],
               "author":r["author"],"license":r["license"],"origin":"original procedural",
               "request_sha256":digest(w/"request.json"),"dependencies":[],
-              "generator_sha256":digest(HERE/"vehicle.py"),"asset":report.get("asset"),
+              "generator_sha256":digest(HERE/generator),
+              "generator_dependencies":({"modular_layout.py":digest(HERE/"modular_layout.py")} if r["schema"] == 2 else {}),"asset":report.get("asset"),
               "status":report["status"],"history":[{"version":r["version"],"status":report["status"]}],
               "approval":"PENDING","promotion":"BLOCKED"})
     return report
