@@ -1,7 +1,7 @@
 name: Asset Factory - contracts
 on:
   pull_request:
-    branches: [main]
+    branches: [main, migration/v0.1.0]
   push:
     branches: [main]
 permissions:
@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Verify migrated source blobs
         run: python3 tools/verify_migration.py
       - name: Validate catalog and tests
