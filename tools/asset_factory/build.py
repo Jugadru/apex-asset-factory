@@ -1,4 +1,4 @@
-"""Asset Factory 0.1.0: isolated original vehicle build, no promotion."""
+"""Asset Factory 0.1.1: isolated original vehicle build, no promotion."""
 import argparse
 import hashlib
 import json
@@ -15,6 +15,7 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE.parent))
 from apex_foundation import plan
 from apex_asset_build import inspect_glb
+from asset_factory.validate_glb import inspect as inspect_advanced
 from apex_lab_graphics import inspect as inspect_png
 
 def digest(path):
@@ -67,7 +68,7 @@ def read_request(path):
         return out
     if path.stat().st_size > 65536:
         raise ValueError("request too large")
-    r = json.loads(path.read_text(), object_pairs_hook=unique)
+    r = json.loads(path.read_text(), object_pairs_hook=unique, parse_constant=lambda s: (_ for _ in ()).throw(ValueError("nonfinite JSON constant: "+s)))
     validate(r, json.loads((HERE/"request.schema.json").read_text()))
     return r
 
@@ -79,6 +80,7 @@ def run(cmd, work, log, timeout):
 
 def inspect_attributes(path, budget):
     result = inspect_glb(path, budget)
+    result["advanced_validation"] = inspect_advanced(path, budget)[0]
     raw = path.read_bytes()
     n = struct.unpack_from("<I", raw, 12)[0]
     data = json.loads(raw[20:20+n])
@@ -105,7 +107,7 @@ def build(request, blender, godot, workspace, capture=False):
         raise ValueError("new workspace outside repository required")
     w = w.resolve()
     w.mkdir()
-    report = {"factory_version":"0.1.0","status":"FAIL","approval":"PENDING",
+    report = {"factory_version":"0.1.1","status":"FAIL","approval":"PENDING",
               "promotion":"BLOCKED","stages":{k:"NOT_RUN" for k in ("plan","export","structural_validation","godot_import","capture")}}
     try:
         dump(w/"request.json",r)
