@@ -6,7 +6,7 @@ import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from asset_factory.build import HERE,read_request,build
 from asset_factory.lod_policy import apply_policy,bevel_segments,level_for_distance
-from asset_factory.lod import compare_levels,build_set,DISTANCES
+from asset_factory.lod import compare_levels,build_set,DISTANCES,compare_documents,verify_level_receipt
 from asset_factory import modular_layout,era_layout,detail_layout,closed_wheel_layout
 
 class LODTest(unittest.TestCase):
@@ -57,7 +57,8 @@ class LODTest(unittest.TestCase):
             self.assertFalse(path.exists())
 
     def test_budget_and_envelope_gates(self):
-        reports=[{"status":"BUILT","derived_lod":i,"asset":{"mesh_triangles":n,"materials":7},
+        reports=[{"status":"BUILT","derived_lod":i,"promotion":"BLOCKED",
+                  "stages":dict.fromkeys(("plan","export","structural_validation","godot_import"),"PASS"),"asset":{"mesh_triangles":n,"materials":7},
                   "godot_fixture":{"meshes":26,"size":[2,1.2,5]}} for i,n in enumerate((4000,2500,1700))]
         self.assertEqual(compare_levels(reports),[4000,2500,1700])
         for field,value in (("mesh_triangles",3900),("materials",6)):
@@ -69,6 +70,51 @@ class LODTest(unittest.TestCase):
         with self.assertRaises(ValueError):compare_levels(reports[:2])
         changed=copy.deepcopy(reports);changed[1]["derived_lod"]=0
         with self.assertRaises(ValueError):compare_levels(changed)
+
+    def test_malformed_receipts_rejected(self):
+        reports=[{"status":"BUILT","derived_lod":i,"promotion":"BLOCKED",
+                  "stages":dict.fromkeys(("plan","export","structural_validation","godot_import"),"PASS"),
+                  "asset":{"mesh_triangles":n,"materials":7},
+                  "godot_fixture":{"meshes":26,"size":[2,1.2,5]}} for i,n in enumerate((4000,2500,1700))]
+        for value in ([],[2],[2,1.2,float("nan")],[2,1.2,float("inf")],[2,True,5],[2,0,5]):
+            bad=copy.deepcopy(reports);bad[2]["godot_fixture"]["size"]=value
+            with self.subTest(value=value),self.assertRaises(ValueError):compare_levels(bad)
+        bad=copy.deepcopy(reports);bad[1]["derived_lod"]=True
+        with self.assertRaises(ValueError):compare_levels(bad)
+        bad=copy.deepcopy(reports);bad[1]["stages"]["godot_import"]="FAIL"
+        with self.assertRaises(ValueError):compare_levels(bad)
+        bad=copy.deepcopy(reports);bad[1]["asset"]["mesh_triangles"]=2500.0
+        with self.assertRaises(ValueError):compare_levels(bad)
+
+    def test_document_identity_rejects_drift(self):
+        doc={"nodes":[{"name":"Wheel","mesh":0,"translation":[1,2,3]},
+                      {"name":"Body","mesh":1}],
+             "materials":[{"name":"Rubber","pbrMetallicRoughness":{"roughnessFactor":.8}},
+                          {"name":"Paint","pbrMetallicRoughness":{"roughnessFactor":.2}}],
+             "meshes":[{"primitives":[{"material":0}]},{"primitives":[{"material":1}]}],
+             "scenes":[{"nodes":[0,1]}],"scene":0}
+        docs=[copy.deepcopy(doc) for _ in range(3)]
+        compare_documents(docs)
+        # Reordered material table with corrected references is semantically identical.
+        docs[2]["materials"].reverse()
+        for m in docs[2]["meshes"]:m["primitives"][0]["material"]=1-m["primitives"][0]["material"]
+        compare_documents(docs)
+        for mutation in ("pivot","material","properties","duplicate","hierarchy"):
+            bad=copy.deepcopy(doc)
+            if mutation=="pivot":bad["nodes"][0]["translation"][0]+=.01
+            elif mutation=="material":bad["meshes"][0]["primitives"][0]["material"]=1
+            elif mutation=="properties":bad["materials"][0]["pbrMetallicRoughness"]["roughnessFactor"]=.3
+            elif mutation=="duplicate":bad["nodes"][1]["name"]="Wheel"
+            elif mutation=="hierarchy":bad["scenes"][0]["nodes"]=[0]
+            with self.subTest(mutation=mutation),self.assertRaises(ValueError):compare_documents([doc,doc,bad])
+
+    def test_receipt_hash_and_count_integrity(self):
+        result={"sha256":"a"*64,"triangles":123}
+        report={"asset":{"sha256":"a"*64,"mesh_triangles":123}}
+        verify_level_receipt(result,report,"b"*64,"b"*64)
+        with self.assertRaises(ValueError):verify_level_receipt(result,report,"b"*64,"c"*64)
+        with self.assertRaises(ValueError):verify_level_receipt(dict(result,triangles=124),report,"b"*64,"b"*64)
+        with self.assertRaises(ValueError):verify_level_receipt(dict(result,sha256="c"*64),report,"b"*64,"b"*64)
 
     def test_failed_build_writes_manifest(self):
         with tempfile.TemporaryDirectory() as tmp:
