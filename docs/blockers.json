@@ -106,7 +106,7 @@
       "status": "NOT_RUN",
       "target_version": "0.2.0",
       "criterion": "Presença de normais/UVs não certifica qualidade: verificar orientação, degeneração, UV overlap, escala por peça, pivôs, sockets, rodas/hubs e eixos.",
-      "progress": "Recessed cockpit checked by three GLB ray samples per build, era halo coverage, 20 visual suspension links, closed shaped topology and wheel/hub QA pass on four native builds. UV overlap, artistic acceptance, joint articulation and collision still pending.",
+      "progress": "GT and endurance continuous shell, curved wheel arches, sampled exported shell clearance and existing wheel QA pass. User rejected previous artistic quality; new assets still prototypes, visual acceptance/UV/articulation/collision pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json",
@@ -115,7 +115,9 @@
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46064098481",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1-era-vehicles/evidence/v0.2.1-native/summary.json",
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46065737135",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.1-cockpit-suspension/evidence/v0.2.1.1-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.1-cockpit-suspension/evidence/v0.2.1.1-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46067553615",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.2-closed-wheel/evidence/v0.2.1.2-native/summary.json"
       ],
       "resolved_commit": null
     },
@@ -222,11 +224,13 @@
       "status": "NOT_RUN",
       "target_version": "0.4.0–0.7.0",
       "criterion": "GT/endurance/formação, circuitos, ambientes, personagens, animações, danos, áudio, ingestão externa: não implementados. Roadmap incremental; sem clonagem de voz ou cópia proprietária.",
-      "progress": "Three original open-wheel eras plus detail profile; GT/endurance, circuits, characters and other factories still pending.",
+      "progress": "GT and endurance original closed-wheel categories implemented and native builds pass; tracks, environments, characters, animations, damage and audio remain pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/46064098481",
         "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1-era-vehicles/evidence/v0.2.1-native/summary.json",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.1-cockpit-suspension/evidence/v0.2.1.1-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.1-cockpit-suspension/evidence/v0.2.1.1-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46067553615",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.2-closed-wheel/evidence/v0.2.1.2-native/summary.json"
       ],
       "resolved_commit": null
     },

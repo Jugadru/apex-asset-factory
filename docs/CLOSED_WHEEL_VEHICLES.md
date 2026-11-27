@@ -8,3 +8,6 @@ python3 tools/asset_factory/build.py tools/asset_factory/demo_endurance.json --b
 ```
 
 Original geometry dimensions restricted to width 1.7–2.3 m, length 4–5.5 m and height 1–1.5 m. Tests cover 32 category/tire/dimension extrema and reject deliberate shell penetration. Factory version 0.2.1.2; distinct asset IDs use three-segment asset version 0.2.1. No promotion or release without human review.
+
+## Native evidence
+45 CI tests PASS (run 46067553615); both final native Blender/Godot builds PASS with 16 exact Git source/request blobs verified, 84 wheel-arch samples each. Min sampled clearances: GT 0.039618 m; endurance 0.035640 m. 3888/3956 triangles, 26/27 meshes. Private evidence ZIP contains 45 files, CRC verified; SHA in [summary](../evidence/v0.2.1.2-native/summary.json). Previous user visual rejection is recorded; new models are not artistic-approved. No full local clone, repeatability, physical GPU, game integration, actual collision or publication.

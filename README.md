@@ -32,3 +32,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Cockpit & suspension detail
 [Schema 4 and native evidence](docs/DETAIL_VEHICLES.md) · [summary](evidence/v0.2.1.1-native/summary.json). Visual geometry only, no sporting changes.
+
+## Closed-wheel vehicles
+[GT and endurance schema 5](docs/CLOSED_WHEEL_VEHICLES.md) · [native evidence](evidence/v0.2.1.2-native/summary.json). Original visual prototypes only.
