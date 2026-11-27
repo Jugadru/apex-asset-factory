@@ -80,9 +80,12 @@ def read_request(path):
     validate(r, json.loads((HERE/schema_name).read_text()))
     return r
 
-def inspect_attributes(path, budget):
+def inspect_attributes(path, budget, layout=None):
     result = inspect_glb(path, budget)
-    result["advanced_validation"] = inspect_advanced(path, budget)[0]
+    result["advanced_validation"], doc, decoded = inspect_advanced(path, budget)
+    if layout is not None:
+        from asset_factory.modular_qa import verify_wheels
+        result["modular_wheels"] = verify_wheels(doc, decoded, layout)
     raw = path.read_bytes()
     n = struct.unpack_from("<I", raw, 12)[0]
     data = json.loads(raw[20:20+n])
@@ -142,7 +145,7 @@ def build(request, blender, godot, workspace, capture=False):
              str(HERE/generator),"--","--request",str(w/"request.json"),"--output",str(asset)],
             w,w/"blender.log",180)
         report["stages"]["export"]="PASS"
-        report["asset"] = inspect_attributes(asset,r["triangle_budget"])
+        report["asset"] = inspect_attributes(asset,r["triangle_budget"],layout if r["schema"] == 2 else None)
         report["stages"]["structural_validation"]="PASS"
         (stage/"project.godot").write_text('[application]\nconfig/name="APEX Asset Staging"\n[display]\nwindow/size/viewport_width=960\nwindow/size/viewport_height=540\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
         shutil.copyfile(HERE/"staging.gd",stage/"staging.gd")
@@ -184,7 +187,7 @@ def build(request, blender, godot, workspace, capture=False):
               "author":r["author"],"license":r["license"],"origin":"original procedural",
               "request_sha256":digest(w/"request.json"),"dependencies":[],
               "generator_sha256":digest(HERE/generator),
-              "generator_dependencies":({"modular_layout.py":digest(HERE/"modular_layout.py")} if r["schema"] == 2 else {}),"asset":report.get("asset"),
+              "generator_dependencies":({"modular_layout.py":digest(HERE/"modular_layout.py"),"modular_qa.py":digest(HERE/"modular_qa.py")} if r["schema"] == 2 else {}),"asset":report.get("asset"),
               "status":report["status"],"history":[{"version":r["version"],"status":report["status"]}],
               "approval":"PENDING","promotion":"BLOCKED"})
     return report
