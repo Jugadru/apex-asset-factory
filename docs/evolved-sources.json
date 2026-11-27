@@ -1,0 +1,7 @@
+{
+  "baseline": "f44e7bf4c2d5375986c4ddcce960d69407cdc0d6",
+  "paths": [
+    "tools/asset_factory/build.py"
+  ],
+  "reason": "0.1.1 integrates the new advanced validator before Godot import; verify original historical blob rather than changing the migration manifest."
+}

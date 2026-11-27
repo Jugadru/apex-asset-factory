@@ -1,4 +1,4 @@
-# APEX Asset Factory — v0.1.0 candidate
+# APEX Asset Factory — v0.1.5 infrastructure candidate
 
 Independent graphics production infrastructure for APEX. Owner: Jugadru. Original procedural assets only until license and promotion gates pass. Source: [APEX-Simulation #184](https://github.com/Jugadru/APEX-Simulation/pull/184), exact SHA `f878b09aa5d66ef7d8302b2d94aa2a8d7db9c59b`. Foundation and Graphics Lab helpers are pinned copies for offline execution, not separate authorities.
 
@@ -17,3 +17,9 @@ Read [AGENTS](AGENTS.md), [BLOCKERS](BLOCKERS.md), [ROADMAP](ROADMAP.md), [upstr
 
 ## Continue development
 Read [handoff](docs/HANDOFF.md), [runtime inventory and archive SHA256](docs/RUNTIMES.md), [read-only upstream contract snapshots](docs/upstream-snapshot/README.md), [native migration evidence](evidence/v0.1.0-migration/README.md) and [live blockers](https://github.com/Jugadru/apex-asset-factory/issues/2).
+
+## v0.1.1 validation
+See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run before Godot import. Original v0.1.0 migration proof is retained in Git history. Native validation of this candidate is pending.
+
+## Hyper infrastructure
+[Operator procedures](docs/HYPER_UPDATE.md) · [blocker tracker](docs/blockers.json) · [native evidence](evidence/v0.1.5-native/summary.json). Four native builds passed with exact source subset; full local checkout and physical GPU remain pending. No asset promotion.
