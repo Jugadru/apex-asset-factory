@@ -106,10 +106,18 @@
       "status": "NOT_RUN",
       "target_version": "0.2.0",
       "criterion": "Presença de normais/UVs não certifica qualidade: verificar orientação, degeneração, UV overlap, escala por peça, pivôs, sockets, rodas/hubs e eixos.",
-      "progress": "Current model passes finite/unit normals/zero-area checks in four native runs; pivots, wheel shape, UV overlap and design quality pending.",
+      "progress": "GT and endurance continuous shell, curved wheel arches, sampled exported shell clearance and existing wheel QA pass. User rejected previous artistic quality; new assets still prototypes, visual acceptance/UV/articulation/collision pending.",
       "evidence": [
         "https://github.com/Jugadru/apex-asset-factory/actions/runs/45928453298",
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46061670425",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.0-modular-vehicle/evidence/v0.2.0-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46064098481",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1-era-vehicles/evidence/v0.2.1-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46065737135",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.1-cockpit-suspension/evidence/v0.2.1.1-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46067553615",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.2-closed-wheel/evidence/v0.2.1.2-native/summary.json"
       ],
       "resolved_commit": null
     },
@@ -119,8 +127,11 @@
       "status": "NOT_RUN",
       "target_version": "0.3.0",
       "criterion": "Texturas, baking, mapas PBR reais e LODs ainda ausentes; testar orçamentos e compatibilidade.",
-      "progress": "LOD and textured profiles not implemented",
-      "evidence": [],
+      "progress": "Procedural LOD0/1/2 native validation PASS for detailed openwheel, GT and endurance; triangle reduction 42.57–55.97% at LOD2, distance switch 11 cases each. Schema 2/3 policy unit tests only; texture/baking/PBR, arbitrary mesh simplification, production LOD packaging and visual approval pending.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46069667234",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.2-automatic-lod/evidence/v0.2.2-native/summary.json"
+      ],
       "resolved_commit": null
     },
     {
@@ -129,9 +140,10 @@
       "status": "NOT_RUN",
       "target_version": "0.8.0",
       "criterion": "GPU física, FPS, VRAM, inspeção visual humana e regressões visuais no jogo completo não avaliados; captura llvmpipe prova somente renderização fixture.",
-      "progress": "Four real software Godot captures PASS, identical PNG per seed; physical GPU, game visual review/FPS/VRAM NOT_RUN.",
+      "progress": "Four real software Godot captures PASS, identical PNG per seed; physical GPU, game visual review/FPS/VRAM NOT_RUN. Three standalone Godot LOD switch fixtures PASS, GT software captures PASS. No FPS/VRAM or real game evidence.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json"
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.1.2-0.1.5-infrastructure/evidence/v0.1.5-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.2-automatic-lod/evidence/v0.2.2-native/summary.json"
       ],
       "resolved_commit": null
     },
@@ -199,12 +211,16 @@
     {
       "id": "AF-B017",
       "priority": "P2",
-      "status": "NOT_RUN",
+      "status": "PASS",
       "target_version": "0.2.0",
       "criterion": "Somente monoposto original simplificado 2012-inspired, LOD0; seed altera acento da pintura, não geometria; escala anisotrópica pode deformar rodas. Validar peças intercambiáveis e variantes antes de chamar gerador completo.",
-      "progress": "Original simplified vehicle only",
-      "evidence": [],
-      "resolved_commit": null
+      "progress": "PASS in modular open-wheel scope: 48 analytic combinations, all three body profiles tested natively, legacy native rerun PASS, circular wheel/hub QA; other categories and commercial visual refinement remain AF-B018/B009.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46061670425",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.0-modular-vehicle/evidence/v0.2.0-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.0-modular-vehicle/evidence/v0.2.0-native/summary.json"
+      ],
+      "resolved_commit": "b08bc1a523f5ba4f4c1d1c441ab118743d1ce7bf"
     },
     {
       "id": "AF-B018",
@@ -212,8 +228,14 @@
       "status": "NOT_RUN",
       "target_version": "0.4.0–0.7.0",
       "criterion": "GT/endurance/formação, circuitos, ambientes, personagens, animações, danos, áudio, ingestão externa: não implementados. Roadmap incremental; sem clonagem de voz ou cópia proprietária.",
-      "progress": "Further factories not implemented",
-      "evidence": [],
+      "progress": "GT and endurance original closed-wheel categories implemented and native builds pass; tracks, environments, characters, animations, damage and audio remain pending.",
+      "evidence": [
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46064098481",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1-era-vehicles/evidence/v0.2.1-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.1-cockpit-suspension/evidence/v0.2.1.1-native/summary.json",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46067553615",
+        "https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.2-closed-wheel/evidence/v0.2.1.2-native/summary.json"
+      ],
       "resolved_commit": null
     },
     {
@@ -234,9 +256,10 @@
       "status": "NOT_RUN",
       "target_version": "0.1.5",
       "criterion": "Distribuição de binários/assets grandes e política Git LFS/artefatos/releases ainda não validadas; decidir retenção, tamanho, licenças e acesso.",
-      "progress": "Local package candidate; LFS/retention policy pending",
+      "progress": "Local package candidate; LFS/retention policy pending Derived LOD reports blocked from registering as primary; signed asset-set distribution remains pending.",
       "evidence": [
-        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079"
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46018529079",
+        "https://github.com/Jugadru/apex-asset-factory/actions/runs/46069667234"
       ],
       "resolved_commit": null
     },

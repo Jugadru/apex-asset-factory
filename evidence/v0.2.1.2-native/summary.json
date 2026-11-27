@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "source_revision": "c9c38204dfa3ae9029f1337347ba920b43ea30a1",
+  "source_blobs": {
+    "tools/apex_asset_build.py": "15a60572612f32e36f39ab262f5cbd05d63ac108",
+    "tools/apex_foundation.py": "93c427307b450125dc4d34c9062b64da034ee735",
+    "tools/apex_lab_graphics.py": "440a7f463d96fa325f8fa0465398fb8bcacc400f",
+    "tools/asset_factory/build.py": "5f5fc1ec676908d09965f5e4409c463a0c089baf",
+    "tools/asset_factory/closed_wheel_layout.py": "337f0791768898e962f58b7436ac79c8338460d6",
+    "tools/asset_factory/closed_wheel_qa.py": "f3290629e4b405c1c589e93242f5104354455682",
+    "tools/asset_factory/closed_wheel_vehicle.py": "4f0bac668125082dd6ed8d3441983a2a44c86990",
+    "tools/asset_factory/era_layout.py": "d8e4a717efcff42959e74db6818466b13f12ec99",
+    "tools/asset_factory/modular_layout.py": "4dd0b56b925f941c735d9c9dae421f34709f6ecf",
+    "tools/asset_factory/modular_qa.py": "0259057c1db5968cc02912a68565de744e1175bc",
+    "tools/asset_factory/request_v5.schema.json": "810dc830204a1d9a20a45cd764a74783d4a82d18",
+    "tools/asset_factory/secure_run.py": "992be68c453cca760b40d79c575bc191e8a5b737",
+    "tools/asset_factory/staging.gd": "43341f01fa6cd1a367541c8951ea0842ad99e700",
+    "tools/asset_factory/validate_glb.py": "491038e4016149cde8db12e794b49253b4ac04a2",
+    "tools/asset_factory/demo_gt.json": "310d69ba9a8c4190067bee34323968b210e9e57d",
+    "tools/asset_factory/demo_endurance.json": "d14bbe36d2cdc883a0a77aff5aed16df7faa717c"
+  },
+  "scope": "16 exact Git files including requests; local partial reconstruction not full checkout",
+  "ci": "https://github.com/Jugadru/apex-asset-factory/actions/runs/46067553615",
+  "blender": "5.3.0 Release Candidate",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "llvmpipe/Xvfb software",
+  "runs": [
+    {
+      "category": "gt",
+      "request_sha256": "c402926b8f0a553c5eec0f5f546d55e8c7433164b1f0867f4bcc436878db5d97",
+      "report_sha256": "5990336eaf27d897b0f87147f3fe4d2d2a7e82f005d31a31314c55962ec3df13",
+      "asset_sha256": "d5c9329182e403896f96a171cd7c1e756fec698665bf70df5f8c3f71d3583668",
+      "capture_sha256": "db9a47651374a3940562de14259b3aac015279c3569c2500e50904b3192b7116",
+      "triangles": 3888,
+      "meshes": 26,
+      "size": [
+        2,
+        1.26999998092651,
+        4.65000009536743
+      ],
+      "clearance": {
+        "min_sampled_clearance_m": 0.03961797141236356,
+        "samples_with_shell": 84,
+        "status": "PASS",
+        "scope": "sampled static shell only"
+      },
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    },
+    {
+      "category": "endurance",
+      "request_sha256": "197e1eb8416a89eb71dba4afba23729f62bb3ca68d9283604d73009eb68ac372",
+      "report_sha256": "7bdb84afc0d42865259d552a818055c9608ade63238890872236343702ef1527",
+      "asset_sha256": "c6110800ea7913e55a976c56f34a5ab07dd890a5b385991653b1e1d5fc7b6091",
+      "capture_sha256": "9e8f6eac0c9deacbaca9064db88d306298bb04b10c9f8d34149a9f09bfcc21f9",
+      "triangles": 3956,
+      "meshes": 27,
+      "size": [
+        2,
+        1.08000004291534,
+        5
+      ],
+      "clearance": {
+        "min_sampled_clearance_m": 0.03563997942442976,
+        "samples_with_shell": 84,
+        "status": "PASS",
+        "scope": "sampled static shell only"
+      },
+      "stages": {
+        "plan": "PASS",
+        "export": "PASS",
+        "structural_validation": "PASS",
+        "godot_import": "PASS",
+        "capture": "PASS",
+        "manual_review": "NOT_RUN",
+        "promotion": "BLOCKED"
+      }
+    }
+  ],
+  "repeatability": "NOT_RUN",
+  "physical_gpu": "NOT_RUN",
+  "manual_review": "NOT_RUN",
+  "promotion": "BLOCKED",
+  "private_zip_sha256": "164e791b18ace18f72b6a4f8166cd61fa04dd824217a45c750ad3c2cd4833bcd",
+  "private_zip_bytes": 283098
+}

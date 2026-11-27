@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.2.1.2 — GT & endurance candidate
+- Schema 5: separate continuous body and canopy geometry, wheel arches, profiled wing, GT roof panel and endurance dorsal fin. Earlier schemas retained.
+- 45 tests, 32 analytic combinations and two native builds PASS; 84 sampled shell clearances each. 3888/3956 triangles and 26/27 meshes. No collision certification, artistic acceptance, LOD or production approval.
+
+## 0.2.1.1 — cockpit and suspension detail candidate
+- Recessed chassis, seat/backrest, steering, 2020 halo proxy and 20 visual suspension links; GLB cavity checks, schema 4 with schemas 1–3 retained.
+- 41 tests, 144 analytic layouts and four native builds PASS, 3436–3608 triangles, 51–53 meshes. Two 2020 builds byte-identical; no universal determinism claim.
+
+## 0.2.1 — era-inspired vehicle candidate
+- Three stylized eras with rounded chassis, tapered sidepods/airbox and profiled wings; preserved schemas 1 and 2.
+- 37 tests and 144 analytic combinations PASS; three native builds PASS, 3072 triangles / 36 meshes each. No GT/endurance, detailed cockpit or texture/LOD production approval.
+
+## 0.2.0 — modular vehicle candidate
+- Three body profiles, two tire widths, seed-dependent geometry, separate 36 components and direct metre layout.
+- Exported wheel/hub pivot, radius and axle checks. 34 tests PASS; two final balanced native builds and earlier wide PASS. Final wide batch timeout; remaining variants/native legacy pending. No production approval.
+
 ## 0.1.2–0.1.5 — hyper infrastructure candidate
 - Immutable local registry, transactions, backup/restore and explicit selection/rollback.
 - Bounded process runner and filtered environment; signed local package gate, offline Lab receipts, native acceptance harness and blocker tracker.
@@ -15,3 +31,10 @@
 - Pin necessary shared tools by upstream blob hashes; no game runtime or private lab.
 - Preserve AF-B001–024, AF-R001 and historical evidence. AF-B001 resolved; migration and CI pending validation.
 - Add hosted Python contract CI. No assets promoted; no distribution license implied.
+
+### 0.2.0 follow-up
+- Completed wide, low-drag and legacy native reruns; AF-B017 scoped PASS. No asset approval.
+
+## 0.2.2 — automatic procedural LOD candidate
+- Three derived detail levels for schemas 2–5, actual category QA and triangle budget gates, isolated Godot distance switch with hysteresis, primary registry rejects derived variants.
+- 51 tests PASS; nine native variants across three categories, 42.57–55.97% triangle reduction at LOD2. Outer timeout history retained; no FPS/VRAM or gameplay claim.

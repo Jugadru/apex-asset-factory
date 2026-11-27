@@ -66,3 +66,21 @@ Machine-readable [ledger](docs/blockers.json) is current. AF-B007 PASS for numer
 
 ### Reservation follow-up
 AF-B012 PASS in single-host registry scope: prebuild claims, conflict, explicit release after failure, consumption, immutability, local concurrency, rollback and backup/restore verified by 28-test CI https://github.com/Jugadru/apex-asset-factory/actions/runs/46019032367. Distributed queue and shared multi-host execution remain AF-B019; no permanent service. Five original IDs are PASS within their recorded scope. Ten native source blobs remain identical in this candidate.
+
+## v0.2.0 candidate
+AF-B009/B017 partial: modular layouts and export-wheel QA implemented, 34 unit tests PASS, native balanced pair PASS and earlier wide variant PASS; final wide batch timeout, remaining native low-drag and legacy rerun pending. No new blocker closed, no production release. See https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.0-modular-vehicle/evidence/v0.2.0-native/summary.json.
+
+### v0.2.0 native follow-up
+Separate native runs completed for wide, low-drag and legacy, all stages PASS. Historical batch timeout retained but resolved. AF-B017 PASS for modular original open-wheel scope only; AF-B009 partial; visual review, GPU physical and game integration NOT_RUN.
+
+## v0.2.1 candidate
+AF-B018 partial: three era-inspired open-wheel silhouettes, native export/import/capture PASS for each. GT/endurance and other factories remain unimplemented. AF-B009 partial: shaped meshes and wheel QA pass but detailed visual/UV/physical GPU acceptance pending. No new ID closed. Evidence: https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1-era-vehicles/evidence/v0.2.1-native/summary.json.
+
+## v0.2.1.1 candidate
+AF-B009 partial: actual recessed cockpit, era halo, 20 visual suspension links; 144 analytic layouts and four native exports pass with GLB cavity and wheel QA. UV, visual acceptance, detailed mechanics and Godot articulation remain pending. No new ID closed. Evidence: https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.1-cockpit-suspension/evidence/v0.2.1.1-native/summary.json.
+
+## v0.2.1.2 candidate
+AF-B009 and AF-B018 partial: two original closed-wheel categories, continuous shell and sampled wheel clearance. 45 tests PASS, 32 analytic dimensional combinations, two exact-source native builds PASS. Previous visual quality rejected by owner; current models remain stylized, no production approval. No new blocker closed. Evidence: https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.1.2-closed-wheel/evidence/v0.2.1.2-native/summary.json.
+
+## v0.2.2 candidate
+AF-B010 partial: procedural LOD0/1/2, 51 tests PASS, nine native variants with unchanged dimensions/component counts and three Godot switch fixtures. GT and endurance outer timeouts recovered separately, openwheel full orchestrator PASS. Texture/UV/PBR, schema 2/3 native tests, packaging, visual and physical GPU/game acceptance pending. Six IDs scoped PASS unchanged. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.2.2-automatic-lod/evidence/v0.2.2-native/summary.json

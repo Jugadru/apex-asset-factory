@@ -203,6 +203,7 @@ def register(db,workspace,revision=None):
     identity(id,version)
     check(request["license"]=="ORIGINAL","original assets only")
     report=read_json(w/"report.json")
+    check(type(report.get("derived_lod",0)) is int and report.get("derived_lod",0)==0,"derived LOD cannot register as primary asset")
     check(report.get("status")=="BUILT" and report.get("promotion")=="BLOCKED" and report.get("approval")=="PENDING","candidate report required")
     check(all(report.get("stages",{}).get(k)=="PASS" for k in ("plan","export","structural_validation","godot_import")),"incomplete build evidence")
     glb=w/"staging"/"asset.glb"

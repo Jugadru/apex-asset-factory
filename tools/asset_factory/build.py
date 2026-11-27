@@ -1,4 +1,4 @@
-"""Asset Factory 0.1.5: isolated original vehicle build, no promotion."""
+"""Asset Factory 0.2.2: isolated original vehicle build, no promotion."""
 import argparse
 import hashlib
 import json
@@ -76,12 +76,22 @@ def read_request(path):
     if len(raw) > 65536:
         raise ValueError("request too large")
     r = json.loads(raw, object_pairs_hook=unique, parse_constant=lambda s: (_ for _ in ()).throw(ValueError("nonfinite JSON constant: "+s)))
-    validate(r, json.loads((HERE/"request.schema.json").read_text()))
+    schema_name = {2:"request_v2.schema.json",3:"request_v3.schema.json",4:"request_v4.schema.json",5:"request_v5.schema.json"}.get(r["schema"],"request.schema.json") if type(r) is dict and type(r.get("schema")) is int else "request.schema.json"
+    validate(r, json.loads((HERE/schema_name).read_text()))
     return r
 
-def inspect_attributes(path, budget):
+def inspect_attributes(path, budget, layout=None):
     result = inspect_glb(path, budget)
-    result["advanced_validation"] = inspect_advanced(path, budget)[0]
+    result["advanced_validation"], doc, decoded = inspect_advanced(path, budget)
+    if layout is not None:
+        from asset_factory.modular_qa import verify_wheels
+        result["modular_wheels"] = verify_wheels(doc, decoded, layout)
+        if any(p.get("shape") == "open_tub" for p in layout):
+            from asset_factory.detail_qa import verify_details
+            result["detail_geometry"] = verify_details(doc,decoded,layout)
+        if any(p["name"] == "BodyShell" for p in layout):
+            from asset_factory.closed_wheel_qa import verify_closed_wheel
+            result["closed_wheel_geometry"] = verify_closed_wheel(doc,decoded,layout)
     raw = path.read_bytes()
     n = struct.unpack_from("<I", raw, 12)[0]
     data = json.loads(raw[20:20+n])
@@ -101,14 +111,17 @@ def inspect_attributes(path, budget):
                    "attribute_presence":"PASS","textures":0})
     return result
 
-def build(request, blender, godot, workspace, capture=False):
+def build(request, blender, godot, workspace, capture=False, derived_lod=0):
     r = read_request(Path(request))
+    if type(derived_lod) is not int or derived_lod not in (0,1,2) or (derived_lod and r["schema"]==1):
+        raise ValueError("LOD variants require schema 2–5 and level 0–2")
+    generator = {1:"vehicle.py",2:"modular_vehicle.py",3:"era_vehicle.py",4:"detail_vehicle.py",5:"closed_wheel_vehicle.py"}[r["schema"]]
     w = Path(workspace).absolute()
     if w.exists() or w.is_symlink() or ROOT in w.resolve().parents or w.resolve() == ROOT:
         raise ValueError("new workspace outside repository required")
     w = w.resolve()
     w.mkdir()
-    report = {"factory_version":"0.1.5","status":"FAIL","approval":"PENDING",
+    report = {"factory_version":"0.2.2","derived_lod":derived_lod,"status":"FAIL","approval":"PENDING",
               "promotion":"BLOCKED","stages":{k:"NOT_RUN" for k in ("plan","export","structural_validation","godot_import","capture")}}
     try:
         dump(w/"request.json",r)
@@ -121,6 +134,18 @@ def build(request, blender, godot, workspace, capture=False):
         dump(w/"plan.json",planned)
         if planned["jobs"][0]["status"] != "PLANNED":
             raise ValueError("Foundation blocked request")
+        if r["schema"] in (2,3,4,5):
+            if r["schema"] == 5:
+                from asset_factory.closed_wheel_layout import design, validate_layout
+            elif r["schema"] == 4:
+                from asset_factory.detail_layout import design, validate_layout
+            elif r["schema"] == 3:
+                from asset_factory.era_layout import design, validate_layout
+            else:
+                from asset_factory.modular_layout import design, validate_layout
+            layout = design(r)
+            report["layout"] = validate_layout(layout,r)
+            dump(w/"component-layout.json",layout)
         report["stages"]["plan"]="PASS"
         b = str(Path(blender).resolve(strict=True))
         g = str(Path(godot).resolve(strict=True))
@@ -132,10 +157,10 @@ def build(request, blender, godot, workspace, capture=False):
         stage.mkdir()
         asset = stage/"asset.glb"
         run([b,"--background","--factory-startup","--python-exit-code","1","--python",
-             str(HERE/"vehicle.py"),"--","--request",str(w/"request.json"),"--output",str(asset)],
+             str(HERE/generator),"--","--request",str(w/"request.json"),"--output",str(asset)]+(["--derived-lod",str(derived_lod)] if derived_lod else []),
             w,w/"blender.log",180)
         report["stages"]["export"]="PASS"
-        report["asset"] = inspect_attributes(asset,r["triangle_budget"])
+        report["asset"] = inspect_attributes(asset,r["triangle_budget"],layout if r["schema"] in (2,3,4,5) else None)
         report["stages"]["structural_validation"]="PASS"
         (stage/"project.godot").write_text('[application]\nconfig/name="APEX Asset Staging"\n[display]\nwindow/size/viewport_width=960\nwindow/size/viewport_height=540\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
         shutil.copyfile(HERE/"staging.gd",stage/"staging.gd")
@@ -176,7 +201,9 @@ def build(request, blender, godot, workspace, capture=False):
         dump(w/"registry.json",{"schema":1,"id":r["id"],"version":r["version"],
               "author":r["author"],"license":r["license"],"origin":"original procedural",
               "request_sha256":digest(w/"request.json"),"dependencies":[],
-              "generator_sha256":digest(HERE/"vehicle.py"),"asset":report.get("asset"),
+              "generator_sha256":digest(HERE/generator),
+              "derived_lod":derived_lod,
+              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py","lod_policy.py"]+(["era_layout.py"] if r["schema"] in (3,4,5) else [])+(["detail_layout.py","detail_qa.py"] if r["schema"] == 4 else [])+(["closed_wheel_layout.py","closed_wheel_qa.py"] if r["schema"] == 5 else []))} if r["schema"] in (2,3,4,5) else {}),"asset":report.get("asset"),
               "status":report["status"],"history":[{"version":r["version"],"status":report["status"]}],
               "approval":"PENDING","promotion":"BLOCKED"})
     return report
