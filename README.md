@@ -50,3 +50,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Material & Texture Factory
 [Opt-in native PBR staging](docs/MATERIAL_FACTORY.md). Original embedded maps; legacy untextured generator unchanged. Staging only.
+
+## UV repair
+[Optional UV degeneracy correction](docs/UV_REPAIR.md). Staging only; not production UV atlas.

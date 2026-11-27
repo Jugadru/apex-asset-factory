@@ -14,9 +14,26 @@ func _run() -> void:
     var car := packed.instantiate() as Node3D
     root.add_child(car)
     var materials := {}
+    var uv_total := 0
     for item in car.find_children("*", "MeshInstance3D", true, false):
         var mesh := item as MeshInstance3D
         for i in range(mesh.mesh.get_surface_count()):
+            if "--uv-clean" in args:
+                var arrays := mesh.mesh.surface_get_arrays(i)
+                var uv: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
+                var ids: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+                if ids.is_empty() or ids.size() % 3 != 0:
+                    quit(7)
+                    return
+                for j in range(0, ids.size(), 3):
+                    var a := uv[ids[j]]
+                    var b := uv[ids[j+1]]
+                    var c := uv[ids[j+2]]
+                    if absf((b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x)) <= 1e-12:
+                        print("collapsed imported UV ",mesh.name)
+                        quit(8)
+                        return
+                    uv_total += 1
             var m := mesh.get_active_material(i) as BaseMaterial3D
             if m == null:
                 quit(3)
@@ -34,5 +51,10 @@ func _run() -> void:
         print(materials)
         quit(6)
         return
+    if "--uv-clean" in args:
+        if uv_total <= 0:
+            quit(9)
+            return
+        print("APEX_UV_GODOT PASS ",uv_total)
     print("APEX_PBR_GODOT PASS ",materials.size())
     quit(0)
