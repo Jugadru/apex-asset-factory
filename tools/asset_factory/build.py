@@ -1,4 +1,4 @@
-"""Asset Factory 0.2.1: isolated original vehicle build, no promotion."""
+"""Asset Factory 0.2.1.1: isolated original vehicle build, no promotion."""
 import argparse
 import hashlib
 import json
@@ -76,7 +76,7 @@ def read_request(path):
     if len(raw) > 65536:
         raise ValueError("request too large")
     r = json.loads(raw, object_pairs_hook=unique, parse_constant=lambda s: (_ for _ in ()).throw(ValueError("nonfinite JSON constant: "+s)))
-    schema_name = {2:"request_v2.schema.json",3:"request_v3.schema.json"}.get(r["schema"],"request.schema.json") if type(r) is dict and type(r.get("schema")) is int else "request.schema.json"
+    schema_name = {2:"request_v2.schema.json",3:"request_v3.schema.json",4:"request_v4.schema.json"}.get(r["schema"],"request.schema.json") if type(r) is dict and type(r.get("schema")) is int else "request.schema.json"
     validate(r, json.loads((HERE/schema_name).read_text()))
     return r
 
@@ -107,13 +107,13 @@ def inspect_attributes(path, budget, layout=None):
 
 def build(request, blender, godot, workspace, capture=False):
     r = read_request(Path(request))
-    generator = {1:"vehicle.py",2:"modular_vehicle.py",3:"era_vehicle.py"}[r["schema"]]
+    generator = {1:"vehicle.py",2:"modular_vehicle.py",3:"era_vehicle.py",4:"detail_vehicle.py"}[r["schema"]]
     w = Path(workspace).absolute()
     if w.exists() or w.is_symlink() or ROOT in w.resolve().parents or w.resolve() == ROOT:
         raise ValueError("new workspace outside repository required")
     w = w.resolve()
     w.mkdir()
-    report = {"factory_version":"0.2.1","status":"FAIL","approval":"PENDING",
+    report = {"factory_version":"0.2.1.1","status":"FAIL","approval":"PENDING",
               "promotion":"BLOCKED","stages":{k:"NOT_RUN" for k in ("plan","export","structural_validation","godot_import","capture")}}
     try:
         dump(w/"request.json",r)
@@ -126,8 +126,10 @@ def build(request, blender, godot, workspace, capture=False):
         dump(w/"plan.json",planned)
         if planned["jobs"][0]["status"] != "PLANNED":
             raise ValueError("Foundation blocked request")
-        if r["schema"] in (2,3):
-            if r["schema"] == 3:
+        if r["schema"] in (2,3,4):
+            if r["schema"] == 4:
+                from asset_factory.detail_layout import design, validate_layout
+            elif r["schema"] == 3:
                 from asset_factory.era_layout import design, validate_layout
             else:
                 from asset_factory.modular_layout import design, validate_layout
@@ -148,7 +150,7 @@ def build(request, blender, godot, workspace, capture=False):
              str(HERE/generator),"--","--request",str(w/"request.json"),"--output",str(asset)],
             w,w/"blender.log",180)
         report["stages"]["export"]="PASS"
-        report["asset"] = inspect_attributes(asset,r["triangle_budget"],layout if r["schema"] in (2,3) else None)
+        report["asset"] = inspect_attributes(asset,r["triangle_budget"],layout if r["schema"] in (2,3,4) else None)
         report["stages"]["structural_validation"]="PASS"
         (stage/"project.godot").write_text('[application]\nconfig/name="APEX Asset Staging"\n[display]\nwindow/size/viewport_width=960\nwindow/size/viewport_height=540\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
         shutil.copyfile(HERE/"staging.gd",stage/"staging.gd")
@@ -190,7 +192,7 @@ def build(request, blender, godot, workspace, capture=False):
               "author":r["author"],"license":r["license"],"origin":"original procedural",
               "request_sha256":digest(w/"request.json"),"dependencies":[],
               "generator_sha256":digest(HERE/generator),
-              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py"]+(["era_layout.py"] if r["schema"] == 3 else []))} if r["schema"] in (2,3) else {}),"asset":report.get("asset"),
+              "generator_dependencies":({name:digest(HERE/name) for name in (["modular_layout.py","modular_qa.py"]+(["era_layout.py"] if r["schema"] in (3,4) else [])+(["detail_layout.py"] if r["schema"] == 4 else []))} if r["schema"] in (2,3,4) else {}),"asset":report.get("asset"),
               "status":report["status"],"history":[{"version":r["version"],"status":report["status"]}],
               "approval":"PENDING","promotion":"BLOCKED"})
     return report
