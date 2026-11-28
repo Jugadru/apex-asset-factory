@@ -96,7 +96,8 @@ def read_document(path):
     return doc, memoryview(raw)[28+n:28+n+length], hashlib.sha256(raw).hexdigest(), len(raw)
 
 
-def inspect(path, budget=100000):
+def inspect(path, budget=100000, *, allow_uv2=False):
+    require(type(allow_uv2) is bool, "invalid UV2 option")
     integer(budget, 1, 10000000, "triangle budget")
     doc, data, digest, size = read_document(path)
     views = array(doc.get("bufferViews"), "bufferViews")
@@ -173,11 +174,17 @@ def inspect(path, budget=100000):
             require(type(p.get("mode",4)) is int and p.get("mode",4) == 4, "triangles only")
             index(materials, p.get("material"), "material index")
             attrs = record(p.get("attributes"), "attributes")
-            require(set(attrs) == {"POSITION","NORMAL","TEXCOORD_0"}, "required attributes")
+            require(set(attrs) == {"POSITION","NORMAL","TEXCOORD_0"} | ({"TEXCOORD_1"} if allow_uv2 else set()), "required attributes")
             pos, normal, uv = [index(accessors, attrs[k], k) for k in ("POSITION","NORMAL","TEXCOORD_0")]
             require([(a["componentType"], a["type"]) for a in (pos,normal,uv)] == [(5126,"VEC3"),(5126,"VEC3"),(5126,"VEC2")], "attribute formats")
             require(pos["count"] == normal["count"] == uv["count"] and "min" in pos and "max" in pos, "attribute count or position bounds")
-            for a in (pos,normal,uv):
+            extra = []
+            if allow_uv2:
+                uv2 = index(accessors, attrs["TEXCOORD_1"], "TEXCOORD_1")
+                require((uv2["componentType"],uv2["type"],uv2["count"]) == (5126,"VEC2",pos["count"]), "UV2 format/count")
+                require(all(0 <= x <= 1 for row in decoded[attrs["TEXCOORD_1"]] for x in row), "UV2 range")
+                extra.append(uv2)
+            for a in (pos,normal,uv,*extra):
                 v = views[a["bufferView"]]
                 require(v.get("target",34962) == 34962 and (v.get("byteOffset",0)+a.get("byteOffset",0)) % 4 == 0, "vertex view")
             ia = index(accessors,p.get("indices"),"indices")

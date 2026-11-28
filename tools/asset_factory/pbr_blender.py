@@ -24,7 +24,7 @@ if "--uv-clean" in options:
     total=0
     for ob in bpy.context.scene.objects:
         if ob.type!="MESH":continue
-        mesh=ob.data;mesh.calc_loop_triangles();uv=mesh.uv_layers.active.data
+        mesh=ob.data;mesh.calc_loop_triangles();uv=mesh.uv_layers[0].data
         for tri in mesh.loop_triangles:
             a,b,c=(uv[i].uv for i in tri.loops)
             assert abs((b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x))>1e-12,ob.name
@@ -35,7 +35,7 @@ if "--normal-maps" in options:
     count=0
     for ob in bpy.context.scene.objects:
         if ob.type!="MESH":continue
-        mesh=ob.data;mesh.calc_tangents()
+        mesh=ob.data;mesh.calc_tangents(uvmap=mesh.uv_layers[0].name)
         for loop in mesh.loops:
             t=loop.tangent;n=mesh.corner_normals[loop.index].vector
             assert all(math.isfinite(v) for v in t) and abs(t.length-1)<.005 and abs(t.dot(n))<.005 and abs(abs(loop.bitangent_sign)-1)<.005,ob.name
@@ -43,4 +43,18 @@ if "--normal-maps" in options:
         mesh.free_tangents()
     assert count>0
     print("APEX_TANGENT_BLENDER PASS",count)
+if "--uv-atlas" in options:
+    total=0
+    for ob in bpy.context.scene.objects:
+        if ob.type!="MESH":continue
+        mesh=ob.data;mesh.calc_loop_triangles()
+        assert len(mesh.uv_layers)==2,ob.name
+        uv=mesh.uv_layers[1].data
+        for tri in mesh.loop_triangles:
+            a,b,c=(uv[i].uv for i in tri.loops)
+            assert all(math.isfinite(x) and 0<=x<=1 for q in (a,b,c) for x in q),ob.name
+            assert abs((b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x))>1e-12,ob.name
+            total+=1
+    assert total>0
+    print("APEX_UV2_BLENDER PASS",total)
 print("APEX_PBR_BLENDER PASS",len(materials))

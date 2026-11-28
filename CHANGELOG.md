@@ -64,3 +64,7 @@ Native schema 2/3 and curved endurance lower LODs completed. Four numeric repeat
 
 ## 0.3.0.2 — procedural normal detail candidate
 - Optional original periodic normal tiles with explicit UV repair and native tangent checks; six variants, 11 LOD switch steps. High-poly baking remains pending. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.3.0.2-normal-detail/evidence/v0.3.0.2-native/summary.json
+
+## v0.3.0.3 — UV atlas candidate
+- Optional deterministic secondary UV layer; preserves indexed corner geometry, normals and UV0.
+- Conservative exclusive triangle cells, coverage and density diagnostics; baking and native evidence pending.

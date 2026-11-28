@@ -62,9 +62,9 @@ def glb(doc,data):
     return struct.pack("<4sII",b"glTF",2,28+len(raw)+len(data))+struct.pack("<I4s",len(raw),b"JSON")+raw+struct.pack("<I4s",len(data),b"BIN\0")+data
 
 
-def enrich(source,budget,size,normal_maps=False):
+def enrich(source,budget,size,normal_maps=False,*,uv_atlas=False):
     require(type(normal_maps) is bool,"invalid normal map option")
-    qa,_,decoded=inspect(source,budget)
+    qa,_,decoded=inspect(source,budget,allow_uv2=uv_atlas)
     doc,data,source_hash,_=read_document(source)
     require(qa["sha256"]==source_hash,"source changed during validation")
     original=bytes(data);payload=bytearray(original)
@@ -98,20 +98,20 @@ def enrich(source,budget,size,normal_maps=False):
     return output,{"source_sha256":source_hash,"sha256":sha(output),"bytes":len(output),"geometry_buffer_sha256":sha(original),"triangles":qa["triangles"],"materials":len(names),"maps":records,"uv_triangles":uv_total,"uv_degenerate_triangles":uv_zero,"uv_overlap":"NOT_RUN","normal_maps":"PASS" if normal_maps else "NOT_RUN","promotion":"BLOCKED"}
 
 
-def verify(source,output,budget,size,normal_maps=False):
-    expected,receipt=enrich(source,budget,size,normal_maps);p=Path(output)
+def verify(source,output,budget,size,normal_maps=False,*,uv_atlas=False):
+    expected,receipt=enrich(source,budget,size,normal_maps,uv_atlas=uv_atlas);p=Path(output)
     require(not p.is_symlink() and p.is_file() and p.stat().st_size==len(expected),"invalid textured output")
     require(p.read_bytes()==expected,"textured GLB differs from canonical enrichment")
     return receipt
 
 
-def generate(source,source_sha,output,budget=20000,size=256,normal_maps=False):
+def generate(source,source_sha,output,budget=20000,size=256,normal_maps=False,*,uv_atlas=False):
     source=Path(source);p=Path(output).absolute()
     require(not p.exists() and not p.is_symlink() and p.suffix==".glb" and p.parent.resolve()==p.parent,"new GLB in regular directory required")
-    raw,receipt=enrich(source,budget,size,normal_maps)
+    raw,receipt=enrich(source,budget,size,normal_maps,uv_atlas=uv_atlas)
     require(receipt["source_sha256"]==source_sha,"source hash mismatch")
     with p.open("xb") as f:f.write(raw)
-    return verify(source,p,budget,size,normal_maps)
+    return verify(source,p,budget,size,normal_maps,uv_atlas=uv_atlas)
 
 
 def main():

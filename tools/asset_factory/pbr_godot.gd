@@ -16,6 +16,7 @@ func _run() -> void:
     var materials := {}
     var uv_total := 0
     var tangent_total := 0
+    var uv2_total := 0
     for item in car.find_children("*", "MeshInstance3D", true, false):
         var mesh := item as MeshInstance3D
         for i in range(mesh.mesh.get_surface_count()):
@@ -35,6 +36,26 @@ func _run() -> void:
                         quit(8)
                         return
                     uv_total += 1
+            if "--uv-atlas" in args:
+                var arrays := mesh.mesh.surface_get_arrays(i)
+                var uv2: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV2]
+                var ids: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+                var positions: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+                if uv2.size() != positions.size() or ids.is_empty() or ids.size() % 3 != 0:
+                    quit(14)
+                    return
+                for q in uv2:
+                    if not q.is_finite() or q.x < 0.0 or q.y < 0.0 or q.x > 1.0 or q.y > 1.0:
+                        quit(15)
+                        return
+                for j in range(0, ids.size(), 3):
+                    var a := uv2[ids[j]]
+                    var b := uv2[ids[j+1]]
+                    var c := uv2[ids[j+2]]
+                    if absf((b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x)) <= 1e-12:
+                        quit(16)
+                        return
+                    uv2_total += 1
             if "--normal-maps" in args:
                 var arrays := mesh.mesh.surface_get_arrays(i)
                 var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
@@ -79,5 +100,10 @@ func _run() -> void:
             quit(13)
             return
         print("APEX_TANGENT_GODOT PASS ",tangent_total)
+    if "--uv-atlas" in args:
+        if uv2_total <= 0:
+            quit(17)
+            return
+        print("APEX_UV2_GODOT PASS ",uv2_total)
     print("APEX_PBR_GODOT PASS ",materials.size())
     quit(0)
