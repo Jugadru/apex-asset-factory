@@ -9,3 +9,6 @@ PYTHONPATH="$PWD/tools" python3 -m asset_factory.stage_pbr /tmp/original-build -
 ```
 
 Native evidence: NOT_RUN. CI: pending on candidate commit. Promotion BLOCKED. Before baking, improve continuous chart packing, density, seam behavior and validate imported precision and visual A/B across all vehicle LODs. Rollback by closing/reverting this stacked PR; no game repo modifications.
+
+## Native QA follow-up
+Hosted disposable GitHub runners are restricted to the same-repository atlas PR. Exact runtime hashes are pinned to the owner-provided archive inventory; Blender publisher checksum is checked before extraction. Six variants match the prior native matrix, with LOD0 baseline/atlas capture hash comparisons, no generated assets published. Native corner UV0/UV2 pairs are compared against serialized GLB by exclusive cell and joint permutation, with explicit Blender V inversion and a maximum absolute tolerance of 3e-5. Captures do not establish artistic approval. Results are pending; consult actual workflow logs. No personal runner or secrets.

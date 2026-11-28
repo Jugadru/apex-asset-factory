@@ -1,0 +1,55 @@
+name: Asset Factory - native UV atlas
+on:
+  pull_request:
+    branches: [feature/v0.3.0.2-normal-detail]
+permissions:
+  contents: read
+concurrency:
+  group: native-uv-atlas-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  native:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'feature/v0.3.0.3-uv-atlas'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        family: ['2012', gt, endurance]
+    env:
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Verify exact official runtime archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          base='https://cdn.builder.blender.org/download/daily/archive/blender-5.3.0-candidate%2Bv53.f78a5e153839-linux.x86_64-release.tar.xz'
+          curl --fail --location --proto '=https' --tlsv1.2 --retry 2 --max-time 300 "$base.sha256" -o blender.publisher.sha256
+          grep -qi '03f596bfe6f0de401afaf41de394837ce82d059210cda87a05e73d059e5e3afc' blender.publisher.sha256
+          curl --fail --location --proto '=https' --tlsv1.2 --retry 2 --max-time 300 "$base" -o blender.tar.xz
+          echo '03f596bfe6f0de401afaf41de394837ce82d059210cda87a05e73d059e5e3afc  blender.tar.xz' | sha256sum -c -
+          curl --fail --location --proto '=https' --tlsv1.2 --retry 2 --max-time 300 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' -o godot.zip
+          echo 'cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4  godot.zip' | sha256sum -c -
+          mkdir runtime-blender runtime-godot
+          tar -xJf blender.tar.xz --strip-components=1 -C runtime-blender
+          unzip -q godot.zip -d runtime-godot
+          "$RUNNER_TEMP/runtime-blender/blender" --version
+          "$RUNNER_TEMP/runtime-godot/Godot_v4.7.2-stable_linux.x86_64" --version
+      - name: Native source, UV atlas, PBR and A/B capture
+        shell: bash
+        env:
+          FAMILY: ${{ matrix.family }}
+          SOURCE_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          command -v xvfb-run
+          GITHUB_SHA="$SOURCE_SHA" PYTHONPATH="$PWD/tools" python3 -m asset_factory.native_atlas_qa \
+            --family "$FAMILY" --blender "$RUNNER_TEMP/runtime-blender/blender" \
+            --godot "$RUNNER_TEMP/runtime-godot/Godot_v4.7.2-stable_linux.x86_64" \
+            --workspace "$RUNNER_TEMP/native-uv-${FAMILY}"

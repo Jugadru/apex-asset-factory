@@ -17,6 +17,7 @@ func _run() -> void:
     var uv_total := 0
     var tangent_total := 0
     var uv2_total := 0
+    var uv_pairs: Array = []
     for item in car.find_children("*", "MeshInstance3D", true, false):
         var mesh := item as MeshInstance3D
         for i in range(mesh.mesh.get_surface_count()):
@@ -39,9 +40,10 @@ func _run() -> void:
             if "--uv-atlas" in args:
                 var arrays := mesh.mesh.surface_get_arrays(i)
                 var uv2: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV2]
+                var uv0: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
                 var ids: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
                 var positions: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
-                if uv2.size() != positions.size() or ids.is_empty() or ids.size() % 3 != 0:
+                if uv2.size() != positions.size() or uv0.size() != positions.size() or ids.is_empty() or ids.size() % 3 != 0:
                     quit(14)
                     return
                 for q in uv2:
@@ -55,6 +57,12 @@ func _run() -> void:
                     if absf((b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x)) <= 1e-12:
                         quit(16)
                         return
+                    var corners: Array = []
+                    for k in range(j,j+3):
+                        var p := uv0[ids[k]]
+                        var q := uv2[ids[k]]
+                        corners.append([p.x,p.y,q.x,q.y])
+                    uv_pairs.append(corners)
                     uv2_total += 1
             if "--normal-maps" in args:
                 var arrays := mesh.mesh.surface_get_arrays(i)
@@ -104,6 +112,17 @@ func _run() -> void:
         if uv2_total <= 0:
             quit(17)
             return
+        var out_index := args.find("--uv-audit-output")
+        if out_index >= 0:
+            if out_index+1 >= args.size():
+                quit(18)
+                return
+            var f := FileAccess.open(args[out_index+1],FileAccess.WRITE)
+            if f == null:
+                quit(19)
+                return
+            f.store_string(JSON.stringify(uv_pairs,"",true,true))
+            f.close()
         print("APEX_UV2_GODOT PASS ",uv2_total)
     print("APEX_PBR_GODOT PASS ",materials.size())
     quit(0)

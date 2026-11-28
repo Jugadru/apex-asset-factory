@@ -10,6 +10,7 @@ from asset_factory.material_factory import generate, require, MAX_BYTES
 from asset_factory.secure_run import run
 from asset_factory.uv_repair import repair
 from asset_factory.uv_atlas import generate_atlas
+from asset_factory.native_uv_audit import verify_import
 from apex_lab_graphics import inspect as inspect_png
 
 
@@ -57,21 +58,23 @@ def stage(source,source_sha,blender,godot,workspace,size=256,capture=False,repai
         b=str(Path(blender).resolve(strict=True));g=str(Path(godot).resolve(strict=True))
         report["blender"]=run([b,"--version"],w,w/"blender-version.log",15).splitlines()[0];report["godot"]=run([g,"--version"],w,w/"godot-version.log",15).strip()
         require(report["blender"].startswith("Blender 5.3.") and report["godot"].startswith("4.7.2."),"unsupported runtime")
-        log=run([b,"--background","--factory-startup","--python-exit-code","1","--python",str(HERE/"pbr_blender.py"),"--",str(target),str(expected),str(size)]+(["--uv-clean"] if repair_uv else [])+(["--normal-maps"] if normal_maps else [])+(["--uv-atlas"] if uv_atlas else []),w,w/"blender-import.log",120)
+        log=run([b,"--background","--factory-startup","--python-exit-code","1","--python",str(HERE/"pbr_blender.py"),"--",str(target),str(expected),str(size)]+(["--uv-clean"] if repair_uv else [])+(["--normal-maps"] if normal_maps else [])+(["--uv-atlas","--uv-audit-output",str(w/"blender-uv.json")] if uv_atlas else []),w,w/"blender-import.log",120)
         require("APEX_PBR_BLENDER PASS" in log,"Blender material import failed")
         if repair_uv:require(f"APEX_UV_BLENDER PASS {report['asset']['triangles']}" in log.splitlines(),"Blender UV count mismatch")
         if normal_maps:require("APEX_TANGENT_BLENDER PASS" in log,"Blender tangent gate")
         if uv_atlas:require(f"APEX_UV2_BLENDER PASS {report['asset']['triangles']}" in log.splitlines(),"Blender UV2 count mismatch")
+        if uv_atlas:report["blender_uv_precision"]=verify_import(material_source,w/"blender-uv.json",req["triangle_budget"],atlas_resolution,flip_v=True)
         report["stages"]["blender_import"]="PASS"
         (staging/"project.godot").write_text('[application]\nconfig/name="APEX PBR Staging"\n[display]\nwindow/size/viewport_width=960\nwindow/size/viewport_height=540\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
         for name in ("pbr_godot.gd","staging.gd"):shutil.copyfile(HERE/name,staging/name)
         log=run([g,"--headless","--path",str(staging),"--editor","--import"],w,w/"godot-import.log",120)
         require(not any(s in log for s in ("ERROR:","SCRIPT ERROR","Parse Error:")),"Godot import errors")
-        log=run([g,"--headless","--path",str(staging),"--script","res://pbr_godot.gd","--",str(expected),str(size)]+(["--uv-clean"] if repair_uv else [])+(["--normal-maps"] if normal_maps else [])+(["--uv-atlas"] if uv_atlas else []),w,w/"godot-test.log",60)
+        log=run([g,"--headless","--path",str(staging),"--script","res://pbr_godot.gd","--",str(expected),str(size)]+(["--uv-clean"] if repair_uv else [])+(["--normal-maps"] if normal_maps else [])+(["--uv-atlas","--uv-audit-output",str(w/"godot-uv.json")] if uv_atlas else []),w,w/"godot-test.log",60)
         require("APEX_PBR_GODOT PASS" in log and "ERROR:" not in log,"Godot PBR fixture failed")
         if repair_uv:require(f"APEX_UV_GODOT PASS {report['asset']['triangles']}" in log.splitlines(),"Godot UV count mismatch")
         if normal_maps:require("APEX_TANGENT_GODOT PASS" in log,"Godot tangent gate")
         if uv_atlas:require(f"APEX_UV2_GODOT PASS {report['asset']['triangles']}" in log.splitlines(),"Godot UV2 count mismatch")
+        if uv_atlas:report["godot_uv_precision"]=verify_import(material_source,w/"godot-uv.json",req["triangle_budget"],atlas_resolution,flip_v=False)
         report["stages"]["godot_import"]="PASS"
         if capture:
             log=run((["xvfb-run","-a"] if shutil.which("xvfb-run") else [])+[g,"--path",str(staging),"--rendering-method","gl_compatibility","--audio-driver","Dummy","--script","res://staging.gd","--","--capture"],w,w/"godot-capture.log",60)
