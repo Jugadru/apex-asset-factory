@@ -1,0 +1,9 @@
+# v0.3.0.2 — Procedural normal detail (candidate)
+
+Optional `--normal-maps` with explicit `--repair-uv` in the original staged PBR pipeline. No mesh positions, normals, triangle order, pivots or original valid UV corner changes. Three embedded original RGB PNG maps per material: prior color and metallic/roughness plus tangent-space +Y normal tile. Procedural periodic height profiles and scaled central differences, normalized and encoded; 256/512 px, deterministic within the tested runtime, no external assets. Material strengths are artistic, not measurements. Carbon reduced from 0.18 to 0.065 after first capture, flat neutral maps for glass/light/tail. Default PBR stays unchanged. Normal map enrichment rejects collapsed UVs. Blender verifies non-color tangent-space node links and calculates native tangents; Godot verifies normal texture, tangent-array coverage, lengths, orthogonality and handedness checks at tolerance 0.005. Native tangent count differs by representation; no cross-engine tangent equivalence claim. No explicit TANGENT accessor emitted; engines generate tangents. No global UV packing, high-to-low mesh bake, ambient occlusion, calibrated material scale, production artist approval, GPU memory/performance or game integration. Procedural tile generation is not high-poly baking; that requires a separately validated atlas and baking workflow.
+
+```sh
+PYTHONPATH="$PWD/tools" python3 -m asset_factory.stage_pbr /tmp/original-build --source-sha256 <exact-source-sha256> --blender /absolute/path/blender --godot /absolute/path/godot --workspace /tmp/new-normal --repair-uv --normal-maps --size 256 --capture
+```
+
+Keep all outputs isolated and promotion BLOCKED. No auto-merge. Extend only the existing stacked PR base CI filter.

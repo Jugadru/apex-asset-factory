@@ -15,6 +15,7 @@ func _run() -> void:
     root.add_child(car)
     var materials := {}
     var uv_total := 0
+    var tangent_total := 0
     for item in car.find_children("*", "MeshInstance3D", true, false):
         var mesh := item as MeshInstance3D
         for i in range(mesh.mesh.get_surface_count()):
@@ -34,6 +35,20 @@ func _run() -> void:
                         quit(8)
                         return
                     uv_total += 1
+            if "--normal-maps" in args:
+                var arrays := mesh.mesh.surface_get_arrays(i)
+                var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+                var tangents: PackedFloat32Array = arrays[Mesh.ARRAY_TANGENT]
+                if tangents.size() != normals.size() * 4 or normals.is_empty():
+                    quit(10)
+                    return
+                for j in range(normals.size()):
+                    var t := Vector3(tangents[4*j], tangents[4*j+1], tangents[4*j+2])
+                    if not t.is_finite() or absf(t.length()-1.0) > .005 or absf(t.dot(normals[j])) > .005 or absf(absf(tangents[4*j+3])-1.0) > .005:
+                        print("invalid tangent ", mesh.name)
+                        quit(11)
+                        return
+                    tangent_total += 1
             var m := mesh.get_active_material(i) as BaseMaterial3D
             if m == null:
                 quit(3)
@@ -46,6 +61,9 @@ func _run() -> void:
             if m.roughness_texture_channel != BaseMaterial3D.TEXTURE_CHANNEL_GREEN or m.metallic_texture_channel != BaseMaterial3D.TEXTURE_CHANNEL_BLUE:
                 quit(5)
                 return
+            if "--normal-maps" in args and (not m.normal_enabled or m.normal_texture == null or m.normal_texture.get_width() != resolution or m.normal_texture.get_height() != resolution):
+                quit(12)
+                return
             materials[m.resource_name] = true
     if materials.size() != expected:
         print(materials)
@@ -56,5 +74,10 @@ func _run() -> void:
             quit(9)
             return
         print("APEX_UV_GODOT PASS ",uv_total)
+    if "--normal-maps" in args:
+        if tangent_total <= 0:
+            quit(13)
+            return
+        print("APEX_TANGENT_GODOT PASS ",tangent_total)
     print("APEX_PBR_GODOT PASS ",materials.size())
     quit(0)

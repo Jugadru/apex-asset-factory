@@ -7,6 +7,7 @@ import struct
 import sys
 import zlib
 from asset_factory.validate_glb import inspect, read_document, require, MAX_BYTES
+from asset_factory.normal_detail import normal_pixels
 
 NAMES={"paint","carbon","rubber","metal","accent","alloy","rotor","caliper","glass","light","tail"}
 
@@ -61,7 +62,8 @@ def glb(doc,data):
     return struct.pack("<4sII",b"glTF",2,28+len(raw)+len(data))+struct.pack("<I4s",len(raw),b"JSON")+raw+struct.pack("<I4s",len(data),b"BIN\0")+data
 
 
-def enrich(source,budget,size):
+def enrich(source,budget,size,normal_maps=False):
+    require(type(normal_maps) is bool,"invalid normal map option")
     qa,_,decoded=inspect(source,budget)
     doc,data,source_hash,_=read_document(source)
     require(qa["sha256"]==source_hash,"source changed during validation")
@@ -76,36 +78,40 @@ def enrich(source,budget,size):
             for i in range(0,len(ids),3):
                 a,b,c=(uv[j] for j in ids[i:i+3]);uv_total+=1
                 uv_zero+=abs((b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]))<=1e-12
+    if normal_maps:require(uv_zero==0,"normal maps require nondegenerate UVs")
     for material in doc["materials"]:
         name=material["name"];pbr=material.setdefault("pbrMetallicRoughness",{})
-        for role,raw in zip(("baseColor","metallicRoughness"),maps(name,pbr,size)):
+        entries=list(zip(("baseColor","metallicRoughness"),maps(name,pbr,size)))
+        if normal_maps:entries.append(("normal",png(size,normal_pixels(name,size))))
+        for role,raw in entries:
             payload.extend(b"\0"*((-len(payload))%4));offset=len(payload);payload.extend(raw)
             view=len(doc["bufferViews"]);doc["bufferViews"].append({"buffer":0,"byteOffset":offset,"byteLength":len(raw)})
             idx=len(doc["images"]);label=name+"_"+role
             doc["images"].append({"name":label,"bufferView":view,"mimeType":"image/png"})
             doc["textures"].append({"name":label,"source":idx,"sampler":0})
-            pbr[role+"Texture"]={"index":idx}
+            if role=="normal":material["normalTexture"]={"index":idx,"scale":1}
+            else:pbr[role+"Texture"]={"index":idx}
             records.append({"material":name,"role":role,"name":label,"sha256":sha(raw),"bytes":len(raw),"size":size})
         pbr.update(metallicFactor=1,roughnessFactor=1)
     doc["buffers"][0]["byteLength"]=len(payload)
     output=glb(doc,payload);require(len(output)<=MAX_BYTES,"textured GLB budget")
-    return output,{"source_sha256":source_hash,"sha256":sha(output),"bytes":len(output),"geometry_buffer_sha256":sha(original),"triangles":qa["triangles"],"materials":len(names),"maps":records,"uv_triangles":uv_total,"uv_degenerate_triangles":uv_zero,"uv_overlap":"NOT_RUN","normal_maps":"NOT_RUN","promotion":"BLOCKED"}
+    return output,{"source_sha256":source_hash,"sha256":sha(output),"bytes":len(output),"geometry_buffer_sha256":sha(original),"triangles":qa["triangles"],"materials":len(names),"maps":records,"uv_triangles":uv_total,"uv_degenerate_triangles":uv_zero,"uv_overlap":"NOT_RUN","normal_maps":"PASS" if normal_maps else "NOT_RUN","promotion":"BLOCKED"}
 
 
-def verify(source,output,budget,size):
-    expected,receipt=enrich(source,budget,size);p=Path(output)
+def verify(source,output,budget,size,normal_maps=False):
+    expected,receipt=enrich(source,budget,size,normal_maps);p=Path(output)
     require(not p.is_symlink() and p.is_file() and p.stat().st_size==len(expected),"invalid textured output")
     require(p.read_bytes()==expected,"textured GLB differs from canonical enrichment")
     return receipt
 
 
-def generate(source,source_sha,output,budget=20000,size=256):
+def generate(source,source_sha,output,budget=20000,size=256,normal_maps=False):
     source=Path(source);p=Path(output).absolute()
     require(not p.exists() and not p.is_symlink() and p.suffix==".glb" and p.parent.resolve()==p.parent,"new GLB in regular directory required")
-    raw,receipt=enrich(source,budget,size)
+    raw,receipt=enrich(source,budget,size,normal_maps)
     require(receipt["source_sha256"]==source_sha,"source hash mismatch")
     with p.open("xb") as f:f.write(raw)
-    return verify(source,p,budget,size)
+    return verify(source,p,budget,size,normal_maps)
 
 
 def main():
