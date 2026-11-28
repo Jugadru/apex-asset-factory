@@ -11,6 +11,7 @@ from asset_factory.secure_run import run
 from asset_factory.uv_repair import repair
 from asset_factory.uv_atlas import generate_atlas
 from asset_factory.native_uv_audit import verify_import
+from asset_factory.import_profile import precise_project, verify_precise_import
 from apex_lab_graphics import inspect as inspect_png
 
 
@@ -65,10 +66,12 @@ def stage(source,source_sha,blender,godot,workspace,size=256,capture=False,repai
         if uv_atlas:require(f"APEX_UV2_BLENDER PASS {report['asset']['triangles']}" in log.splitlines(),"Blender UV2 count mismatch")
         if uv_atlas:report["blender_uv_precision"]=verify_import(material_source,w/"blender-uv.json",req["triangle_budget"],atlas_resolution,flip_v=True)
         report["stages"]["blender_import"]="PASS"
-        (staging/"project.godot").write_text('[application]\nconfig/name="APEX PBR Staging"\n[display]\nwindow/size/viewport_width=960\nwindow/size/viewport_height=540\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n')
+        project_text='[application]\nconfig/name="APEX PBR Staging"\n[display]\nwindow/size/viewport_width=960\nwindow/size/viewport_height=540\n[rendering]\nrenderer/rendering_method="gl_compatibility"\n'
+        (staging/"project.godot").write_text(precise_project(project_text) if uv_atlas else project_text)
         for name in ("pbr_godot.gd","staging.gd"):shutil.copyfile(HERE/name,staging/name)
         log=run([g,"--headless","--path",str(staging),"--editor","--import"],w,w/"godot-import.log",120)
         require(not any(s in log for s in ("ERROR:","SCRIPT ERROR","Parse Error:")),"Godot import errors")
+        if uv_atlas:report["godot_import_profile"]=verify_precise_import(staging)
         log=run([g,"--headless","--path",str(staging),"--script","res://pbr_godot.gd","--",str(expected),str(size)]+(["--uv-clean"] if repair_uv else [])+(["--normal-maps"] if normal_maps else [])+(["--uv-atlas","--uv-audit-output",str(w/"godot-uv.json")] if uv_atlas else []),w,w/"godot-test.log",60)
         require("APEX_PBR_GODOT PASS" in log and "ERROR:" not in log,"Godot PBR fixture failed")
         if repair_uv:require(f"APEX_UV_GODOT PASS {report['asset']['triangles']}" in log.splitlines(),"Godot UV count mismatch")

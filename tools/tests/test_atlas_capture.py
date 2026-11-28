@@ -30,9 +30,10 @@ class AtlasCaptureTest(unittest.TestCase):
             capture_full_detail(self.src, self.src / "nested", self.godot, self.sha)
         self.assertEqual((self.src / "capture.png").read_bytes(), b"capture.png")
 
+    @patch("asset_factory.atlas_capture.verify_precise_import", return_value={"mesh_compression_disabled": True, "generate_lods": True})
     @patch("asset_factory.atlas_capture.inspect_png", return_value={"sha256": "fixture"})
     @patch("asset_factory.atlas_capture.run", side_effect=["import ok", "APEX_IMPORT fixture"])
-    def test_isolated_capture_keeps_default(self, run, inspect_png):
+    def test_isolated_capture_keeps_default(self, run, inspect_png, verify_profile):
         dest = self.root / "full"
         result = capture_full_detail(self.src, dest, self.godot, self.sha)
         self.assertEqual(result["mesh_lod_threshold"], 0.0)
@@ -43,6 +44,10 @@ class AtlasCaptureTest(unittest.TestCase):
         self.assertFalse((self.src / "atlas_capture.gd").exists())
         self.assertIn("res://atlas_capture.gd", run.call_args.args[0])
         inspect_png.assert_called_once_with(dest / "capture.png", 960, 540)
+        verify_profile.assert_called_once_with(dest)
+        self.assertTrue(result["mesh_compression_disabled"])
+        self.assertIn("force_disable_compression", (dest / "project.godot").read_text())
+        self.assertEqual((self.src / "project.godot").read_bytes(), b"project.godot")
 
 
 if __name__ == "__main__":
