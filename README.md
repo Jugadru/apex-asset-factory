@@ -53,3 +53,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## UV repair
 [Optional UV degeneracy correction](docs/UV_REPAIR.md). Staging only; not production UV atlas.
+
+## Procedural normal detail
+[Original periodic normal textures and native tangent checks](docs/NORMAL_DETAIL.md). Optional staged output; not a high-poly bake.
