@@ -7,3 +7,6 @@ PYTHONPATH="$PWD/tools" python3 -m asset_factory.stage_pbr /tmp/original-build -
 ```
 
 Keep all outputs isolated and promotion BLOCKED. No auto-merge. Extend only the existing stacked PR base CI filter.
+
+## Native evidence
+Six final native variants, 162 embedded maps, 58,000 triangles, 174,000 Blender corner tangents and 62,404 Godot vertex tangents checked. Three software captures; 11 switch steps and 24 equal map hashes across the 2012 LODs. 20 exact source blobs and 12 targeted local tests PASS (4 new, 8 regressions). Carbon relief reduced after initial capture; six final variants rerun. Timeout cases recovered separately, initial GT capture retained. Private ZIP 105 files CRC clean. No high-poly baking, atlas, AO, physical GPU, artistic acceptance or game integration. No new blocker closed. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.3.0.2-normal-detail/evidence/v0.3.0.2-native/summary.json

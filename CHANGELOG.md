@@ -61,3 +61,6 @@ Native schema 2/3 and curved endurance lower LODs completed. Four numeric repeat
 ## 0.3.0.1 — UV degeneracy repair candidate
 - Opt-in UV repair with local planar projection, exact indexed geometry/valid UV preservation and native import count gates.
 - Six PBR variants, 716 to zero collapsed UV triangles, 11 switch checks. Overlap/atlas/normal maps and baking pending. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.3.0.1-uv-repair/evidence/v0.3.0.1-native/summary.json
+
+## 0.3.0.2 — procedural normal detail candidate
+- Optional original periodic normal tiles with explicit UV repair and native tangent checks; six variants, 11 LOD switch steps. High-poly baking remains pending. https://github.com/Jugadru/apex-asset-factory/blob/feature/v0.3.0.2-normal-detail/evidence/v0.3.0.2-native/summary.json
