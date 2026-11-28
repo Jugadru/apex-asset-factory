@@ -56,3 +56,6 @@ See [advanced validator](docs/ADVANCED_VALIDATOR.md). The new GLB checks run bef
 
 ## Procedural normal detail
 [Original periodic normal textures and native tangent checks](docs/NORMAL_DETAIL.md). Optional staged output; not a high-poly bake.
+
+## Secondary UV atlas
+[Opt-in UV2 atlas candidate](docs/UV_ATLAS.md). Structural and native import gates; baking readiness not certified.
